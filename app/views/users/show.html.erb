@@ -1,0 +1,11 @@
+<h1><%= current_user.username %></h1>
+
+<img src="<%= current_user.photo %>" alt="profile picture">
+
+<p>FOLLOW BUTTON</p>
+
+<ul>
+  <% @reviews.each do |review| %>
+    <li>👍 <%= review.content %> DATE</li>
+  <% end %>
+</ul>

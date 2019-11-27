@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :restaurants, only: [:show] do
-    resources :dishes, only: [:index ,:show] do
-      resources :review, only: [:new, :create]
-      resources :vote, only: [:create]
-    end
+    resources :dishes, only: [:index]
+  end
+
+  resources :dishes, only: [:show] do
+    resources :vote, only: [:create]
   end
 end

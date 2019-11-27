@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_220459) do
+ActiveRecord::Schema.define(version: 2019_11_26_212446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,8 +60,19 @@ ActiveRecord::Schema.define(version: 2019_11_25_220459) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "vote_reviews", force: :cascade do |t|
+    t.integer "vote"
+    t.bigint "user_id"
+    t.bigint "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_vote_reviews_on_review_id"
+    t.index ["user_id"], name: "index_vote_reviews_on_user_id"
   end
 
   create_table "votes", force: :cascade do |t|
@@ -78,6 +89,8 @@ ActiveRecord::Schema.define(version: 2019_11_25_220459) do
   add_foreign_key "dishes", "restaurants"
   add_foreign_key "reviews", "dishes"
   add_foreign_key "reviews", "users"
+  add_foreign_key "vote_reviews", "reviews"
+  add_foreign_key "vote_reviews", "users"
   add_foreign_key "votes", "dishes"
   add_foreign_key "votes", "users"
 end

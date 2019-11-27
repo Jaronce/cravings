@@ -1,0 +1,28 @@
+<h1><%= @dish.name %></h1>
+
+<p>PHOTO OF DISH</p>
+
+<p><%= @dish.restaurant.address %></p>
+
+<p>GO BUTTON</p>
+
+<p><%= "💲" * (dish.price) %></p>
+
+<p>👍 <%= @dish.votes.vote.sum %> 👎</p>
+
+<h2>Reviews</h2>
+
+<ul>
+  <% @dish.reviews.each do |review| %>
+    <li>
+      <img src="<% review.photo %>" alt="review photo">
+      <%= review.content %>
+      <%= "👍 or 👎" %>
+    </li>
+  <% end %>
+</ul>
+
+
+
+
+
