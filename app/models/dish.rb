@@ -3,6 +3,7 @@ class Dish < ApplicationRecord
   belongs_to :category
 
   has_many :votes, dependent: :destroy
+  has_many :votants, through: :votes
   has_many :reviews, dependent: :destroy
 
   def new_dish(input_restaurant, input_category)

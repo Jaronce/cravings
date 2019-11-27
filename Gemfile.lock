@@ -41,6 +41,8 @@ GEM
       activemodel (= 5.2.3)
       activesupport (= 5.2.3)
       arel (>= 9.0)
+    activerecord-import (1.0.3)
+      activerecord (>= 3.2)
     activestorage (5.2.3)
       actionpack (= 5.2.3)
       activerecord (= 5.2.3)
@@ -50,6 +52,7 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_votable (0.11.1)
     arel (9.0.0)
     autoprefixer-rails (9.7.2)
       execjs
@@ -199,6 +202,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import
+
   autoprefixer-rails
   bootsnap
   devise

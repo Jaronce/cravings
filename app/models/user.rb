@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   has_many :votes, dependent: :destroy
+  has_many :liked_dishes, through: :votes
   has_many :vote_reviews, dependent: :destroy
 
   def new_user(input_number, input_dish)

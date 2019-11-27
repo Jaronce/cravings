@@ -6,18 +6,25 @@
 
 <p>GO BUTTON</p>
 
-<p><%= "💲" * (dish.price) %></p>
+<p><%= "💲" * (@dish.price) %></p>
 
-<p>👍 <%= @dish.votes.vote.sum %> 👎</p>
+<%= link_to "👍", dish_votes_path(@dish, vote: 1), method: :post %>
+<%= link_to "👎", dish_votes_path(@dish, vote: -1), method: :post %>
+
+<p>Total Vote : <%= @dish.votes.map{|vote| vote.vote}.sum %></p>
 
 <h2>Reviews</h2>
 
 <ul>
   <% @dish.reviews.each do |review| %>
     <li>
-      <img src="<% review.photo %>" alt="review photo">
+      Total Vote : <%= review.vote_reviews.map{|vote| vote.vote}.sum %>
+      <% unless review.photo.nil?%>
+        <img src="<% review.photo %>" alt="review photo">
+      <% end %>
       <%= review.content %>
-      <%= "👍 or 👎" %>
+      <%= link_to "👍", review_vote_reviews_path(review, vote: 1), method: :post %>
+      <%= link_to "👎", review_vote_reviews_path(review, vote: -1), method: :post %>
     </li>
   <% end %>
 </ul>
