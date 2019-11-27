@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   end
 
   resources :dishes, only: [:show] do
-    resources :vote, only: [:create]
+    resources :votes, only: [:create]
+  end
+
+  resources :reviews, only: [:show] do
+    resources :vote_reviews, only: [:create]
   end
 end
