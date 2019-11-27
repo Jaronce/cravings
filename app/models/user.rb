@@ -7,4 +7,14 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :vote_reviews, dependent: :destroy
+
+  def new_user(input_number, input_dish)
+    users = self.sample(input_number)
+    users.each do |user|
+      vote = Vote.new(vote: 1)
+      vote.user = user
+      vote.dish = dish
+      vote.save!
+    end
+  end
 end

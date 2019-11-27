@@ -4,4 +4,10 @@ class Dish < ApplicationRecord
 
   has_many :votes, dependent: :destroy
   has_many :reviews, dependent: :destroy
+
+  def new_dish(input_restaurant, input_category)
+    dish.restaurant = input_restaurant
+    dish.category = input_category
+    dish.save!
+  end
 end
