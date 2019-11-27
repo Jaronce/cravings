@@ -1,30 +1,32 @@
+
+
 # $LOAD_PATH << File.join(Rails.root + 'db/photos.rb')
 # require_relative 'photos.rb'
 require 'faker'
 
-def create_dish(users:, user_name:, user_photo:, user_resto:, user_categoty:)
-  dish = Dish.new(name: user_name, price: 2, photo: user_photo)
-  dish.restaurant = user_resto
-  dish.category = user_category
-  dish.save!
+# def create_dish(users:, user_name:, user_photo:, user_resto:, user_categoty:)
+#   dish = Dish.new(name: user_name, price: 2, photo: user_photo)
+#   dish.restaurant = user_resto
+#   dish.category = user_category
+#   dish.save!
 
-  vote_dish = Vote.new(vote: rand(10)*13)
-  vote_dish.dish = dish
-  users.each do |user|
-    vote_dish.user = user
-  end
+#   vote_dish = Vote.new(vote: rand(10)*13)
+#   vote_dish.dish = dish
+#   users.each do |user|
+#     vote_dish.user = user
+#   end
 
-  vote_dish.save!
-  return dish
-end
+#   vote_dish.save!
+#   return dish
+# end
 
 
-create_dish({
-  users: user,
-  user_name:
-  user_photo:
-  user_resto:
-})
+# create_dish({
+#   users: user,
+#   user_name:
+#   user_photo:
+#   user_resto:
+# })
 
 p "Starting seeds... it takes 10000~2000 mins"
 
