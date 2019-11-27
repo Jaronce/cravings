@@ -37,39 +37,34 @@ resto_poutine = Restaurant.create!(name: "Poutineville", address: "5445 Gaspe Av
 
 
 
-def user_got_vote(number_of_user, dish)
-  @users = users.sample(number_of_user)
-  users.each do |user|
-    vote = Vote.new(vote: 1)
-    vote.user = user
-    vote.dish = dish
-    vote.save!
-  end
-end
-
 p "Adding Dishes"
 
-dishes = []
+dish = Dish.new(name: "tonkotsu ramen", price: 2, photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+dish = dish.new_dish(resto_ramen, category_japanese)
+users.new_user(rand(600..900), dish)
+
+
+
+
+# 1.times do
+#   dish = Dish.new(name: "tonkotsu ramen", price: 2, photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+#   dish.restaurant = resto_ramen
+#   dish.category = category_japanese
+#   dish.save!
+
+#   users = users.sample(rand(600..900))
+#   users.each do |user|
+#     vote = Vote.new(vote: 1)
+#     vote.user = user
+#     vote.dish = dish
+#     vote.save!
+#   end
+# end
+
+
+
 1.times do
-  dish = Dish.new(name: "tonkotsu ramen", price: 2, photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
-  dish.restaurant = resto_ramen
-  dish.category = category_japanese
-  dish.save!
-
-  users = users.sample(rand(600..900))
-  users.each do |user|
-    vote = Vote.new(vote: 1)
-    vote.user = user
-    vote.dish = dish
-    vote.save!
-  end
-  dishes << dish
-end
-
-
-
-1.times do
-  dish = Dish.new(name: "Jekuk Bibimbap", price: rand(5), photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+  dish = Dish.new(name: "Jekuk Bibimbap", price: rand(1..5), photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
   dish.restaurant = resto_korean
   dish.category = category_korean
   dish.save!
@@ -81,12 +76,15 @@ end
     vote.dish = dish
     vote.save!
   end
-  dishes << dish
 end
 
 
+
+
+
+
 7.times do
-  dish = Dish.new(name: Faker::Food.ingredient + " Ramen", price: rand(5), photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+  dish = Dish.new(name: Faker::Food.ingredient + " Ramen", price: rand(1..5), photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
   dish.restaurant = resto_ramen
   dish.category = category_japanese
   dish.save!
@@ -98,12 +96,11 @@ end
     vote.dish = dish
     vote.save!
   end
-  dishes << dish
 end
 
 # korean
 7.times do
-  dish = Dish.new(name: Faker::Food.ingredient + " Bibimbap", price: rand(5), photo: "https://www.touristsecrets.com/wp-content/uploads/2019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+  dish = Dish.new(name: Faker::Food.ingredient + " Bibimbap", price: rand(1..5), photo: "https://www.touristsecrets.com/wp-content/uploads/2019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
   dish.restaurant = resto_korean
   dish.category = category_korean
   dish.save!
@@ -115,12 +112,11 @@ end
     vote.dish = dish
     vote.save!
   end
-  dishes << dish
 end
 
 #jananese
 5.times do
-  dish = Dish.new(name: Faker::Food.ingredient + " Sushi", price: rand(5), photo: "https://loremflickr.com/320/240")
+  dish = Dish.new(name: Faker::Food.ingredient + " Sushi", price: rand(1..5), photo: "https://loremflickr.com/320/240")
   dish.restaurant = resto_sushi
   dish.category = category_japanese
   dish.save!
@@ -132,12 +128,11 @@ end
     vote.dish = dish
     vote.save!
   end
-  dishes << dish
 end
 
 # canadian
 5.times do
-  dish = Dish.new(name: Faker::Food.dish, price: rand(5), photo: "https://loremflickr.com/320/240")
+  dish = Dish.new(name: Faker::Food.dish, price: rand(1..5), photo: "https://loremflickr.com/320/240")
   dish.restaurant = resto_bagle
   dish.category = category_canadian
   dish.save!
@@ -149,12 +144,11 @@ end
     vote.dish = dish
     vote.save!
   end
-  dishes << dish
 end
 
 # canadian
 5.times do
-  dish = Dish.new(name: Faker::Food.dish, price: rand(5), photo: "https://loremflickr.com/320/240")
+  dish = Dish.new(name: Faker::Food.dish, price: rand(1..5), photo: "https://loremflickr.com/320/240")
   dish.restaurant = resto_poutine
   dish.category = category_canadian
   dish.save!
@@ -166,7 +160,6 @@ end
     vote.dish = dish
     vote.save!
   end
-  dishes << dish
 end
 
 
