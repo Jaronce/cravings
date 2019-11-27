@@ -1,0 +1,29 @@
+<h3>NAVBAR HERE</h3>
+
+<p>MAP HERE</p>
+<p>WITH SEARCH BAR</p>
+
+<h3>Top <%= @category.name %> </h3>
+<ul>
+  <% @dishes.each do |dish| %>
+    <li>
+      <%#= dish.photo %>
+      <%= dish.name %>
+      <%= dish.restaurant.address %>
+      <%= "💲" * (dish.price) %>
+      <%= dish.votes.vote.sum %>
+    </li>
+  <% end %>
+</ul>
+
+<!-- <h3>Your Wish List</h3>
+<ul>
+
+
+
+</ul> -->
+
+<!-- <h3>We Recommend</h3>
+<ul>
+
+</ul> -->
