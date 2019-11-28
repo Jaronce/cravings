@@ -1,17 +1,18 @@
-<h1><%= @restaurant.name %></h1>
-<img src="<%= @restaurant.photo %>" alt="Logo">
-<p><%= @restaurant.address %></p>
-<p>DIRECTION BUTTON HERE</p>
+<img src="<%= @restaurant.photo %>" alt="Logo", width="100px">
 
-<p>Total Votes: <%= total_votes %> 👍</p>
+<h1><%= @restaurant.name %> 📍</h1>
+
+<p><%= @restaurant.dishes.first.category.name %></p>
+
+<p>Total Votes: <%= @votes %></p>
 
 <h3>Menu</h3>
 <ul>
   <% @restaurant.dishes.each do |dish| %>
     <li>
-      <img src="<%= dish.photo %>" alt="Dish Photo">
+      <img src="<%= dish.photo %>" alt="Dish Photo", width="25px">
       <%= dish.name %>
-      <%= dish.votes.sum %>
+      <%= dish.votes.map{|vote| vote.vote}.sum %>
       <%= "💲" * (dish.price) %>
     </li>
   <% end %>
