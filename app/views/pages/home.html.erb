@@ -1,2 +1,35 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<!--
+restaurant_dishes GET    /restaurants/:restaurant_id/dishes(.:format)                                             dishes#index -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= form_tag "", html: { id: "index_form"}, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "What are you craving?"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!--
+<% if @hits %>
+  <h2>Results</h2>
+  <% @hits.each do |hit| %>
+    <div class="hit">
+      <%= debug hit %>
+    </div>
+  <% end %>
+  <%#= will_paginate @hits %>
+  <%#= paginate @hits  %>
+<% end %> -->
