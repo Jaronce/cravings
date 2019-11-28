@@ -5,7 +5,7 @@ def create_dish(food_name, price, user_resto, user_category, starting_num, finis
   dish.category = user_category
   dish.save!
 
-  users = User.all.sample(rand(50..400))
+  users = User.all.sample(rand(starting_num..finishing_number))
   users.each do |user|
     vote = Vote.new(vote: 1)
     vote.user = user

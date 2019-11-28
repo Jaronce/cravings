@@ -6,7 +6,7 @@
 
 <h3>Top <%= @category.name %> </h3>
 <ul>
-  <% @dishes.each do |dish| %>
+  <% @list.each do |dish| %>
     <li>
       <img src="<%= dish.photo %>" alt="dish photo", width="100px">
       <img src="<%= dish.restaurant.photo %>" alt="Resto Logo", width="25px">
