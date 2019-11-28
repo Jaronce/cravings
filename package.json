@@ -5,8 +5,14 @@
     "@rails/webpacker": "^4.2.0",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
+<<<<<<< HEAD
     "mapbox-gl": "^1.5.1",
     "popper.js": "^1.16.0"
+=======
+    "popper.js": "^1.16.0",
+    "type.js": "^0.0.1",
+    "typed.js": "^2.0.11"
+>>>>>>> 6745d25902e5dce96eafda1cda12a70eaf6561cb
   },
   "devDependencies": {
     "webpack-dev-server": "^3.9.0"
