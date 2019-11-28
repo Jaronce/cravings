@@ -3,8 +3,26 @@ class DishesController < ApplicationController
     @dishes = Category.find_by(name: params[:category]).dishes
     @category = Category.find_by(name: params[:category])
     @list = list_order.sort_by { |v| -total_dish_votes(v) }
+#-------------------------------------------------------------------------------
+    @addresses = selected_addresses
+    @restaurant_addresses = @addresses.geocoded
+    @markers = @restaurant_addresses.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude
+        # infoWindow: render_to_string(partial: "info_window", locals: { product: product })
+      }
+    end
   end
 
+  def selected_addresses
+    addresses = []
+    @dishes.each do |dish|
+      addresses << dish.restaurant
+    end
+    return addresses
+  end
+#-------------------------------------------------------------------------------
   def total_votes
     votes = []
       @dishes.each do |dish|
@@ -24,7 +42,7 @@ class DishesController < ApplicationController
     end
     return list
   end
-#--------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
   def show
     @dish = Dish.find(params[:id])
     @list = list_review_order.sort_by { |v| -total_review_votes(v) }

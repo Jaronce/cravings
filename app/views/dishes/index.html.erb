@@ -1,9 +1,12 @@
 <%= link_to 'Back Button', :back %>
 <h3>NAVBAR HERE</h3>
-
-<p>MAP HERE</p>
-<p>WITH SEARCH BAR</p>
-
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
 <h3>Top <%= @category.name %> </h3>
 <ul>
   <% @list.each do |dish| %>
