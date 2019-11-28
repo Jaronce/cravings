@@ -4,5 +4,6 @@ class PagesController < ApplicationController
   def home
     @dishes = Dish.all
     @categories = Category.all
+
   end
 end

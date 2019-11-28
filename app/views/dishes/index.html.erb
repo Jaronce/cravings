@@ -1,3 +1,4 @@
+<%= link_to 'Back Button', :back %>
 <h3>NAVBAR HERE</h3>
 
 <p>MAP HERE</p>
@@ -7,21 +8,40 @@
 <ul>
   <% @dishes.each do |dish| %>
     <li>
-      <%#= dish.photo %>
-      <%= dish.name %>
-      <%= dish.restaurant.address %>
+      <img src="<%= dish.photo %>" alt="dish photo", width="100px">
+      <img src="<%= dish.restaurant.photo %>" alt="Resto Logo", width="25px">
+
+      name : <%= link_to dish.name, dish_path(dish)%>
       <%= "💲" * (dish.price) %>
-      <%= dish.votes.vote.sum %>
+       total votes: <%= dish.votes.map{|vote| vote.vote}.sum %>
+
+      <% if current_user.favorites.filter { |favorite| favorite.dish == dish}.empty? %>
+        <%= link_to "🖤", dish_favorites_path(dish), method: :post%>
+      <% else %>
+        <%= link_to "❤️", dish_favorite_path(dish, current_user.favorites.filter { |favorite| favorite.dish == dish}.first ), method: :delete%>
+      <% end %>
+
     </li>
   <% end %>
 </ul>
 
-<!-- <h3>Your Wish List</h3>
+<h3>Your Favorites</h3>
 <ul>
-
-
-
-</ul> -->
+  <% current_user.favorites.each do |favorite| %>
+    <li>
+      <img src="<%= favorite.dish.photo %>" alt="Dish photo", width="100px">
+      <img src="<%= favorite.dish.restaurant.photo %>" alt="Resto Logo", width="25px">
+      name : <%= link_to favorite.dish.name, dish_path(favorite.dish)%>
+      <%= "💲" * (favorite.dish.price) %>
+      total votes: <%= favorite.dish.votes.map{|vote| vote.vote}.sum %>
+      <% if current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.empty? %>
+        <%= link_to "🖤", dish_favorites_path(favorite.dish), method: :post%>
+      <% else %>
+        <%= link_to "❤️", dish_favorite_path(favorite.dish, current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.first ), method: :delete%>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
 
 <!-- <h3>We Recommend</h3>
 <ul>

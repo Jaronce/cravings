@@ -1,23 +1,39 @@
-<h1><%= @dish.name %></h1>
+<%= link_to 'Back Button', :back %>
+<img src="<%= @dish.photo %>" alt="dish photo", width="100px">
 
-<p>PHOTO OF DISH</p>
+<h1>
+  <%= @dish.name %>
+  <% if current_user.favorites.filter { |favorite| favorite.dish == @dish}.empty? %>
+        <%= link_to "🖤", dish_favorites_path(@dish), method: :post%>
+  <% else %>
+        <%= link_to "❤️", dish_favorite_path(@dish, current_user.favorites.filter { |favorite| favorite.dish == @dish}.first ), method: :delete%>
+  <% end %>
+</h1>
 
-<p><%= @dish.restaurant.address %></p>
 
-<p>GO BUTTON</p>
+<p>
+  <%= link_to @dish.restaurant.name, restaurant_path(@dish.restaurant) %>
+</p>
 
-<p><%= "💲" * (dish.price) %></p>
+<p><%= "💲" * (@dish.price) %></p>
 
-<p>👍 <%= @dish.votes.vote.sum %> 👎</p>
+<%= link_to "👍", dish_votes_path(@dish, vote: 1), method: :post %>
+<%= link_to "👎", dish_votes_path(@dish, vote: -1), method: :post %>
+
+<p>Total Vote : <%= @dish.votes.map{|vote| vote.vote}.sum %></p>
 
 <h2>Reviews</h2>
 
 <ul>
   <% @dish.reviews.each do |review| %>
     <li>
-      <img src="<% review.photo %>" alt="review photo">
+      Total Vote : <%= review.vote_reviews.map{|vote| vote.vote}.sum %>
+      <% unless review.photo.nil?%>
+        <img src="<% review.photo %>" alt="review photo", width="25px">
+      <% end %>
       <%= review.content %>
-      <%= "👍 or 👎" %>
+      <%= link_to "👍", review_vote_reviews_path(review, vote: 1), method: :post %>
+      <%= link_to "👎", review_vote_reviews_path(review, vote: -1), method: :post %>
     </li>
   <% end %>
 </ul>

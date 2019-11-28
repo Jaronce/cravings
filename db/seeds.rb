@@ -1,5 +1,5 @@
-# $LOAD_PATH << File.join(Rails.root + 'db/fake_data.rb')
-# require_relative 'fake_data.rb'
+$LOAD_PATH << File.join(Rails.root + 'db/create_dish.rb')
+require_relative 'create_dish.rb'
 require 'faker'
 
 p "Destroy previous data"
@@ -39,128 +39,20 @@ resto_poutine = Restaurant.create!(name: "Poutineville", address: "5445 Gaspe Av
 
 p "Adding Dishes"
 
-dish = Dish.new(name: "tonkotsu ramen", price: 2, photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
-dish = dish.new_dish(resto_ramen, category_japanese)
-users.new_user(rand(600..900), dish)
+# def create_dish(food_name, price, user_resto, user_category, starting_num, finishing_number, user_photo)
+tonkotsu_ramen = create_dish("Tonkotsu Ramen", 2, resto_ramen, category_japanese, 600, 900, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+jekuk_bibimbap = create_dish("JeKuk Bibmbap", 3, resto_korean, category_korean, 500, 700, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+
+# Add more ramen
+(1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Ramen"), rand(1..5), resto_ramen, category_japanese, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
+# Add more korean
+(1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Bap"), rand(1..5), resto_korean, category_korean, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
+# Add more sushi
+(1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Sushi"), rand(1..5), resto_sushi, category_japanese, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
+# Add more canadian
+(1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Poutine"), rand(1..5), resto_poutine, category_canadian, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
 
 
-
-
-# 1.times do
-#   dish = Dish.new(name: "tonkotsu ramen", price: 2, photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
-#   dish.restaurant = resto_ramen
-#   dish.category = category_japanese
-#   dish.save!
-
-#   users = users.sample(rand(600..900))
-#   users.each do |user|
-#     vote = Vote.new(vote: 1)
-#     vote.user = user
-#     vote.dish = dish
-#     vote.save!
-#   end
-# end
-
-
-
-1.times do
-  dish = Dish.new(name: "Jekuk Bibimbap", price: rand(1..5), photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
-  dish.restaurant = resto_korean
-  dish.category = category_korean
-  dish.save!
-
-  users = users.sample(rand(500..700))
-  users.each do |user|
-    vote = Vote.new(vote: 1)
-    vote.user = user
-    vote.dish = dish
-    vote.save!
-  end
-end
-
-
-
-
-
-
-7.times do
-  dish = Dish.new(name: Faker::Food.ingredient + " Ramen", price: rand(1..5), photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
-  dish.restaurant = resto_ramen
-  dish.category = category_japanese
-  dish.save!
-
-  users = users.sample(rand(50..400))
-  users.each do |user|
-    vote = Vote.new(vote: 1)
-    vote.user = user
-    vote.dish = dish
-    vote.save!
-  end
-end
-
-# korean
-7.times do
-  dish = Dish.new(name: Faker::Food.ingredient + " Bibimbap", price: rand(1..5), photo: "https://www.touristsecrets.com/wp-content/uploads/2019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
-  dish.restaurant = resto_korean
-  dish.category = category_korean
-  dish.save!
-
-  users = users.sample(rand(50..400))
-  users.each do |user|
-    vote = Vote.new(vote: 1)
-    vote.user = user
-    vote.dish = dish
-    vote.save!
-  end
-end
-
-#jananese
-5.times do
-  dish = Dish.new(name: Faker::Food.ingredient + " Sushi", price: rand(1..5), photo: "https://loremflickr.com/320/240")
-  dish.restaurant = resto_sushi
-  dish.category = category_japanese
-  dish.save!
-
-  users = users.sample(rand(50..400))
-  users.each do |user|
-    vote = Vote.new(vote: 1)
-    vote.user = user
-    vote.dish = dish
-    vote.save!
-  end
-end
-
-# canadian
-5.times do
-  dish = Dish.new(name: Faker::Food.dish, price: rand(1..5), photo: "https://loremflickr.com/320/240")
-  dish.restaurant = resto_bagle
-  dish.category = category_canadian
-  dish.save!
-
-  users = users.sample(rand(50..400))
-  users.each do |user|
-    vote = Vote.new(vote: 1)
-    vote.user = user
-    vote.dish = dish
-    vote.save!
-  end
-end
-
-# canadian
-5.times do
-  dish = Dish.new(name: Faker::Food.dish, price: rand(1..5), photo: "https://loremflickr.com/320/240")
-  dish.restaurant = resto_poutine
-  dish.category = category_canadian
-  dish.save!
-
-  users = users.sample(rand(50..400))
-  users.each do |user|
-    vote = Vote.new(vote: 1)
-    vote.user = user
-    vote.dish = dish
-    vote.save!
-  end
-end
 
 
 p "Creating Reviews/ Review Votes"
@@ -170,7 +62,7 @@ reviews = []
 
 # Creating Top Review of Ramen - TBU
 review_top = Review.new(content: "This one should be on the top", photo: "https://i.redd.it/c0e87106cgky.jpg")
-review_top.dish = Dish.where(name: "tonkotsu ramen").first
+review_top.dish = Dish.where(name: "Tonkotsu Ramen").first
 review_top.user = user_jay
 review_top.save!
 
@@ -187,7 +79,7 @@ end
 # 20~40 uesrs left reviews on tonkotsu ramen
 users.sample(rand(20..40)).each do |user|
   review = Review.new(content: Faker::Restaurant.review)
-  review.dish = Dish.where(name: "tonkotsu ramen").first
+  review.dish = Dish.where(name: "Tonkotsu Ramen").first
   review.user = user
   review.save!
   reviews << review
@@ -209,26 +101,110 @@ p "Seed done :D Let's check the page"
 
 
 
-# def create_dish(users:, user_name:, user_photo:, user_resto:, user_categoty:)
-#   dish = Dish.new(name: user_name, price: 2, photo: user_photo)
-#   dish.restaurant = user_resto
-#   dish.category = user_category
-#   dish.save!
 
-#   vote_dish = Vote.new(vote: rand(10)*13)
-#   vote_dish.dish = dish
-#   users.each do |user|
-#     vote_dish.user = user
-#   end
+# # dish = Dish.new(name: "tonkotsu ramen", price: 2, photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+# # dish.restaurant = resto_ramen
+# # dish.category = category_japanese
+# # dish.save!
 
-#   vote_dish.save!
-#   return dish
+# # users = users.sample(rand(600..900))
+# # users.each do |user|
+# #   vote = Vote.new(vote: 1)
+# #   vote.user = user
+# #   vote.dish = dish
+# #   vote.save!
+# # end
+
+
+# dish = Dish.new(name: "Jekuk Bibimbap", price: rand(1..5), photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+# dish.restaurant = resto_korean
+# dish.category = category_korean
+# dish.save!
+
+# users = users.sample(rand(500..700))
+# users.each do |user|
+#   vote = Vote.new(vote: 1)
+#   vote.user = user
+#   vote.dish = dish
+#   vote.save!
 # end
 
 
-# create_dish({
-#   users: user,
-#   user_name:
-#   user_photo:
-#   user_resto:
-# })
+# (1..7).to_a.each do
+#   dish = Dish.new(name: Faker::Food.ingredient + " Ramen", price: rand(1..5), photo: "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+#   dish.restaurant = resto_ramen
+#   dish.category = category_japanese
+#   dish.save!
+
+#   users = users.sample(rand(50..400))
+#   users.each do |user|
+#     vote = Vote.new(vote: 1)
+#     vote.user = user
+#     vote.dish = dish
+#     vote.save!
+#   end
+# end
+
+# # korean
+# (1..7).to_a.each do
+#   dish = Dish.new(name: Faker::Food.ingredient + " Bibimbap", price: rand(1..5), photo: "https://www.touristsecrets.com/wp-content/uploads/2019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+#   dish.restaurant = resto_korean
+#   dish.category = category_korean
+#   dish.save!
+
+#   users = users.sample(rand(50..400))
+#   users.each do |user|
+#     vote = Vote.new(vote: 1)
+#     vote.user = user
+#     vote.dish = dish
+#     vote.save!
+#   end
+# end
+
+# #jananese
+# (1..5).to_a.each do
+#   dish = Dish.new(name: Faker::Food.ingredient + " Sushi", price: rand(1..5), photo: "https://loremflickr.com/320/240")
+#   dish.restaurant = resto_sushi
+#   dish.category = category_japanese
+#   dish.save!
+
+#   users = users.sample(rand(50..400))
+#   users.each do |user|
+#     vote = Vote.new(vote: 1)
+#     vote.user = user
+#     vote.dish = dish
+#     vote.save!
+#   end
+# end
+
+# # canadian
+# (1..5).to_a.each do
+#   dish = Dish.new(name: Faker::Food.dish, price: rand(1..5), photo: "https://loremflickr.com/320/240")
+#   dish.restaurant = resto_bagle
+#   dish.category = category_canadian
+#   dish.save!
+
+#   users = users.sample(rand(50..400))
+#   users.each do |user|
+#     vote = Vote.new(vote: 1)
+#     vote.user = user
+#     vote.dish = dish
+#     vote.save!
+#   end
+# end
+
+# # canadian
+# (1..5).to_a.each do
+#   dish = Dish.new(name: Faker::Food.dish, price: rand(1..5), photo: "https://loremflickr.com/320/240")
+#   dish.restaurant = resto_poutine
+#   dish.category = category_canadian
+#   dish.save!
+
+#   users = users.sample(rand(50..400))
+#   users.each do |user|
+#     vote = Vote.new(vote: 1)
+#     vote.user = user
+#     vote.dish = dish
+#     vote.save!
+#   end
+# end

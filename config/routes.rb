@@ -5,11 +5,18 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :restaurants, only: [:show] do
-    resources :dishes, only: [:index]
-  end
+  resources :restaurants, only: [:show]
+  resources :dishes, only: [:index]
+
 
   resources :dishes, only: [:show] do
-    resources :vote, only: [:create]
+    resources :votes, only: [:create]
+    resources :favorites, only: [:create, :destroy]
   end
+
+  resources :reviews, only: [:show] do
+    resources :vote_reviews, only: [:create]
+  end
+
+
 end
