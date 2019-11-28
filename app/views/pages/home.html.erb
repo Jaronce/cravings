@@ -1,28 +1,41 @@
 
-
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <%= form_tag "", html: { id: "index_form"}, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
+          id: "index_search",
           placeholder: "What are you craving?"
         %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "Let's go", id: "index_submit" %>
       <% end %>
     </div>
   </div>
 </div>
 
 
+<div id="hidden_search_area">
+  <div id="search_result_category">
+    <% @categories.each do |category| %>
+      <%= link_to dishes_path(category: category.name) do %>
+        <div class="card-trip-link" style="display: none;" id="category-<%= category.id %>">
+          <strong><%= category.name %></strong>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="search_result_dishes">
+    <% @dishes.each do |dish| %>
+      <%= link_to dishes_path(dish: dish.name) do %>
+      <%= link_to dishes_path(dish: dish.name) do %>
+        <div class="card-trip-link" style="display: none;" id="dish-<%= dish.id %>">
+          <%= dish.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
 
-<!--
-
-<h1>CRAVINGS</h1>
-<p>What are you Craving</p>
-<p>INPUT</p>
-
-<%= link_to "Ramen Show Test Page", dish_path(1) %>
- -->

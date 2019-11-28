@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
   def index
-    @dishes = Category.find_by(name: params[:category]).dishes
+    @dishes = Dish.find_by(name: params[:dish])
     @category = Category.find_by(name: params[:category])
   end
 

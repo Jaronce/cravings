@@ -11,6 +11,11 @@ class Dish < ApplicationRecord
 
   algoliasearch do
     attributes :name
+    add_attribute :category_name
   end
 
+  def category_name
+    # self.category.name
+    category.name
+  end
 end

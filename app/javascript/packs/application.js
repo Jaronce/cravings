@@ -1,4 +1,4 @@
 import "bootstrap";
-import { newMethod } from "../components/search_on_index";
+import { search } from "../components/search_on_index";
 
-newMethod();
+search();

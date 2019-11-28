@@ -1,38 +1,100 @@
-const search = () => {
-  const appId = document.querySelector(“meta[name=‘algolia-app-id’]“).content;
-  const searchApiKey = document.querySelector(“meta[name=‘algolia-search-key’]“).content;
+
+export const search = () => {
+  const appId = document.querySelector("meta[name='algolia-app-id']").content;
+  const searchApiKey = document.querySelector("meta[name='algolia-search-key']").content;
   const client = algoliasearch(appId, searchApiKey);
-  const index = client.initIndex(‘Studio’);
-  const query = document.querySelector(“#search_query”);
-  query.addEventListener(‘input’, (event) => {
-    // console.log(query.value);
-    index.search(query.value, { hitsPerPage: 100, page: 0 })
-      .then((content) => {
-        const hiddenCards = document.querySelectorAll(“.card-trip-link”);
-        hiddenCards.forEach((card) => {
-          card.style.display = “none”;
-        })
-        // console.log(content);
-        content.hits.forEach((hit) => {
-          const card = document.querySelector(`#studio-${hit.objectID}`);
-          card.style.display = “block”;
-        })
-      })
+
+  const dishIndex = client.initIndex("Dish");
+  const categoryIndex = client.initIndex("Category");
+
+  const query = document.querySelector("#index_search");
+  query.addEventListener("input", (event) => {
+      cleanPage();
+      if (query.value !== ""){
+        findInCategory(categoryIndex, query, event);
+        findInDish(dishIndex, query, event);
+      }
   })
 }
-export { search};
+
+const findInDish = (dishIndex, query, event) => {
+  dishIndex.search(query.value, { hitsPerPage: 100, page: 0 })
+  .then((content) => {
+    content.hits.forEach((hit) => {
+      const card = document.querySelector(`#dish-${hit.objectID}`);
+      card.style.display = "block";
+    })
+  })
+}
+
+const findInCategory = (categoryIndex, query, event) => {
+  categoryIndex.search(query.value, { hitsPerPage: 100, page: 0 })
+  .then((content) => {
+    content.hits.forEach((hit) => {
+      const card = document.querySelector(`#category-${hit.objectID}`);
+      card.style.display = "block";
+    })
+  })
+}
+
+const cleanPage = () => {
+  const cards = document.querySelectorAll(".card-trip-link");
+  cards.forEach((card) => card.style.display = "none")
+};
 
 
 
 
-// export const userInputStartStation = () => {
-//   const textInput = document.getElementById("station_start_station");
+
+
+
+
+  // const query = document.querySelector("#index_search");
+  // query.addEventListener("input", (event) => {
+  //   dishIndex.search(query.value, { hitsPerPage: 100, page: 0 })
+  //     .then((content) => {
+  //       const hiddenCards = document.querySelectorAll(".card-trip-link");
+  //       hiddenCards.forEach((card) => {
+  //         card.style.display = "none";
+  //       })
+
+  //       content.hits.forEach((hit) => {
+  //         const card = document.querySelector(`#dish-${hit.objectID}`);
+  //         card.style.display = "block";
+  //       })
+  //     }).then(() => {
+  //       categoryIndex.search(query.value, { hitsPerPage: 100, page: 0 })
+  //         .then((content) => {
+  //           content.hits.forEach((hit) => {
+  //             const card = document.querySelector(`#category-${hit.objectID}`);
+  //             card.style.display = "block";
+  //           })
+  //         });
+  //     });
+  //   })
+
+
+
+
+
+
+// code
+
+
+
+
+
+
+// export const userInputName = () => {
+//   const textInput = document.getElementById("index_form");
 //   textInput.addEventListener("keyup", (event) => {
 //     const keyword = event.currentTarget.value;
 //     cleanPage();
 //     findStationName(keyword, true);
 //   });
 // };
+
+
 
 // export const userInputEndStation = () => {
 //   const textInput = document.getElementById("station_end_station");
