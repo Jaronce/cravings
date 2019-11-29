@@ -55,7 +55,7 @@
 
   <div id="search_result_dishes">
     <% @dishes.each do |dish| %>
-      <%= link_to dishes_path(dish: dish.name) do %>
+      <%= link_to dish_path(dish) do %>
         <div class="card-trip-link" style="display: none;" id="dish-<%= dish.id %>">
           <%= dish.name %>
         </div>

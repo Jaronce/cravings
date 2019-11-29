@@ -2,8 +2,9 @@ class DishesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @dishes = Dish.find_by(name: params[:dish])
     @category = Category.find_by(name: params[:category])
+    @dishes = @category.dishes
+    # @dishes = Dish.find_by(name: params[:dish])
     @list = list_order.sort_by { |v| -total_dish_votes(v) }
 #-------------------------------------------------------------------------------
     @addresses = selected_addresses

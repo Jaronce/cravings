@@ -94,12 +94,12 @@ create_dish("Pulled Pork Sandwich",3,resto_poutine_2,category_canadian,100,300,"
 create_dish("Beef tartare",2,resto_poutine_2,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/5mGYCP2E1sXICQnnurMQ6A/o.jpg")
 create_dish("Oysters",4,resto_poutine_2,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/-VLri98P4EooqsNyG55iPA/o.jpg")
 
-# Add more korean
-(1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Bap"), rand(1..5), resto_korean, category_korean, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
-# Add more sushi
-(1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Sushi"), rand(1..5), resto_sushi, category_japanese, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
-# Add more canadian
-(1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Poutine"), rand(1..5), resto_poutine, category_canadian, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
+# # Add more korean
+# (1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Bap"), rand(1..5), resto_korean, category_korean, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
+# # Add more sushi
+# (1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Sushi"), rand(1..5), resto_sushi, category_japanese, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
+# # Add more canadian
+# (1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Poutine"), rand(1..5), resto_poutine, category_canadian, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
 
 
 
