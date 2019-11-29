@@ -10,9 +10,10 @@
     font-weight: bold;
     margin-top: 20px;
     width: 150px;
+    border: none;
 }
 
-h1 {
+.homepage-logo {
     font-family: Helvetica;
     font-style: normal;
     font-weight: bold;
@@ -44,3 +45,15 @@ h1 {
 .moving-input {
     color: white
 }
+
+#video-overlay {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+// #mainVideo {}

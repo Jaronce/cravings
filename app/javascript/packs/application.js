@@ -1,3 +1,4 @@
 import "bootstrap";
-import { loadDynamicBannerText } from '../components/banner';
+import { loadDynamicBannerText, initializeMainVideo } from '../components/banner';
 loadDynamicBannerText();
+initializeMainVideo();
