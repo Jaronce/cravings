@@ -7,7 +7,7 @@ export const search = () => {
   const dishIndex = client.initIndex("Dish");
   const categoryIndex = client.initIndex("Category");
 
-  const query = document.querySelector("#index_search");
+  const query = document.querySelector(".index_search");
   query.addEventListener("input", (event) => {
       cleanPage();
       if (query.value !== ""){
