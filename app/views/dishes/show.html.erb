@@ -1,9 +1,9 @@
-<%= link_to 'Back to Search', :back %>
+
 <img src="<%= @dish.photo %>" alt="dish photo", width="100px">
 
 <h1>
   <%= @dish.name %>
-  <% if current_user.favorites.filter { |favorite| favorite.dish == @dish}.empty? %>
+  <% if !user_signed_in? || current_user.favorites.filter { |favorite| favorite.dish == @dish}.empty? %>
         <%= link_to "🖤", dish_favorites_path(@dish), method: :post%>
   <% else %>
         <%= link_to "❤️", dish_favorite_path(@dish, current_user.favorites.filter { |favorite| favorite.dish == @dish}.first ), method: :delete%>

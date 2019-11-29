@@ -1,4 +1,6 @@
 class DishesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
     @dishes = Category.find_by(name: params[:category]).dishes
     @category = Category.find_by(name: params[:category])
@@ -16,16 +18,12 @@ class DishesController < ApplicationController
   end
 
   def selected_addresses
-    addresses = []
-    @dishes.each do |dish|
-      addresses << dish.restaurant
-    end
-    return addresses
+    Restaurant.joins(:dishes).where(dishes: { id: @dishes }).distinct
   end
 #-------------------------------------------------------------------------------
   def total_votes
     votes = []
-      @dishes.each do |dish|
+    @dishes.each do |dish|
       votes << total_dish_votes(dish)
     end
     return votes
