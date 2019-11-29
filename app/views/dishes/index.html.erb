@@ -22,6 +22,30 @@
         <%= link_to "❤️", dish_favorite_path(dish, current_user.favorites.filter { |favorite| favorite.dish == dish}.first ), method: :delete%>
       <% end %>
 
+
+    <div class="container_card">
+      <div class="card">
+        <img class="logo" src="<%= dish.restaurant.photo %>" alt="logo">
+        <div class="card_ban d-flex justify-content-end"style="background-image:"<%= dish.restaurant.photo %>";
+          <div class="love">
+            <i class="far fa-heart"></i>
+          </div>
+        </div>
+          <div class="card_detail">
+            <div class="d-flex justify-content-end">
+              <span><strong>5000</strong></span>
+              <div class="like">
+                <i class="fas fa-thumbs-up"></i>
+              </div>
+            </div>
+              <h4 class="txt"><%= link_to dish.name, dish_path(dish)%></h4>
+              <span class="txt_desc"><%= "💲" * (dish.price) %></span>
+          </div>
+      </div>
+    </div>
+
+
+
     </li>
   <% end %>
 </ul>
@@ -44,6 +68,10 @@
     </li>
   <% end %>
 </ul>
+<% end %>
+
+
+
 
 
 <div class="container_card">
