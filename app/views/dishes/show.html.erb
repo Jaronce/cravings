@@ -1,10 +1,19 @@
-<h1><%= @dish.name %></h1>
 
-<p>PHOTO OF DISH</p>
+<img src="<%= @dish.photo %>" alt="dish photo", width="100px">
 
-<p><%= @dish.restaurant.address %></p>
+<h1>
+  <%= @dish.name %>
+  <% if !user_signed_in? || current_user.favorites.filter { |favorite| favorite.dish == @dish}.empty? %>
+        <%= link_to "🖤", dish_favorites_path(@dish), method: :post%>
+  <% else %>
+        <%= link_to "❤️", dish_favorite_path(@dish, current_user.favorites.filter { |favorite| favorite.dish == @dish}.first ), method: :delete%>
+  <% end %>
+</h1>
 
-<p>GO BUTTON</p>
+
+<p>
+  <%= link_to @dish.restaurant.name, restaurant_path(@dish.restaurant) %>
+</p>
 
 <p><%= "💲" * (@dish.price) %></p>
 
@@ -16,11 +25,11 @@
 <h2>Reviews</h2>
 
 <ul>
-  <% @dish.reviews.each do |review| %>
+  <% @list.each do |review| %>
     <li>
       Total Vote : <%= review.vote_reviews.map{|vote| vote.vote}.sum %>
       <% unless review.photo.nil?%>
-        <img src="<% review.photo %>" alt="review photo">
+        <img src="<% review.photo %>" alt="review photo", width="25px">
       <% end %>
       <%= review.content %>
       <%= link_to "👍", review_vote_reviews_path(review, vote: 1), method: :post %>

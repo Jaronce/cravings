@@ -1,20 +1,22 @@
-<h3>NAVBAR HERE</h3>
-
-<p>MAP HERE</p>
-<p>WITH SEARCH BAR</p>
-
+<div
+  id="map"
+  style="width: 100%;
+  height: 30vh;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
 <h3>Top <%= @category.name %> </h3>
 <ul>
-  <% @dishes.each do |dish| %>
+  <% @list.each do |dish| %>
     <li>
-      <!-- <img src="<%= dish.photo %>" alt="dish photo", width="100px"> -->
-      <!-- <img src="<%= dish.restaurant.photo %>" alt="Resto Logo"> -->
+      <img src="<%= dish.photo %>" alt="dish photo", width="100px">
+      <img src="<%= dish.restaurant.photo %>" alt="Resto Logo", width="25px">
 
-      name : <%= dish.name %>
+      name : <%= link_to dish.name, dish_path(dish)%>
       <%= "💲" * (dish.price) %>
        total votes: <%= dish.votes.map{|vote| vote.vote}.sum %>
 
-      <% if current_user.favorites.filter { |favorite| favorite.dish == dish}.empty? %>
+      <% if !user_signed_in? || current_user.favorites.filter { |favorite| favorite.dish == dish}.empty? %>
         <%= link_to "🖤", dish_favorites_path(dish), method: :post%>
       <% else %>
         <%= link_to "❤️", dish_favorite_path(dish, current_user.favorites.filter { |favorite| favorite.dish == dish}.first ), method: :delete%>
@@ -24,12 +26,13 @@
   <% end %>
 </ul>
 
+<% if user_signed_in? %>
 <h3>Your Favorites</h3>
 <ul>
   <% current_user.favorites.each do |favorite| %>
     <li>
-      <!-- <img src="<%= favorite.dish.photo %>" alt="Dish photo">
-      <img src="<%= favorite.dish.restaurant.photo %>" alt="Resto Logo"> -->
+      <img src="<%= favorite.dish.photo %>" alt="Dish photo">
+      <img src="<%= favorite.dish.restaurant.photo %>" alt="Resto Logo">
       name : <%= favorite.dish.name %>
       <%= "💲" * (favorite.dish.price) %>
       total votes: <%= favorite.dish.votes.map{|vote| vote.vote}.sum %>
@@ -84,8 +87,3 @@
     <p class="txt_desc">commodi deserunt neque animi maxime?</p>
   </div>
 </div>
-
-<!-- <h3>We Recommend</h3>
-<ul>
-
-</ul> -->

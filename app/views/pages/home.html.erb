@@ -1,5 +1,66 @@
-<h1>CRAVINGS</h1>
-<p>What are you Craving</p>
-<p>INPUT</p>
+<body class="background-container">
+  <div class="container">
+    <div class="title d-flex justify-content-center">
+      <h1>Cravings</h1>
+      <svg width="24" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="6" cy="6" r="6" fill="#FFFDFD"/>
+        <circle cx="6" cy="6" r="4" fill="#FD5C3A"/>
+      </svg>
 
-<%= link_to "Ramen Show Test Page", dish_path(1) %>
+      <div class="searchbutton d-flex justify-content-center">
+        <input class="searchbar" type="text" name="search" id="banner-typed-text">
+      </div>
+
+      <div class="button-go d-flex justify-content-center">
+        <input class="btn btn-primary" type="Submit" value="Let's Go!">
+      </div>
+
+      <div class="moving-input">
+        <p><span id="banner-typed-text"></span></p>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= form_tag "", html: { id: "index_form"}, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          id: "index_search",
+          placeholder: "What are you craving?"
+        %>
+        <%= submit_tag "Let's go", id: "index_submit" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div id="hidden_search_area">
+  <div id="search_result_category">
+    <% @categories.each do |category| %>
+      <%= link_to dishes_path(category: category.name) do %>
+        <div class="card-trip-link" style="display: none;" id="category-<%= category.id %>">
+          <strong><%= category.name %></strong>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="search_result_dishes">
+    <% @dishes.each do |dish| %>
+      <%= link_to dish_path(dish) do %>
+        <div class="card-trip-link" style="display: none;" id="dish-<%= dish.id %>">
+          <%= dish.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
