@@ -1,20 +1,22 @@
-<h3>NAVBAR HERE</h3>
-
-<p>MAP HERE</p>
-<p>WITH SEARCH BAR</p>
-
+<div
+  id="map"
+  style="width: 100%;
+  height: 30vh;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
 <h3>Top <%= @category.name %> </h3>
 <ul>
-  <% @dishes.each do |dish| %>
+  <% @list.each do |dish| %>
     <li>
-      <!-- <img src="<%= dish.photo %>" alt="dish photo", width="100px"> -->
-      <!-- <img src="<%= dish.restaurant.photo %>" alt="Resto Logo"> -->
+      <img src="<%= dish.photo %>" alt="dish photo", width="100px">
+      <img src="<%= dish.restaurant.photo %>" alt="Resto Logo", width="25px">
 
-      name : <%= dish.name %>
+      name : <%= link_to dish.name, dish_path(dish)%>
       <%= "💲" * (dish.price) %>
        total votes: <%= dish.votes.map{|vote| vote.vote}.sum %>
 
-      <% if current_user.favorites.filter { |favorite| favorite.dish == dish}.empty? %>
+      <% if !user_signed_in? || current_user.favorites.filter { |favorite| favorite.dish == dish}.empty? %>
         <%= link_to "🖤", dish_favorites_path(dish), method: :post%>
       <% else %>
         <%= link_to "❤️", dish_favorite_path(dish, current_user.favorites.filter { |favorite| favorite.dish == dish}.first ), method: :delete%>
@@ -24,12 +26,13 @@
   <% end %>
 </ul>
 
+<% if user_signed_in? %>
 <h3>Your Favorites</h3>
 <ul>
   <% current_user.favorites.each do |favorite| %>
     <li>
-      <!-- <img src="<%= favorite.dish.photo %>" alt="Dish photo">
-      <img src="<%= favorite.dish.restaurant.photo %>" alt="Resto Logo"> -->
+      <img src="<%= favorite.dish.photo %>" alt="Dish photo">
+      <img src="<%= favorite.dish.restaurant.photo %>" alt="Resto Logo">
       name : <%= favorite.dish.name %>
       <%= "💲" * (favorite.dish.price) %>
       total votes: <%= favorite.dish.votes.map{|vote| vote.vote}.sum %>
@@ -40,13 +43,47 @@
       <% end %>
     </li>
   <% end %>
-
-
-
-
 </ul>
 
-<!-- <h3>We Recommend</h3>
-<ul>
 
-</ul> -->
+<div class="container_card">
+  <div class="card">
+    <img class="logo" src="data:image/png;base64,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" alt="logo">
+    <div class="card_ban d-flex justify-content-end"style="background-image: url(https://images.unsplash.com/photo-1571901206464-a669d11eb643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+      <div class="love">
+        <i class="far fa-heart"></i>
+      </div>
+    </div>
+      <div class="card_detail">
+        <div class="d-flex justify-content-end">
+          <span><strong>5000</strong></span>
+          <div class="like">
+            <i class="fas fa-thumbs-up"></i>
+          </div>
+        </div>
+          <h4 class="txt">Bimbimbap</h4>
+          <span class="txt_desc">Petit Seoul $$$</span>
+      </div>
+  </div>
+</div>
+
+<div class="card_lg">
+  <img src="https://images.unsplash.com/photo-1571901206464-a669d11eb643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
+  <div class="flex-grow-1">
+    <div class="justify-content-end text-right">
+      <span><strong>5000</strong></span>
+    </div>
+    <div class="card_infos">
+      <h2 class="txt">Bimbimbap</h2>
+      <p class="txt_desc">Petit Seoul</p>
+    </div>
+  </div>
+</div>
+
+<div class="card_comment">
+  <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+  <div class="comments flex-grow-1">
+    <h2 class="txt">Lorem ipsum dolor sit amet</h2>
+    <p class="txt_desc">commodi deserunt neque animi maxime?</p>
+  </div>
+</div>
