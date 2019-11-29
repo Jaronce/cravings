@@ -63,9 +63,6 @@ jekuk_bibimbap = create_dish("JeKuk Bibmbap", 3, resto_korean, category_korean, 
 # end
 
 
-
-
-
 create_dish("Cold Ramen",2,resto_ramen,category_japanese,200,400,"https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/24__462-2019-07-17.jpg")
 create_dish("Vegan - Yuzu Ramen",2,resto_ramen,category_japanese,100,400,"https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/21__462-2019-07-17.jpg")
 create_dish("Chicken Tonkotsu Ramen",2,resto_ramen,category_japanese,100,400,"https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/02__462-2019-07-17.jpg")

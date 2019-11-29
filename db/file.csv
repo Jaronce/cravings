@@ -1,3 +1,6 @@
+
+def create_dish(food_name, price, user_resto, user_category, starting_num, finishing_number, user_photo)
+
 Cold Ramen,2,resto_ramen,category_japanese,200,400,https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/24__462-2019-07-17.jpg
 Vegan - Yuzu Ramen,2,resto_ramen,category_japanese,100,400,https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/21__462-2019-07-17.jpg
 Chicken Tonkotsu Ramen,2,resto_ramen,category_japanese,100,400,https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/02__462-2019-07-17.jpg
