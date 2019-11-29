@@ -27,23 +27,24 @@
 </ul>
 
 <% if user_signed_in? %>
-<h3>Your Favorites</h3>
-<ul>
-  <% current_user.favorites.each do |favorite| %>
-    <li>
-      <img src="<%= favorite.dish.photo %>" alt="Dish photo">
-      <img src="<%= favorite.dish.restaurant.photo %>" alt="Resto Logo">
-      name : <%= favorite.dish.name %>
-      <%= "💲" * (favorite.dish.price) %>
-      total votes: <%= favorite.dish.votes.map{|vote| vote.vote}.sum %>
-      <% if current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.empty? %>
-        <%= link_to "🖤", dish_favorites_path(favorite.dish), method: :post%>
-      <% else %>
-        <%= link_to "❤️", dish_favorite_path(favorite.dish, current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.first ), method: :delete%>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+  <h3>Your Favorites</h3>
+  <ul>
+    <% current_user.favorites.each do |favorite| %>
+      <li>
+        <img src="<%= favorite.dish.photo %>" alt="Dish photo">
+        <img src="<%= favorite.dish.restaurant.photo %>" alt="Resto Logo">
+        name : <%= favorite.dish.name %>
+        <%= "💲" * (favorite.dish.price) %>
+        total votes: <%= favorite.dish.votes.map{|vote| vote.vote}.sum %>
+        <% if current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.empty? %>
+          <%= link_to "🖤", dish_favorites_path(favorite.dish), method: :post%>
+        <% else %>
+          <%= link_to "❤️", dish_favorite_path(favorite.dish, current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.first ), method: :delete%>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 
 
 <div class="container_card">

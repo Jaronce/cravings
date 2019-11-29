@@ -2,21 +2,20 @@
 
   <div id="video-overlay"></div>
   <video id="mainVideo" autoplay muted loop src="<%= asset_path 'video (2).mp4'%>"></video>
- 
+
   <div class="container" style="display: flex; flex-direction: column;">
     <div style="position: relative; width: 400px; align-self:center;" class="title d-flex justify-content-center">
-      <h1>Cravings</h1>
+      <h1 class="homepage-logo">Cravings</h1>
       <svg style="position: absolute; right: 16%;" width="24" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="6" cy="6" r="6" fill="#FFFDFD"/>
         <circle cx="6" cy="6" r="4" fill="#FD5C3A"/>
       </svg>
     </div>
 
-    <%= form_tag "", id: "index_form", method: :get do %>
+    <%= form_tag dishes_path, id: "index_form", method: :get do %>
       <div class="searchbutton d-flex justify-content-center" style="position: relative;">
-        <%= text_field_tag :query,
-          params[:query],
-          placeholder: "What are you craving?",
+        <%= text_field_tag :category,
+          params[:category],
           class: 'searchbar index_search',
           id: 'banner-typed-text',
           value: '',
@@ -34,6 +33,7 @@
             <% end %>
           <% end %>
         </div>
+      <% end %>
 
         <div id="search_result_dishes">
           <% @dishes.each do |dish| %>
@@ -44,12 +44,11 @@
             <% end %>
           <% end %>
         </div>
-    <% end %>
+
 
     <div class="moving-input">
       <p><span id="banner-typed-text"></span></p>
     </div>
-    <!-- <%= link_to "Lets GOOOOOOO", dish_path(1) %> -->
   </div>
 
 </body>
