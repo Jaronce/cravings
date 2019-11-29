@@ -1,24 +1,28 @@
 import Typed from "typed.js"
 
 const loadDynamicBannerText = () => {
+  const bannerTypedText = document.querySelector("#banner-typed-text");
+
+  if (bannerTypedText) {
     new Typed('#banner-typed-text', {
-        strings: ["What are you Craving?", "Poutine ?", "Hot Dog ?", "Fried Rice", "Sushi ?", "Ramen ?", "Pizza ?", "Sandwich ?", "Pasta ? ", "Burger ?", "Curry ?", "Poke Bowl?"],
-        typeSpeed: 100,
-        loop: true,
-        attr: "placeholder"
+      strings: ["What are you Craving?", "Poutine ?", "Hot Dog ?", "Fried Rice", "Sushi ?", "Ramen ?", "Pizza ?", "Sandwich ?", "Pasta ? ", "Burger ?", "Curry ?", "Poke Bowl?"],
+      typeSpeed: 100,
+      loop: true,
+      attr: "placeholder"
     });
+  }
 }
 
 const initializeMainVideo = () => {
-    const mainVideo = document.querySelector("#mainVideo");
+  const mainVideo = document.querySelector("#mainVideo");
 
-    if (mainVideo) {
+  if (mainVideo) {
+    setVideoSizeBasesOnWindowSize(mainVideo)
+
+    window.addEventListener("resize", () => {
         setVideoSizeBasesOnWindowSize(mainVideo)
-
-        window.addEventListener("resize", () => {
-            setVideoSizeBasesOnWindowSize(mainVideo)
-        })
-    }
+    })
+  }
 }
 
 const setVideoSizeBasesOnWindowSize = (video) => {

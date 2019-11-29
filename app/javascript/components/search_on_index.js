@@ -8,13 +8,16 @@ export const search = () => {
   const categoryIndex = client.initIndex("Category");
 
   const query = document.querySelector(".index_search");
-  query.addEventListener("input", (event) => {
+
+  if (query) {
+    query.addEventListener("input", (event) => {
       cleanPage();
       if (query.value !== ""){
         findInCategory(categoryIndex, query, event);
         findInDish(dishIndex, query, event);
       }
-  })
+    })
+  }
 }
 
 const findInDish = (dishIndex, query, event) => {
