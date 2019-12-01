@@ -125,6 +125,7 @@ users.sample(rand(100..200)).each do |user|
 end
 
 
+
 # 20~40 uesrs left reviews on tonkotsu ramen
 users.sample(rand(20..40)).each do |user|
   review = Review.new(content: Faker::Restaurant.review)
