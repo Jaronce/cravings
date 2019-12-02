@@ -6,7 +6,7 @@ class DishesController < ApplicationController
     @dishes = @category.dishes
     # @dishes = Dish.find_by(name: params[:dish])
     @list = list_order.sort_by { |v| -total_dish_votes(v) }
-#-------------------------------------------------------------------------------
+
     @addresses = selected_addresses
     @restaurant_addresses = @addresses.geocoded
     @markers = @restaurant_addresses.map do |restaurant|
