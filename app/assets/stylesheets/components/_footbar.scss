@@ -1,31 +1,33 @@
 .footbar {
-  background-color: #333;
+  display: flex;
+  background-color: $main-beige;
   overflow: hidden;
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 40000000;
+  z-index: 100;
+  justify-content: space-between;
+  border-top: 1px solid $main-orange;
+  i {
+    padding: 0 20px;
+  }
 }
 
+
 /* Style the links inside the navigation bar */
-.footbar a {
+.footbar_button {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: $main-grey;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
 }
 
-/* Change the color of links on hover */
-.footbar a:hover {
-  background-color: #ddd;
-  color: black;
+.active, .footbar_button:hover {
+  background-color: $main-orange;
+  color: $main-beige;
 }
 
-/* Add a color to the active/current link */
-.footbar a.active {
-  background-color: #4CAF50;
-  color: white;
-}
+
