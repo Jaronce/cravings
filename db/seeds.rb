@@ -97,10 +97,7 @@ review_top.save!
 # 100~200 people upvoting for Top Review
 users.sample(rand(120..150)).each do |user|
   vote_review(user, review_top)
-  # vote_review = VoteReview.new(vote: 1)
-  # vote_review.review = review_top
-  # vote_review.user = user
-  # vote_review.save!
+
 end
 
 # Creating Top Review of Ramen - TBU
