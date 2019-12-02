@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :liked_dishes, through: :votes
   has_many :vote_reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
+
 end

@@ -1,0 +1,194 @@
+///////////////////////////////////
+// first layer have Beige color
+.head-container {
+  // display:absolute;
+  width: 100%;
+  background-color: $main-beige;
+  // position: absolute;
+  // top: -68px;
+  text-align: center;
+  font-family: Helvetica;
+  font-style: normal;
+
+  // make food image circle
+  .food_photo {
+    display: inline-block;
+    margin: -24px auto;
+    width: 273px;
+    height: 273px;
+    // left: 36px;
+    // top: -24px;
+    border-radius: 50%;
+    background: transparent;
+  }
+}
+
+///////////////////////////////////
+// Title, heart, subtitle, underline
+.text_area {
+  width: 100%;
+  margin: 24px auto 6px;
+  padding: 18px 0 0;
+  text-decoration: none;
+  h1 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: -4px;
+  }
+  a {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  span {
+    padding-bottom: 1px;
+    border-bottom: 1px solid $main-orange;
+    line-height: 48px;
+    a {
+      color: $main-grey;
+      text-decoration: none;
+    }
+  }
+}
+
+///////////////////////////////////
+// Vote box, up and down button
+.vote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 8;
+}
+
+.vote-button {
+  width: 43px;
+  height: 43px;
+  border: 1px solid $main-orange;
+  background-color: #F9F5F2;
+  border-radius: 50%;
+  margin: 16px;
+  padding: 8px;
+  &.down {
+    padding: 10px; // it's not working need to fix
+  }
+  i {
+    color: $main-grey;
+  }
+}
+
+
+.vote-button:hover {
+  background-color: $main-orange;
+  i {
+    color: #F9F5F2;
+  }
+}
+
+.num_box {
+  width: 123px;
+  height: 55px;
+  background-color: $main-orange;
+  justify-content: center;
+  border-radius: 8px;
+  h1 {
+    font-weight: bold;
+    font-size: 24px;
+    color: #FFFFFF;
+    margin: 4px;
+  }
+  p {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+//////////////////////////////
+.review-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 24px 24px 0px 0px;
+  border-color: red;
+  // display: absolute;
+  position: relative;
+  top: -36px;
+  padding-top: 38px;
+  z-index: 2;
+  .avatar {
+    width: 53px;
+    height: 53px;
+  }
+}
+
+.review-card {
+  width: 85%;
+  display: flex;
+  margin: auto;
+  padding: 16px 0px 0px 3px;
+  border-bottom: 1px solid $main-orange;
+  .review-photo {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+  }
+  h3 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  p {
+    font-style: normal;
+    font-size: 12px;
+    color: $main-grey;
+  }
+}
+
+.review-vote-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $main-orange;
+  font-weight: bold;
+  font-size: 12px;
+  margin-right: 6%;
+  i {
+    color: $main-grey;
+  }
+  span {
+    font-size: 14px;
+  }
+}
+
+.review-button:hover {
+  i {
+    color: $main-orange;
+  }
+}
+
+.review-text-area {
+  margin-left: 6%;
+  text-align: left;
+}
+
+.review-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-body {
+  display: relative;
+  #more {
+    display: none;
+  }
+  .myBtn {
+    width: 100%;
+    bottom: 10px;
+    font-weight: normal;
+    font-size: 12px;
+    color: $main-grey;
+    text-align: right;
+    padding-right: 4px;
+
+  }
+}
