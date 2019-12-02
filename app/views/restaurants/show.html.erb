@@ -1,20 +1,38 @@
-<%= link_to 'Back Button', :back %>
-<img src="<%= @restaurant.photo %>" alt="Logo", width="100px">
+<div class="head-container">
+  <img src="<%= @restaurant.photo %>" alt="restaurant photo", width="100px" class="restaurant_photo">
 
-<h1><%= @restaurant.name %> 📍</h1>
 
-<p><%= @restaurant.dishes.first.category.name %></p>
+  <div class="text_area">
+    <h1><%= @restaurant.name %> 📍</h1>
+    <p><%= @restaurant.dishes.first.category.name %></p>
 
-<p>Total Votes: <%= @votes %></p>
+    <div class="vote-container">
+        <div class="num_box"><h1><%= @votes %></h1></div>
+    </div>
 
-<h3>Menu</h3>
-<ul>
-  <% @list.each do |dish| %>
-    <li>
-      <img src="<%= dish.photo %>" alt="Dish Photo", width="25px">
-      <%= link_to dish.name, dish_path(dish)%>
-      <%= dish.votes.map{|vote| vote.vote}.sum %>
-      <%= "💲" * (dish.price) %>
-    </li>
-  <% end %>
-</ul>
+  </div>
+
+
+  <div class="review-container">
+     <h3>Menu</h3>
+      <% @list.each do |dish| %>
+         <div class="card_lg">
+            <ul>
+                <li>
+                  <img src="<%= dish.photo %>" alt="Dish Photo", width="25px">
+                  <div class="review-title">
+                    <h2>
+                      <%= link_to dish.name, dish_path(dish)%>
+                    </h2>
+                    <p>
+                      <%= dish.votes.map{|vote| vote.vote}.sum %>
+                    <%= "💲" * (dish.price) %>
+                    </p>
+                  </div>
+                </li>
+            </ul>
+         </div>
+        <% end %>
+    </div>
+
+</div>
