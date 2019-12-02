@@ -1,10 +1,5 @@
 //primary card css----------------------------------------------------------------
-.dish_index_container {
-  background-color: $main-beige;
-}
-
 .container_card {
-  background-color: white;
   height: 200px;
   margin: 20px;
   overflow-x: scroll;
@@ -69,7 +64,6 @@
 }
 // suggestion card css --------------------------------------------------------
 .container_card_lg {
-  background-color: white;
   width: 90%;
   height: 100px;
   margin-right: 20px;
