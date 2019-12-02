@@ -4,11 +4,10 @@
   // display:absolute;
   width: 100%;
   background-color: $main-beige;
-  // position: absolute;
-  // top: -68px;
   text-align: center;
   font-family: Helvetica;
   font-style: normal;
+  margin-top: -23px;
 
   // make food image circle
   .food_photo {
@@ -16,8 +15,6 @@
     margin: -24px auto;
     width: 273px;
     height: 273px;
-    // left: 36px;
-    // top: -24px;
     border-radius: 50%;
     background: transparent;
   }

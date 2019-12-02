@@ -1,9 +1,10 @@
-<body class="background-container">
+<div class="background-container">
 
   <div id="video-overlay"></div>
   <video id="mainVideo" autoplay muted loop src="<%= asset_path 'video (2).mp4'%>"></video>
 
   <div class="container" style="display: flex; flex-direction: column;">
+
     <div style="position: relative; width: 400px; align-self:center;" class="title d-flex justify-content-center">
       <h1 class="homepage-logo">Cravings</h1>
       <svg style="position: absolute; right: 16%;" width="24" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,32 +24,34 @@
         %>
         <%= submit_tag ">", id: "index_submit", class: 'btn btn-primary', style: "border: none; width: 35px; height: 35px; border-radius: 100%; position: absolute; right: 20%; top: -26%;"%>
       </div>
-      <div id="hidden_search_area">
-        <div id="search_result_category">
-          <% @categories.each do |category| %>
-            <%= link_to dishes_path(category: category.name) do %>
-              <div class="card-trip-link" style="display: none;" id="category-<%= category.id %>">
-                <strong><%= category.name %></strong>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
+    <% end %>
 
-        <div id="search_result_dishes">
-          <% @dishes.each do |dish| %>
-            <%= link_to dishes_path(dish: dish.name) do %>
-              <div class="card-trip-link" style="display: none;" id="dish-<%= dish.id %>">
-                <%= dish.name %>
-              </div>
-            <% end %>
+    <div id="hidden_search_area">
+      <div id="search_result_category">
+        <% @categories.each do |category| %>
+          <%= link_to dishes_path(category: category.name) do %>
+            <div class="card-trip-link" style="display: none;" id="category-<%= category.id %>">
+              <strong><%= category.name %></strong>
+            </div>
           <% end %>
-        </div>
+        <% end %>
+      </div>
 
+      <div id="search_result_dishes">
+        <% @dishes.each do |dish| %>
+          <%= link_to dishes_path(dish: dish.name) do %>
+            <div class="card-trip-link" style="display: none;" id="dish-<%= dish.id %>">
+              <%= dish.name %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
     <div class="moving-input">
       <p><span id="banner-typed-text"></span></p>
     </div>
+
   </div>
 
-</body>
+</div>
