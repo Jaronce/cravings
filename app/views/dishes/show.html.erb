@@ -25,24 +25,42 @@
     <%= link_to '<i class="fas fa-thumbs-up"></i>'.html_safe, dish_votes_path(@dish, vote: 1), method: :post, class: "vote-button up"%>
   </div>
 
+  <div class="review-container">
 
-
-
-  <div class="review_container">
-    <h2>Reviews</h2>
-    <ul>
       <% @list.each do |review| %>
-        <li>
-          Total Vote : <%= review.vote_reviews.map{|vote| vote.vote}.sum %>
-          <% unless review.photo.nil?%>
-            <img src="<% review.photo %>" alt="review photo", width="25px">
-          <% end %>
-          <%= review.content %>
-          <%= link_to "👍", review_vote_reviews_path(review, vote: 1), method: :post %>
-          <%= link_to "👎", review_vote_reviews_path(review, vote: -1), method: :post %>
-        </li>
+        <div class="review-card">
+
+          <div class="review-vote-area">
+            <span><%= link_to '<i class="fas fa-chevron-up"></i>'.html_safe, review_vote_reviews_path(review, vote: 1), method: :post, class: "review-button up"%></span>
+            <span><%= review.vote_reviews.map{|vote| vote.vote}.sum %></span>
+            <span><%= link_to '<i class="fas fa-chevron-down"></i>'.html_safe, review_vote_reviews_path(review, vote: -1), method: :post, class: "review-button down"%></span>
+          </div>
+
+          <img src="<%= review.user.photo %>" alt="avatar", width="25px" class="avatar">
+
+          <div class="review-text-area">
+            <div class="review-title">
+              <h3><%= review.user.username%></h3>
+              <p><%= review.date%></p>
+            </div>
+
+            <% unless review.photo.nil?%>
+              <img src="<%= review.photo %>" class = " review-photo" alt="review photo", width="25px">
+            <% end %>
+
+            <div class="review-body">
+              <% if review.content.length > 120 %>
+                <p><%= review.content.split(" ")[0...22].join(" ")%><span class="dots">...</span><span class="more" style="display:none;"><%= review.content.split(" ")[22..-1].join(" ") %></span></p>
+                <button type= "button" class="myBtn">Read more</button></p>
+              <% else %>
+                <p><%= review.content %></p>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
       <% end %>
-    </ul>
   </div>
 
 </div>
+

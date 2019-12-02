@@ -4,15 +4,15 @@
 .head-container {
   display:absolute;
   width: 100%;
-  background-color: #F9F5F2;
+  background-color: $main-beige;
   position: absolute;
   top: -68px;
   text-align: center;
   font-family: Helvetica;
   font-style: normal;
 
-  // make img circle
-  img {
+  // make food image circle
+  .food_photo {
     display: inline-block;
     margin: 0px auto;
     width: 273px;
@@ -43,10 +43,11 @@
   }
   span {
     padding-bottom: 1px;
-    border-bottom: 1px solid #FD5C3A;
+    border-bottom: 1px solid $main-orange;
     line-height: 48px;
     a {
-      color: #868686;
+      color: $main-grey;
+      text-decoration: none;
     }
   }
 }
@@ -63,7 +64,7 @@
 .vote-button {
   width: 43px;
   height: 43px;
-  border: 1px solid #FD5C3A;
+  border: 1px solid $main-orange;
   background-color: #F9F5F2;
   border-radius: 50%;
   margin: 16px;
@@ -72,12 +73,12 @@
     padding: 10px; // it's not working need to fix
   }
   i {
-    color: #868686;
+    color: $main-grey;
   }
 }
 
 .vote-button:hover {
-  background-color: #FD5C3A;
+  background-color: $main-orange;
   i {
     color: #F9F5F2;
   }
@@ -86,7 +87,7 @@
 .num_box {
   width: 123px;
   height: 55px;
-  background-color: #FD5C3A;
+  background-color: $main-orange;
   justify-content: center;
   border-radius: 8px;
   h1 {
@@ -104,14 +105,86 @@
 }
 
 
-///////////////////////////////////
-.review_container {
+//////////////////////////////
+.review-container {
   width: 100%;
   background-color: white;
   border-radius: 24px 24px 0px 0px;
   border-color: red;
-  display: relative;
+  display: absolute;
   top: 200px;
   z-index: 2;
+  .avatar {
+    width: 53px;
+    height: 53px;
+  }
 }
 
+.review-card {
+  width: 85%;
+  display: flex;
+  margin: auto;
+  padding: 16px 0px 0px 3px;
+  border-bottom: 1px solid $main-orange;
+  .review-photo {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+  }
+  h3 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  p {
+    font-style: normal;
+    font-size: 12px;
+    color: $main-grey;
+  }
+}
+
+.review-vote-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $main-orange;
+  font-weight: bold;
+  font-size: 12px;
+  margin-right: 6%;
+  i {
+    color: $main-grey;
+  }
+}
+
+.review-button:hover {
+  i {
+    color: $main-orange;
+  }
+}
+
+.review-text-area {
+  margin-left: 6%;
+  text-align: left;
+}
+
+.review-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-body {
+  display: relative;
+  #more {
+    display: none;
+  }
+  .myBtn {
+    display:flex; // it's not working
+    bottom: 10px;
+    font-weight: normal;
+    font-size: 12px;
+    color: $main-grey;
+    text-align: right;
+    padding: 0px;
+    justify-content:flex-end;
+  }
+}

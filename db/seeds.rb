@@ -1,13 +1,7 @@
 $LOAD_PATH << File.join(Rails.root + 'db/create_dish.rb')
 require_relative 'create_dish.rb'
 require 'faker'
-require 'csv'
 
-# csv_text = File.read('...')
-# csv = CSV.parse(csv_text, :headers => true)
-# csv.each do |row|
-#   Moulding.create!(row.to_hash)
-# end
 
 
 
@@ -20,11 +14,18 @@ VoteReview.destroy_all
 ActiveRecord::Base.connection.execute("delete from users")
 
 
+user_photos = (10..99).to_a.map {|number| "https://randomuser.me/api/portraits/women/#{number}.jpg"} + (10..99).to_a.map {|number| "https://randomuser.me/api/portraits/men/#{number}.jpg"}
+
+
 p "Adding 1000 Users"
-user_jay = User.create!(email: "jay@test.com", username: "pretty_jay", password: "111111", photo: "https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png")
-users_array = Array.new(1_000) { [Faker::Internet.unique.email, Faker::Name.unique.name.gsub("'", "\"")] }
-values = users_array.map { |user| "(" + user.map { |s| "'#{s}'" }.join(", ") + ", '2019-11-27', '2019-11-27'" + ")" }.join(", ")
-query = "INSERT INTO users (email, username, created_at, updated_at) VALUES #{values}"
+user_jay = User.create!(email: "jay@test.com", username: "pretty_jay", password: "111111", photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/t62fonm8rnt2co5hngdn.jpg")
+
+users_array = Array.new(1_000) { [Faker::Internet.unique.email, Faker::Name.first_name.gsub("'", "\"") + rand(100).to_s] }
+# pp values = users_array.map { |user| "(" + user.map { |s| "'#{s}'" }.join(", ") + ", '2019-11-27', '2019-11-27'" + ")" }.join(", ")
+values = users_array.map { |user| "(" + user.map { |s| "'#{s}'" }.join(", ") + ", '" + user_photos.sample(1).join("") + "', '2019-11-27', '2019-11-27'" + ")" }.join(", ")
+
+
+query = "INSERT INTO users (email, username, photo, created_at, updated_at) VALUES #{values}"
 ActiveRecord::Base.connection.execute(query)
 users = []
 User.all.each { |user| users << user}
@@ -60,11 +61,6 @@ tonkotsu_ramen = create_dish("Tonkotsu Ramen",2,resto_ramen,category_japanese,60
 jekuk_bibimbap = create_dish("JeKuk Bibmbap", 3, resto_korean, category_korean, 500, 700, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
 
 
-# CSV.foreach(Rails.root.join('db/file.csv'), headers: true) do |row|
-#   create_dish(row[0],row[2],row[3],row[4],row[5],row[6],row[7])
-# end
-
-
 create_dish("Cold Ramen",2,resto_ramen,category_japanese,200,400,"https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/24__462-2019-07-17.jpg")
 create_dish("Vegan - Yuzu Ramen",2,resto_ramen,category_japanese,100,400,"https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/21__462-2019-07-17.jpg")
 create_dish("Chicken Tonkotsu Ramen",2,resto_ramen,category_japanese,100,400,"https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/02__462-2019-07-17.jpg")
@@ -94,14 +90,6 @@ create_dish("Pulled Pork Sandwich",3,resto_poutine_2,category_canadian,100,300,"
 create_dish("Beef tartare",2,resto_poutine_2,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/5mGYCP2E1sXICQnnurMQ6A/o.jpg")
 create_dish("Oysters",4,resto_poutine_2,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/-VLri98P4EooqsNyG55iPA/o.jpg")
 
-# # Add more korean
-# (1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Bap"), rand(1..5), resto_korean, category_korean, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
-# # Add more sushi
-# (1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Sushi"), rand(1..5), resto_sushi, category_japanese, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
-# # Add more canadian
-# (1..7).to_a.each { |e| create_dish( (Faker::Food.ingredient + " Poutine"), rand(1..5), resto_poutine, category_canadian, 50, 400, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")}
-
-
 
 
 p "Creating Reviews/ Review Votes"
@@ -123,8 +111,6 @@ users.sample(rand(100..200)).each do |user|
   vote_review.user = user
   vote_review.save!
 end
-
-
 
 # 20~40 uesrs left reviews on tonkotsu ramen
 users.sample(rand(20..40)).each do |user|
