@@ -4,7 +4,6 @@ require_relative 'create_dish.rb'
 require_relative 'vote_review.rb'
 require 'faker'
 
-
 p "Destroy previous data"
 Restaurant.destroy_all
 Category.destroy_all
@@ -106,15 +105,11 @@ review_second.dish = Dish.where(name: "Tonkotsu Ramen").first
 review_second.user = User.all[4]
 review_second.save!
 
-
 # 100~200 people upvoting for Top Review
 users.sample(rand(100..120)).each do |user|
   vote_review(user, review_second)
-  # vote_review = VoteReview.new(vote: 1)
-  # vote_review.review = review_top
-  # vote_review.user = user
-  # vote_review.save!
 end
+
 # Creating Top Review of Ramen - TBU
 review_third = Review.new(content: "This one should be on the top This one should be on the top ", photo: "https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/15__462-2019-07-17.jpg")
 review_third.dish = Dish.where(name: "Tonkotsu Ramen").first
@@ -125,10 +120,6 @@ review_third.save!
 # 100~200 people upvoting for Top Review
 users.sample(rand(80..100)).each do |user|
   vote_review(user, review_third)
-  # vote_review = VoteReview.new(vote: 1)
-  # vote_review.review = review_third
-  # vote_review.user = user
-  # vote_review.save!
 end
 
 # 20~40 uesrs left reviews on tonkotsu ramen
@@ -144,11 +135,6 @@ end
 reviews.each do |review|
   users.sample(rand(10..80)).each do |user|
     vote_review(user, review)
-    # vote_review(user)
-    # vote_review = VoteReview.new(vote: 1)
-    # vote_review.review = review
-    # vote_review.user = user
-    # vote_review.save!
   end
 end
 
