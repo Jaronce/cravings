@@ -6,9 +6,9 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<h4>Montréal</h4>
+<h4 id ="current-address">Montréal</h4>
 
-<div class="review-container">
+<div class="index-review-container">
   <h3 class="index-h3"><strong>Top <%= @category.name %> </strong></h3>
   <div class="container_card">
     <% @list.each do |dish| %>
