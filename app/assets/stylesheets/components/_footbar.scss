@@ -1,3 +1,4 @@
+
 .footbar {
   display: flex;
   background-color: $main-beige;
@@ -41,7 +42,7 @@
   // font-size: 16px;
   border: none;
   outline: none;
-  color: inherit;
+  color: $main-grey;
   // padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -61,7 +62,7 @@
   min-width: 100px;
   z-index: 1;
   right: -1px;
-  bottom: 46px;
+  top: calc(54vh - 144px);
 }
 
 .dropup-content a {
