@@ -6,8 +6,10 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<h3>Top <%= @category.name %></h3>
-<div>
+<h4 id ="current-address">Montréal</h4>
+
+<div class="index-review-container">
+  <h3 class="index-h3"><strong>Top <%= @category.name %> </strong></h3>
   <div class="container_card">
     <% @list.each do |dish| %>
       <div class="card">
@@ -36,22 +38,22 @@
       </div>
     <% end %>
   </div>
-</div>
 
-<% if user_signed_in? %>
-  <h3>Your Favorites</h3>
-  <div class="container_card">
-    <% current_user.favorites.each do |favorite| %>
-      <div class="card">
-        <img src="<%= favorite.dish.restaurant.photo %>" alt="dish photo", class="logo">
-          <div class="card_ban d-flex justify-content-end"style="background-image: url(<%= favorite.dish.photo %>);">
-            <div>
-              <% if current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.empty? %>
-                <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorites_path(favorite.dish), class: 'link-to-text-color', method: :post%>
-              <% else %>
-                <%= link_to '<i class="fas fa-heart"></i>'.html_safe, dish_favorite_path(favorite.dish, current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.first ), class: 'link-to-text-color-liked', method: :delete%>
-              <% end %>
-            </div>
+
+  <% if user_signed_in? %>
+    <h3 class="index-h3"><strong>Your Favorites</strong></h3>
+    <div class="container_card">
+      <% current_user.favorites.each do |favorite| %>
+        <div class="card">
+          <img src="<%= favorite.dish.restaurant.photo %>" alt="dish photo", class="logo">
+            <div class="card_ban d-flex justify-content-end"style="background-image: url(<%= favorite.dish.photo %>);">
+              <div>
+                <% if current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.empty? %>
+                  <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorites_path(favorite.dish), class: 'link-to-text-color', method: :post%>
+                <% else %>
+                  <%= link_to '<i class="fas fa-heart"></i>'.html_safe, dish_favorite_path(favorite.dish, current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.first ), class: 'link-to-text-color-liked', method: :delete%>
+               <% end %>
+             </div>
           </div>
         <%= link_to dish_path(favorite.dish), class: "link-to-dish" do %>
           <div class="card_detail">
@@ -69,10 +71,8 @@
     <% end %>
   </div>
 <% end %>
-
-<h3>Recommended for You</h3>
+<h3 class="index-h3"><strong>Recommended for You</strong></h3>
 <div class="container_card_lg">
-<!--   for fred : @restaurant.dishes.each do |dish| -->
   <% @dishes[1..6].each do |dish| %>
     <%= link_to dish_path(dish), class: "link-to-dish" do %>
       <div class="card_lg">
@@ -81,7 +81,6 @@
             <div class="justify-content-end text-right">
               <span>
                 <strong><%= dish.votes.map{|vote| vote.vote}.sum %><i class="like fas fa-thumbs-up"></i></strong>
-
               </span>
             </div>
             <div class="card_infos">
