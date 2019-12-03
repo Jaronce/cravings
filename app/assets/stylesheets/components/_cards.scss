@@ -1,6 +1,5 @@
 //primary card css----------------------------------------------------------------
 .container_card {
-  // width: 150px;
   height: 200px;
   margin: 20px;
   overflow-x: scroll;
@@ -103,6 +102,16 @@
 
 .flex-grow-1 {
   padding: 5px;
+}
+
+.link-to-dish {
+    text-decoration: none;
+    color: black;
+}
+
+.link-to-dish:hover {
+    text-decoration: none;
+    color: black;
 }
 
 // heart function ---------------------

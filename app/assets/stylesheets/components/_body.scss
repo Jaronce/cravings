@@ -9,6 +9,7 @@
   text-align: left;
   font-family: Helvetica;
   font-style: normal;
+  margin-top: -23px;
 
   // make food image circle
   .food_photo {
@@ -16,8 +17,6 @@
     margin: -24px auto;
     width: 273px;
     height: 273px;
-    // left: 36px;
-    // top: -24px;
     border-radius: 50%;
     background: transparent;
   }
@@ -146,6 +145,7 @@
     display: inline-block;
     width: 100%;
     margin: auto;
+    margin-bottom: 10px;
   }
   h3 {
     font-style: normal;

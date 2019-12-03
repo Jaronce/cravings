@@ -1,7 +1,10 @@
 <div class="footbar">
-  <a href="#home" class="active">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
+  <%= link_to '<i class="fas fa-utensils fa-lg"></i>'.html_safe, dishes_path(category: "Japanese"), class: "footbar_button #{controller_name == 'dishes' ? 'active' : ''}"   %>
+  <%= link_to '<i class="fas fa-search fa-lg"></i>'.html_safe, "", class: "footbar_button"  %>
+  <%= link_to '<i class="far fa-heart fa-lg"></i>'.html_safe, "", class: "footbar_button"  %>
+  <%= link_to '<i class="far fa-user fa-lg"></i>'.html_safe, user_path(current_user), class: "footbar_button #{controller_name == 'users' ? 'active' : ''}"  %>
 </div>
+
+
 
 
