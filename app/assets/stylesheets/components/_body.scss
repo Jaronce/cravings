@@ -6,7 +6,7 @@
   background-color: $main-beige;
   // position: absolute;
   // top: -68px;
-  text-align: center;
+  text-align: left;
   font-family: Helvetica;
   font-style: normal;
 
@@ -24,7 +24,7 @@
 
   // make restaurant image circle
   .restaurant_photo {
-  display: inline-block;
+  display: block;
   margin: -24px auto;
   width: 273px;
   height: 273px;
@@ -42,6 +42,7 @@
   margin: 24px auto 6px;
   padding: 18px 0 0;
   text-decoration: none;
+  text-align: center;
   h1 {
     font-weight: bold;
     font-size: 24px;
@@ -71,6 +72,7 @@
   align-items: center;
   position: relative;
   z-index: 8;
+  text-align: center;
 }
 
 .vote-button {
@@ -125,8 +127,9 @@
   // display: absolute;
   position: relative;
   top: -36px;
-  padding-top: 38px;
+  padding: 38px 0;
   z-index: 2;
+  margin-top: 50px;
   .avatar {
     width: 53px;
     height: 53px;
@@ -203,4 +206,14 @@
     padding-right: 4px;
 
   }
+}
+
+.index-h3 {
+  font-size: 16px;
+}
+
+h6 {
+  color: white;
+  font-size: 12px;
+  opacity: 0.8;
 }

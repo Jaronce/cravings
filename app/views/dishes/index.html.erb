@@ -5,8 +5,11 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
-<h3>Top <%= @category.name %> </h3>
-<div>
+
+<h4>Montréal</h4>
+
+<div class="review-container">
+  <h3 class="index-h3"><strong>Top <%= @category.name %> </strong></h3>
   <div class="container_card">
     <% @list.each do |dish| %>
       <div class="card">
@@ -33,49 +36,45 @@
       </div>
     <% end %>
   </div>
-</div>
 
-<% if user_signed_in? %>
-  <h3>Your Favorites</h3>
-  <div class="container_card">
-    <% current_user.favorites.each do |favorite| %>
-      <div class="card">
-        <img src="<%= favorite.dish.restaurant.photo %>" alt="dish photo", class="logo">
-        <div class="card_ban d-flex justify-content-end"style="background-image: url(<%= favorite.dish.photo %>);">
-          <div>
+  <% if user_signed_in? %>
+    <h3 class="index-h3"><strong>Your Favorites</strong></h3>
+    <div class="container_card">
+      <% current_user.favorites.each do |favorite| %>
+        <div class="card">
+          <img src="<%= favorite.dish.restaurant.photo %>" alt="dish photo", class="logo">
+          <div class="card_ban d-flex justify-content-end"style="background-image: url(<%= favorite.dish.photo %>);">
             <% if current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.empty? %>
               <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorites_path(favorite.dish), class: 'link-to-text-color', method: :post%>
             <% else %>
               <%= link_to '<i class="fas fa-heart"></i>'.html_safe, dish_favorite_path(favorite.dish, current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.first ), class: 'link-to-text-color-liked', method: :delete%>
             <% end %>
           </div>
-        </div>
-        <div class="card_detail">
-          <div class="d-flex justify-content-end">
-            <span><strong><%= favorite.dish.votes.map{|vote| vote.vote}.sum %></strong></span>
-            <div class="like">
-              <i class="fas fa-thumbs-up"></i>
+          <div class="card_detail">
+            <div class="d-flex justify-content-end">
+              <span><strong><%= favorite.dish.votes.map{|vote| vote.vote}.sum %></strong></span>
+              <div class="like">
+                <i class="fas fa-thumbs-up"></i>
+              </div>
             </div>
+            <h4 class="txt"><%= link_to favorite.dish.name, dish_path(favorite.dish)%></h4>
+            <span class="txt_desc"><%= favorite.dish.restaurant.name %><%= "$" * (favorite.dish.price) %></span>
           </div>
-          <h4 class="txt"><%= link_to favorite.dish.name, dish_path(favorite.dish)%></h4>
-          <span class="txt_desc"><%= favorite.dish.restaurant.name %><%= "$" * (favorite.dish.price) %></span>
         </div>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+      <% end %>
+    </div>
+  <% end %>
 
-<h3>Recommended for You</h3>
-<div class="container_card_lg">
-<!--   for fred : @restaurant.dishes.each do |dish| -->
-  <% @dishes[0..9].each do |dish| %>
-    <div class="card_lg">
-      <img src="<%= dish.photo %>" alt="dish photo">
+  <h3 class="index-h3"><strong>Recommended for You</strong></h3>
+  <div class="container_card_lg">
+    <!--   for fred : @restaurant.dishes.each do |dish| -->
+    <% @dishes[0..9].each do |dish| %>
+      <div class="card_lg">
+        <img src="<%= dish.photo %>" alt="dish photo">
         <div class="flex-grow-1">
           <div class="justify-content-end text-right">
             <span>
               <strong><%= dish.votes.map{|vote| vote.vote}.sum %><i class="like fas fa-thumbs-up"></i></strong>
-
             </span>
           </div>
           <div class="card_infos">
@@ -83,6 +82,7 @@
             <p class="txt_desc"><%= dish.restaurant.name %><%= "$" * (dish.price) %></p>
           </div>
         </div>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

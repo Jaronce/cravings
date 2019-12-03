@@ -3,36 +3,49 @@
 
 
   <div class="text_area">
-    <h1><%= @restaurant.name %> 📍</h1>
+    <h1><%= @restaurant.name %> <i class="fas fa-map-marker-alt"></i></h1>
     <p><%= @restaurant.dishes.first.category.name %></p>
 
     <div class="vote-container">
-        <div class="num_box"><h1><%= @votes %></h1></div>
+      <div class="num_box">
+        <h1><%= @votes %></h1>
+        <h6>satisfied cravers</h6>
+      </div>
     </div>
-
   </div>
 
 
-  <div class="review-container">
-     <h3>Menu</h3>
-      <% @list.each do |dish| %>
-         <div class="card_lg">
-            <ul>
-                <li>
-                  <img src="<%= dish.photo %>" alt="Dish Photo", width="25px">
-                  <div class="review-title">
-                    <h2>
-                      <%= link_to dish.name, dish_path(dish)%>
-                    </h2>
-                    <p>
-                      <%= dish.votes.map{|vote| vote.vote}.sum %>
-                    <%= "💲" * (dish.price) %>
-                    </p>
-                  </div>
-                </li>
-            </ul>
-         </div>
-        <% end %>
-    </div>
 
+  <div class="review-container">
+
+
+
+      <% @list.each do |dish| %>
+      <div class="container_card_lg">
+
+        <div class="card_lg">
+
+            <img src="<%= dish.photo %>" alt="dish photo">
+
+            <div class="flex-grow-1">
+
+              <div class="justify-content-end text-right">
+                <span>
+                <strong><%= dish.votes.map{|vote| vote.vote}.sum %> <i class="like fas fa-thumbs-up"></i></strong>
+                </span>
+              </div>
+
+              <div class="card_infos">
+                <h2 class="txt"><%= dish.name %></h2>
+                <p class="txt_desc"><%= dish.restaurant.name %><%= "$" * (dish.price) %></p>
+              </div>
+
+            </div>
+         </div>
+        </div>
+      <% end %>
+
+
+  </div>
 </div>
+
