@@ -7,7 +7,7 @@
   width: 100%;
   z-index: 100;
   justify-content: space-between;
-  border-top: 1px solid $main-orange;
+  border-top: 1px solid $main-grey;
   i {
     padding: 0 20px;
   }
@@ -26,8 +26,8 @@
 }
 
 .active, .footbar_button:hover {
-  background-color: $main-orange;
-  color: $main-beige;
+  background-color: $main-beige;
+  color: $main-orange;
 }
 
 

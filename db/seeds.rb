@@ -15,7 +15,7 @@ ActiveRecord::Base.connection.execute("delete from users")
 
 p "Adding 1001 Users"
 user_photos = (10..99).to_a.map {|number| "https://randomuser.me/api/portraits/women/#{number}.jpg"} + (10..99).to_a.map {|number| "https://randomuser.me/api/portraits/men/#{number}.jpg"}
-user_jay = User.create!(email: "jay@test.com", username: "pretty_jay", password: "111111", photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/t62fonm8rnt2co5hngdn.jpg")
+user_jay = User.create!(email: "jay@test.com", username: "unpretty_jay", password: "111111", photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/t62fonm8rnt2co5hngdn.jpg")
 users_array = Array.new(1_000) { [Faker::Internet.unique.email, Faker::Name.first_name.gsub("'", "\"") + rand(100).to_s] }
 values = users_array.map { |user| "(" + user.map { |s| "'#{s}'" }.join(", ") + ", '" + user_photos.sample(1).join("") + "', '2019-11-27', '2019-11-27'" + ")" }.join(", ")
 
