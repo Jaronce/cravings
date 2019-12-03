@@ -1,13 +1,45 @@
-<h1><%= current_user.username %></h1>
+<div class="profile-background">
+  <%= image_tag 'Vector.png' %>
+</div>
+<div class="container-profile">
+  <div class="profile-picture">
+    <img src="<%= current_user.photo %>" alt="avatar", width="100px" class="profile-img" style="float:right">
+  </div>
+  <div class="profile-name">
+    <h2><%= current_user.username %></h2>
+  </div>
+  <div class="individual-review">
+    <ul>
+      <% @reviews.each do |review| %>
+        <li>👍 <%= review.content %> DATE</li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<img src="<%= current_user.photo %>" alt="profile picture">
 
-<p>FOLLOW BUTTON</p>
 
-<ul>
-  <% @reviews.each do |review| %>
-    <li>👍 <%= review.content %> DATE</li>
-  <% end %>
-</ul>
+<div id="sparkle" class="crown-rank">
+  <img src="https://image.flaticon.com/icons/svg/1071/1071623.svg" style="
+    width: 60px;">
+</div>
+  <div class="name-ranking">
+    <h3>Superstar Craver!</h3>  
+  </div>
+  <div class="follow-container d-flex justify-content-around align-items-center">
+    <div class="profile-followers">
+      <h4 style="margin-bottom: 0px;">700</h4>
+      <p style="font-size: small; color: #6c757d;">followers</p>
+    </div>
+    <p class="follow-button" style="color: #FD5C3A;">Follow</p>
+    <div class="profile-following">
+    <h4 style="margin-bottom: 0px;">1.2k</h4>
+      <p style="font-size: small; color: #6c757d;">following</p>
+    </div>
+  </div>
+  <div class="vote-container" style="padding-top: 25px;">
+     <div class="num_box">
+      <h1>300</h1>
+      <p> votes </p>
+  </div>
 
-<p>hello</p>
