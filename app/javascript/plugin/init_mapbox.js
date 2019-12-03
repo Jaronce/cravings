@@ -39,7 +39,7 @@ const initMapbox = () => {
         },
         showUserLocation: true,
         fitBoundsOptions: {
-          maxZoom:14
+          maxZoom:12
         }
       }));
   }
