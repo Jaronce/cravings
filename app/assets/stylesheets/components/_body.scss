@@ -1,4 +1,93 @@
 ///////////////////////////////////
+// Discount Button
+.coupon-popup {
+  position: relative;
+  display: flex;
+  height: 130px;
+  width: 255px;
+  position: fixed;
+  background-color: #FD5C3A;
+  z-index: 3;
+  right: 0px;
+  bottom: 71px;
+  border-radius: 3px;
+  opacity: 0.9;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+
+}
+@keyframes slideLeft {
+  0%, 100% {
+    transform: translate3d(100%,0,0);
+  }
+
+  10%, 90% {
+    transform: translate3d(-2rem,0,0);
+  }
+}
+
+.coupon-popup {
+  transform: translate3d(100%,0,0);
+  animation: slideLeft 15s 2s 1 cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+
+.hooray-gif {
+  width: 79px;
+  height: 84px;
+  margin: 20px;
+}
+
+#redeem {
+  text-align: left;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.hooray-text {
+  color: white;
+}
+
+#hooray-notification {
+  text-align: left;
+  padding-left: 15px;
+  margin-bottom: 0px;
+}
+
+#hooray {
+  margin-left: 15px;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  font-size: 24px;
+  text-align: left;
+}
+
+
+
+.btn-secondary {
+  background-color: $main-orange;
+  color: white;
+  width: 81px!important;
+  border-radius: 8px!important;
+
+}
+
+.btn-secondary:hover {
+  background-color: $main-orange;
+  color: white;
+  opacity: 0.8;
+  width: 81px!important;
+  border-radius: 8px!important;
+}
+
+.coupon-container {
+  display: relative;
+}
+
+
+.coupon-button {
+  display: absolute;
+}
 // first layer have Beige color
 .head-container {
   // display:absolute;
@@ -72,6 +161,18 @@
   position: relative;
   z-index: 8;
   text-align: center;
+  top: -25px;
+  margin-bottom: -25px;
+}
+.dish-vote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 8;
+  text-align: center;
+  top: -38px;
+  margin-bottom: -24px;
 }
 
 .vote-button {
@@ -153,8 +254,8 @@
   border-color: red;
   // display: absolute;
   position: relative;
-  top: -86px;
-  padding: 38px 0;
+  // top: -86px;
+  // padding: 38px 0;
   z-index: 2;
   margin-top: 50px;
   .avatar {
@@ -244,4 +345,9 @@ h6 {
   color: white;
   font-size: 12px;
   opacity: 0.8;
+}
+
+.category-button {
+  color: #868686;
+  text-transform: none;
 }
