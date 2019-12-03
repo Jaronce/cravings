@@ -12,7 +12,6 @@
     <meta name="algolia-search-key" content="<%= ENV['ALGOLIA_api_key'] %>">
   </head>
   <body>
-    <%= render 'shared/navbar' %>
     <%= yield %>
     <%= render 'shared/footbar' %>
     <%= javascript_include_tag 'application' %>
