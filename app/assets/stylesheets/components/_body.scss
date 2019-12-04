@@ -416,6 +416,7 @@
 
 .index-h3 {
   font-size: 16px;
+  margin: 20px;
 }
 
 h6 {
@@ -424,7 +425,20 @@ h6 {
   opacity: 0.8;
 }
 
+
 .category-button {
   color: #868686;
   text-transform: none;
+
+.txt_cat {
+  color: #868686;
+  opacity: 0.8;
 }
+
+h5 {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+  padding: 27px;
+  }
+

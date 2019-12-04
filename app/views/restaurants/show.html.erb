@@ -36,6 +36,7 @@
   </div>
 
   <div class="text_area">
+
     <h1>
       <%= @restaurant.name %> <i class="fas fa-map-marker-alt"></i>
     </h1>
@@ -52,7 +53,7 @@
         <h6>satisfied cravers</h6>
       </div>
     </div>
-    <% @list.each do |dish| %>
+     <% @list.each do |dish| %>
       <div class="container_card_lg">
         <%= link_to dish_path(dish), class: "link-to-dish" do %>
           <div class="card_lg">
@@ -60,12 +61,19 @@
             <div class="flex-grow-1">
               <div class="justify-content-end text-right">
                 <span>
-                <strong><%= dish.votes.map{|vote| vote.vote}.sum %> <i class="like fas fa-thumbs-up"></i></strong>
+                <strong><%= dish.votes.map{|vote| vote.vote}.sum %> <i class="like fas fa-thumbs-up ml-2"></i></strong>
                 </span>
               </div>
               <div class="card_infos">
                 <h2 class="txt"><%= dish.name %></h2>
-                <p class="txt_desc"><%= dish.restaurant.name %><%= "$" * (dish.price) %></p>
+                <div class="d-flex justify-content-between">
+                  <span class="txt_desc">
+                    <%= dish.restaurant.name %>
+                  </span>
+                  <span class="txt_desc">
+                    <%= "$" * (dish.price) %>
+                  </span>
+                </div>
               </div>
             </div>
           </div>

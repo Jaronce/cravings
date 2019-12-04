@@ -1,10 +1,29 @@
+
 <div class="footbar">
   <%= link_to '<i class="fas fa-utensils fa-lg"></i>'.html_safe, dishes_path(category: "Japanese"), class: "footbar_button #{controller_name == 'dishes' ? 'active' : ''}"   %>
   <%= link_to '<i class="fas fa-search fa-lg"></i>'.html_safe, "", class: "footbar_button"  %>
   <%= link_to '<i class="far fa-heart fa-lg"></i>'.html_safe, "", class: "footbar_button"  %>
-  <%= link_to '<i class="far fa-user fa-lg"></i>'.html_safe, "", class: "footbar_button #{controller_name == 'users' ? 'active' : ''}"  %>
+  <% if user_signed_in? %>
+    <%= link_to '<i class="far fa-user fa-lg"></i>'.html_safe, user_path(current_user), class: "footbar_button #{controller_name == 'users' ? 'active' : ''}"  %>
+  <% else  %>
+    <%= link_to '<i class="far fa-user fa-lg"></i>'.html_safe, new_user_session_path, class: "footbar_button #{controller_name == 'users' ? 'active' : ''}"  %>
+  <% end %>
+
+  <span class="footbar_button dropup">
+    <button class="dropbtn">
+      <i class="fas fa-bars fa-lg"></i>
+    </button>
+  </span>
 </div>
 
 
-
-
+<div class="dropup-content">
+  <% if user_signed_in? %>
+    <%= link_to '<i class="fas fa-power-off"></i><span>  Sign out</span>'.html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+  <% else %>
+    <%= link_to '<i class="fas fa-power-off"></i><span>  Sign in</span>'.html_safe, new_user_session_path, class: "nav-link" %>
+    <%= link_to '<i class="fas fa-user-plus"></i><span>  New user</span>'.html_safe, new_user_registration_path, class: "nav-link" %>
+  <% end %>
+  <a href="#"><i class="far fa-envelope"></i><span>  Contact us</span></a>
+  <a href="#"><i class="fas fa-cog"></i><span>  Setting</span></a>
+</div>

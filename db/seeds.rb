@@ -32,6 +32,7 @@ category_canadian = Category.create!(name: "Canadian") # poutine, bagle
 
 
 p "Adding 5 restaurants"
+
 resto_ramen = Restaurant.create!(name: "Tsukuyomi", address: "5207 St Laurent Blvd, Montreal, Quebec H2T 1S4", photo: "https://lh5.googleusercontent.com/p/AF1QipNEaYzqjpsgHnw0sF7qZFGqDO9Y1e5dNPQCY45_=w203-h152-k-no", longitude: -73.5969526, latitude: 45.5241759)
 resto_ramen_2 = Restaurant.create!(name: "Ramen Ya", address: "4274 St Laurent Blvd, Montreal, Quebec H2W 1Z3", photo: "http://www.ramen-ya.ca/img_index_main_on.jpg", longitude: -73.5854547, latitude: 45.518514)
 resto_ramen_3 = Restaurant.create!(name: "Yokato Yokabai Ramen", address: "4185 Drolet St, Montreal, Quebec H2W 2L5", photo: "http://www.yoka.ca/restaurants/yokatoyokabai/website/images/header-logo.png?1560757380", longitude: -73.5807499, latitude: 45.5211845)

@@ -27,12 +27,19 @@
           <div class="card_detail">
             <div class="d-flex justify-content-end">
               <span><strong><%= dish.votes.map{|vote| vote.vote}.sum %></strong></span>
-              <div class="like">
+              <div class="like ml-2">
                 <i class="fas fa-thumbs-up"></i>
               </div>
             </div>
             <h4 class="txt"><%= dish.name %></h4>
-            <span class="txt_desc"><%= dish.restaurant.name %><%= "   " %><%= "$" * (dish.price) %></span>
+            <div class="d-flex justify-content-between">
+              <span class="txt_desc">
+                <%= dish.restaurant.name %>
+              </span>
+              <span class="txt_desc">
+                <%= "$" * (dish.price) %>
+              </span>
+            </div>
           </div>
         <% end %>
       </div>
@@ -80,12 +87,12 @@
           <div class="flex-grow-1">
             <div class="justify-content-end text-right">
               <span>
-                <strong><%= dish.votes.map{|vote| vote.vote}.sum %><i class="like fas fa-thumbs-up"></i></strong>
+                <strong><%= dish.votes.map{|vote| vote.vote}.sum %><i class="fas fa-thumbs-up ml-2"></i></strong>
               </span>
             </div>
             <div class="card_infos">
               <h2 class="txt"><%= dish.name %></h2>
-              <p class="txt_desc"><%= dish.restaurant.name %><%= "   " %><%= "$" * (dish.price) %></p>
+              <p class="txt_desc"><%= dish.restaurant.name %></p>
             </div>
           </div>
       </div>

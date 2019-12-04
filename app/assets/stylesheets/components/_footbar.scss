@@ -1,3 +1,4 @@
+
 .footbar {
   display: flex;
   background-color: $main-beige;
@@ -6,21 +7,20 @@
   bottom: 0;
   width: 100%;
   z-index: 100;
-  justify-content: space-between;
-  border-top: 1px solid $main-grey;
+  justify-content: space-evenly;
+  // border-top: 1px solid $main-grey;
+  height: 50px;
+  align-items: center;
   i {
     padding: 0 20px;
   }
 }
 
-
-/* Style the links inside the navigation bar */
 .footbar_button {
   float: left;
   display: block;
   color: $main-grey;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -30,4 +30,67 @@
   color: $main-orange;
 }
 
+////////////////////////////////////////////
 
+
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+
+.dropup .dropbtn {
+  // font-size: 16px;
+  border: none;
+  outline: none;
+  color: $main-grey;
+  // padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  // margin: 0;
+}
+
+.navbar a:hover, .dropup:hover .dropbtn {
+  background-color: $main-beige;
+  color: $main-orange;
+}
+
+.dropup-content {
+  // display: block;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  z-index: 1;
+  right: -1px;
+  top: calc(54vh - 144px);
+}
+
+.dropup-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropup-content a:hover {background-color: #ccc}
+
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+.dropup:hover .dropbtn {
+  background-color: #2980B9;
+}
+
+
+.navbar a:hover, .dropup:hover .dropbtn {
+  background-color: $main-beige;
+  color: $main-orange;
+}
+
+
+// @media (min-width: 1024px) {
+//   .footbar {
+//     position: relative;
+//   }
+// }
