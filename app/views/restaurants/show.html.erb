@@ -1,13 +1,41 @@
-<div class="head-container">
+<div id="popup1" class="overlay">
+  <div class="popup">
+    <div class="qrcode">
+      <svg>
+        <%= @svg_string.html_safe %>
+      </svg>
+    </div>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      <p>Congrats! You get 15% off your next visit to <%= @restaurant.name %></p>
+      <img id="coupon-gif" src="https://item.kakaocdn.net/do/36e509cee3c0d3e6284e26f4df760bcaf43ad912ad8dd55b04db6a64cddaf76d" alt="Celebrate" style="width: 50%;">
+    </div>
+  </div>
+</div>
+
+<div class="coupon-popup">
+  <div class="hooray-text">
+    <p id="hooray">Hooray!</p>
+    <p id="hooray-notification">We’ve found a coupon for you!</p>
+    <a id="redeem">
+      Redeem Now!
+    </a>
+  </div>
+  <div class="hooray-gif">
+    <img id="celebrate-gif" src="https://i.pinimg.com/originals/93/94/fb/9394fb96035f3f7c61b885ae8df208c5.gif" alt="Celebrate" style="width:79px;height:84px;">
+  </div>
+</div>
+
+<div class="head-container" >
   <div class="mobile-forehead">
     <img src="<%= @restaurant.photo %>" alt="restaurant photo", width="100px" class="restaurant_photo">
-
 
     <div class="text_area">
       <h1><%= @restaurant.name %> <i class="fas fa-map-marker-alt"></i></h1>
       <p><%= @restaurant.dishes.first.category.name %></p>
     </div>  
   </div>
+
 
   <div class="review-container">
     <div class="vote-container">
@@ -46,5 +74,3 @@
 
   </div>
 </div>
-
-

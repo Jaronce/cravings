@@ -6,6 +6,7 @@ import { search } from "../components/search_on_index";
 import { readMore } from "../components/review_read_more";
 import { initMapbox } from '../plugin/init_mapbox';
 import { clickBugerButton } from "../components/click_footbar";
+import { couponAnimation } from "../components/coupon";
 
 
 
@@ -13,4 +14,4 @@ search();
 readMore();
 clickBugerButton();
 initMapbox();
-
+couponAnimation();
