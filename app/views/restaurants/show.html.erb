@@ -13,11 +13,11 @@
   </div>
 </div>
 
-<div class="coupon-popup">
+<div class="coupon-popup"  id="redeem">
   <div class="hooray-text">
     <p id="hooray">Hooray!</p>
     <p id="hooray-notification">We’ve found a coupon for you!</p>
-    <a id="redeem">
+    <a style="font-weight: bold;">
       Redeem Now!
     </a>
   </div>
@@ -33,7 +33,7 @@
     <div class="text_area">
       <h1><%= @restaurant.name %> <i class="fas fa-map-marker-alt"></i></h1>
       <p><%= @restaurant.dishes.first.category.name %></p>
-    </div>  
+    </div>
   </div>
 
 
@@ -44,33 +44,29 @@
         <h6>satisfied cravers</h6>
       </div>
     </div>
-
-
-      <% @list.each do |dish| %>
+    <% @list.each do |dish| %>
       <div class="container_card_lg">
 
         <div class="card_lg">
 
-            <img src="<%= dish.photo %>" alt="dish photo">
+          <img src="<%= dish.photo %>" alt="dish photo">
 
-            <div class="flex-grow-1">
+          <div class="flex-grow-1">
 
-              <div class="justify-content-end text-right">
-                <span>
-                <strong><%= dish.votes.map{|vote| vote.vote}.sum %> <i class="like fas fa-thumbs-up"></i></strong>
-                </span>
-              </div>
-
-              <div class="card_infos">
-                <h2 class="txt"><%= dish.name %></h2>
-                <p class="txt_desc"><%= dish.restaurant.name %><%= "$" * (dish.price) %></p>
-              </div>
-
+            <div class="justify-content-end text-right">
+              <span>
+              <strong><%= dish.votes.map{|vote| vote.vote}.sum %> <i class="like fas fa-thumbs-up"></i></strong>
+              </span>
             </div>
-         </div>
-        </div>
-      <% end %>
 
+            <div class="card_infos">
+              <h2 class="txt"><%= dish.name %></h2>
+              <p class="txt_desc"><%= dish.restaurant.name %><%= "$" * (dish.price) %></p>
+            </div>
 
+          </div>
+       </div>
+      </div>
+    <% end %>
   </div>
 </div>

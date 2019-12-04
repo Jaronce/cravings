@@ -3,8 +3,6 @@ import mapboxgl from 'mapbox-gl';
 const initMapbox = () => {
     const mapElement = document.getElementById('map');
 
-    if (mapElement === null) { return; }
-
     const fitMapToMarkers = (map, markers) => {
         const bounds = new mapboxgl.LngLatBounds();
         markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
@@ -47,12 +45,12 @@ const initMapbox = () => {
                 maxZoom: 12
             }
         }));
+
+        setTimeout(() => {
+            document.querySelector(".mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate").click()
+        }, 100)
     }
 
-    setTimeout(() => {
-        document.querySelector(".mapboxgl-ctrl-icon.mapboxgl-ctrl-geolocate").click()
-
-    }, 100)
 };
 
 export { initMapbox };
