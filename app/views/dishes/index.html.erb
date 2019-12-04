@@ -1,4 +1,4 @@
-<div class="mobile-forehead">
+<div id="mobile-forehead">
   <div
     id="map"
     style="width: 100%;
@@ -6,13 +6,15 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
+</div>
 
 <h4 id ="current-address">Montréal</h4>
-<!-- <input id="search_bar" type="text">-->
+<input id="search_bar" type="text">
 <div class="index-review-container">
   <h3 class="index-h3"><strong>Top <%= @category.name %> </strong></h3>
-  <div class="container_card main_dish_search">
+  <div class="container_card">
     <% @list.each do |dish| %>
+      <%# <div class="card"> %>
       <div class="card main_dish_search_card" data-description="<%= dish.name %>">
         <img src="<%= dish.restaurant.photo %>" alt="dish photo", class="logo">
         <div class="card_ban d-flex justify-content-end" style="background-image: url(<%= dish.photo %>);">
@@ -28,19 +30,12 @@
           <div class="card_detail">
             <div class="d-flex justify-content-end">
               <span><strong><%= dish.votes.map{|vote| vote.vote}.sum %></strong></span>
-              <div class="like ml-2">
+              <div class="like">
                 <i class="fas fa-thumbs-up"></i>
               </div>
             </div>
             <h4 class="txt"><%= dish.name %></h4>
-            <div class="d-flex justify-content-between">
-              <span class="txt_desc">
-                <%= dish.restaurant.name %>
-              </span>
-              <span class="txt_desc">
-                <%= "$" * (dish.price) %>
-              </span>
-            </div>
+            <span class="txt_desc"><%= dish.restaurant.name %><%= "   " %><%= "$" * (dish.price) %></span>
           </div>
         <% end %>
       </div>
@@ -88,12 +83,12 @@
           <div class="flex-grow-1">
             <div class="justify-content-end text-right">
               <span>
-                <strong><%= dish.votes.map{|vote| vote.vote}.sum %><i class="fas fa-thumbs-up ml-2"></i></strong>
+                <strong><%= dish.votes.map{|vote| vote.vote}.sum %><i class="like fas fa-thumbs-up"></i></strong>
               </span>
             </div>
             <div class="card_infos">
               <h2 class="txt"><%= dish.name %></h2>
-              <p class="txt_desc"><%= dish.restaurant.name %></p>
+              <p class="txt_desc"><%= dish.restaurant.name %><%= "   " %><%= "$" * (dish.price) %></p>
             </div>
           </div>
       </div>
@@ -104,30 +99,20 @@
 <script>
   // main_dish_search_card
   const mainDishSearchCards = document.querySelectorAll(".main_dish_search_card")
-
   const searchBar = document.getElementById("search_bar");
   searchBar.addEventListener("input", (event) => {
     console.log(event.currentTarget.value);
-
     const searchQuery = event.currentTarget.value;
-
     mainDishSearchCards.forEach((card) => {
       const nameOfDish = card.getAttribute("data-description")
-
       if (nameOfDish.toLowerCase().includes(searchQuery.toLowerCase())) {
         card.style.display = "inline-block";
       } else {
         card.style.display = "none";
       }
-
       if (nameOfDish.length === 0 ) {
         card.style.display = "block";
       }
     })
-
-
-
   })
-
-
 </script>
