@@ -1,11 +1,11 @@
-///////////////////////////////////
+body {
+  background-color: $main-beige;
+}
+
 // first layer have Beige color
 .head-container {
-  // display:absolute;
   width: 100%;
   background-color: $main-beige;
-  // position: absolute;
-  // top: -68px;
   text-align: center;
   font-family: Helvetica;
   font-style: normal;
@@ -27,8 +27,6 @@
   margin: -24px auto;
   width: 273px;
   height: 273px;
-  // left: 36px;
-  // top: -24px;
   border-radius: 50%;
   background: transparent;
   }
@@ -121,10 +119,10 @@
 
 #current-address {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 16px;
   color: black;
-  margin-top: 22px;
-  margin-left: 22px;
+  margin-top: 5%;
+  margin-left: 7%;
 }
 
 
@@ -135,8 +133,8 @@
   border-color: red;
   // display: absolute;
   position: relative;
-  top: -28px;
-  padding: 38px 0;
+  top: -31px;
+  padding: 2px 0;
   z-index: 2;
   margin-top: 50px;
   .avatar {
@@ -199,7 +197,7 @@
     color: $main-grey;
   }
   span {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
@@ -236,9 +234,17 @@
   }
 }
 
+// .favorite-strong {
+//   font-size: 13px;
+// }
+.vote_num_2 {
+  font-size: 13px;
+  margin: 0px 3px 0px 5px;
+}
+
 .index-h3 {
   font-size: 16px;
-  margin: 20px;
+  margin: 2% 7% 1%;
 }
 
 h6 {
