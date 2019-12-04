@@ -26,10 +26,9 @@ User.all.each { |user| users << user}
 
 
 p "Adding 3 Categories"
-category_korean = Category.create!(name: "Korean") # jekuk bibimbap
-category_japanese = Category.create!(name: "Japanese") # soyu ramen , salmon sushi, udon, yakitori, tempura
-category_canadian = Category.create!(name: "Canadian") # poutine, bagle
-
+category_korean = Category.create!(name: "korean") # jekuk bibimbap
+category_japanese = Category.create!(name: "japanese") # soyu ramen , salmon sushi, udon, yakitori, tempura
+category_canadian = Category.create!(name: "canadian") # poutine, bagle
 
 p "Adding 5 restaurants"
 

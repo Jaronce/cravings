@@ -1,28 +1,27 @@
-<div class="profile-background">
-  <%= image_tag 'Vector.png' %>
-</div>
-<div class="container-profile">
-  <div class="profile-picture">
-    <img src="<%= current_user.photo %>" alt="avatar", width="100px" class="profile-img" style="float:right">
+<div class="mobile-forehead">
+  <div class="profile-background">
+    <%= image_tag 'Vector.png' %>
   </div>
-  <div class="profile-name">
-    <h2><%= current_user.username %></h2>
+  <div class="container-profile">
+    <div class="profile-picture">
+      <img src="<%= current_user.photo %>" alt="avatar", width="100px" class="profile-img" style="float:right">
+    </div>
+    <div class="profile-name">
+      <h2><%= current_user.username %></h2>
+    </div>
+    <div class="individual-review">
+      <ul>
+        <% @reviews.each do |review| %>
+          <li>👍 <%= review.content %> DATE</li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-  <div class="individual-review">
-    <ul>
-      <% @reviews.each do |review| %>
-        <li>👍 <%= review.content %> DATE</li>
-      <% end %>
-    </ul>
+
+  <div id="sparkle" class="crown-rank">
+    <img src="https://image.flaticon.com/icons/svg/1071/1071623.svg" style="
+      width: 60px;">
   </div>
-</div>
-
-
-
-<div id="sparkle" class="crown-rank">
-  <img src="https://image.flaticon.com/icons/svg/1071/1071623.svg" style="
-    width: 60px;">
-</div>
   <div class="name-ranking">
     <h3>Superstar Craver!</h3>  
   </div>
@@ -33,13 +32,38 @@
     </div>
     <p class="follow-button" style="color: #FD5C3A;">Follow</p>
     <div class="profile-following">
-    <h4 style="margin-bottom: 0px;">1.2k</h4>
+      <h4 style="margin-bottom: 0px;">1.2k</h4>
       <p style="font-size: small; color: #6c757d;">following</p>
     </div>
   </div>
-  <div class="vote-container" style="padding-top: 25px;">
-     <div class="num_box">
+</div>
+
+<div class="review-container">
+  <div class="vote-container">
+    <div class="num_box">
       <h1>300</h1>
       <p> votes </p>
+    </div>
   </div>
+  <div class="review-card">
 
+    <div class="review-vote-area">
+      <span><i class="fas fa-chevron-up fa-lg"></i></span>
+      <span>200</span>
+      <span><i class="fas fa-chevron-down fa-lg"></i></span>
+    </div>
+
+    <img src="IMG-Change" alt="avatar", width="25px" class="avatar">
+
+    <div class="review-text-area">
+      <div class="review-title">
+        <h3>name of user</h3>
+        <p>date</p>
+      </div>
+
+      <div class="review-body">
+          <p>Jay is ugly Jay is uglyJay is uglyJay is uglyJay is ugly</p>
+      </div>
+    </div>
+  </div>
+</div>
