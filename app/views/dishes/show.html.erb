@@ -27,6 +27,7 @@
       <%= link_to '<i class="fas fa-thumbs-up"></i>'.html_safe, dish_votes_path(@dish, vote: 1), method: :post, class: "vote-button up"%>
     </div>
 
+    <h5>Add Reviews</h5>
     <% @list.each do |review| %>
       <div class="review-card">
 

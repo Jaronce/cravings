@@ -1,49 +1,87 @@
+  <!-- new popup -->
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <div class="qrcode">
+        <svg>
+          <%= @svg_string.html_safe %>
+        </svg>
+      </div>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+        <p>Congrats! You get 15% off your next visit to <%= @restaurant.name %></p>
+        <img id="coupon-gif" src="https://item.kakaocdn.net/do/36e509cee3c0d3e6284e26f4df760bcaf43ad912ad8dd55b04db6a64cddaf76d" alt="Celebrate" style="width: 50%;">
+      </div>
+    </div>
+  </div>
+  <!-- end of popup -->
+
+
 <div class="head-container">
   <div class="mobile-forehead">
     <img src="<%= @restaurant.photo %>" alt="restaurant photo", width="100px" class="restaurant_photo">
 
 
-    <div class="text_area">
-      <h1><%= @restaurant.name %> <i class="fas fa-map-marker-alt"></i></h1>
-      <p><%= @restaurant.dishes.first.category.name %></p>
-    </div>  
+  <div class="coupon-popup">
+    <div class="hooray-text">
+      <p id="hooray">Hooray!</p>
+      <p id="hooray-notification">We’ve found a coupon for you!</p>
+      <a id="redeem" href="#popup1">
+        Redeem Now!
+      </a>
+    </div>
+    <div class="hooray-gif">
+      <img id="celebrate-gif" src="https://i.pinimg.com/originals/93/94/fb/9394fb96035f3f7c61b885ae8df208c5.gif" alt="Celebrate" style="width:79px;height:84px;">
+    </div>
   </div>
 
-  <div class="review-container">
+  <div class="coupon-container">
+    <img src="<%= @restaurant.photo %>" alt="restaurant photo", width="100px" class="restaurant_photo">
+  </div>
+
+  <div class="text_area">
+    <h1>
+      <%= @restaurant.name %> <i class="fas fa-map-marker-alt"></i>
+    </h1>
+    <span>
+      <%= link_to @restaurant.dishes.first.category.name, dishes_path(category: "Japanese"), class: "category-button"%>
+    </span>
+  </div>
+  <div class="review-container" style="">
+      
+      
     <div class="vote-container">
       <div class="num_box">
         <h1><%= @votes %></h1>
         <h6>satisfied cravers</h6>
       </div>
     </div>
-
-
-      <% @list.each do |dish| %>
+     <% @list.each do |dish| %>
       <div class="container_card_lg">
-
-        <div class="card_lg">
-
+        <%= link_to dish_path(dish), class: "link-to-dish" do %>
+          <div class="card_lg">
             <img src="<%= dish.photo %>" alt="dish photo">
-
             <div class="flex-grow-1">
-
               <div class="justify-content-end text-right">
                 <span>
-                <strong><%= dish.votes.map{|vote| vote.vote}.sum %> <i class="like fas fa-thumbs-up"></i></strong>
+                <strong><%= dish.votes.map{|vote| vote.vote}.sum %> <i class="like fas fa-thumbs-up ml-2"></i></strong>
                 </span>
               </div>
-
               <div class="card_infos">
                 <h2 class="txt"><%= dish.name %></h2>
-                <p class="txt_desc"><%= dish.restaurant.name %><%= "$" * (dish.price) %></p>
+                <div class="d-flex justify-content-between">
+                  <span class="txt_desc">
+                    <%= dish.restaurant.name %>
+                  </span>
+                  <span class="txt_desc">
+                    <%= "$" * (dish.price) %>
+                  </span>
+                </div>
               </div>
-
             </div>
-         </div>
-        </div>
-      <% end %>
-
-
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 
