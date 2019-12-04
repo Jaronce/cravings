@@ -17,6 +17,9 @@
 
 
 <div class="head-container">
+  <div class="mobile-forehead">
+    <img src="<%= @restaurant.photo %>" alt="restaurant photo", width="100px" class="restaurant_photo">
+
 
   <div class="coupon-popup">
     <div class="hooray-text">
@@ -36,17 +39,16 @@
   </div>
 
   <div class="text_area">
-
     <h1>
       <%= @restaurant.name %> <i class="fas fa-map-marker-alt"></i>
     </h1>
     <span>
       <%= link_to @restaurant.dishes.first.category.name, dishes_path(category: "Japanese"), class: "category-button"%>
     </span>
-
   </div>
-
   <div class="review-container" style="">
+      
+      
     <div class="vote-container">
       <div class="num_box">
         <h1><%= @votes %></h1>

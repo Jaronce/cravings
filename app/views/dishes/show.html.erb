@@ -1,24 +1,24 @@
 <div class="head-container">
+  <div class="mobile-forehead">
+    <img src="<%= @dish.photo %>" alt="dish photo", width="100px" class="food_photo">
 
-  <img src="<%= @dish.photo %>" alt="dish photo", width="100px" class="food_photo">
-
-  <div class="text_area">
-    <h1>
-      <%= @dish.name %>
-      <% if !user_signed_in? || current_user.favorites.filter { |favorite| favorite.dish == @dish}.empty? %>
-            <%= link_to "🖤", dish_favorites_path(@dish), method: :post%>
-      <% else %>
-            <%= link_to "❤️", dish_favorite_path(@dish, current_user.favorites.filter { |favorite| favorite.dish == @dish}.first ), method: :delete%>
-      <% end %>
-    </h1>
-    <span>
-      <%= link_to @dish.restaurant.name, restaurant_path(@dish.restaurant) %>
-    </span>
+    <div class="text_area">
+      <h1>
+        <%= @dish.name %>
+        <% if !user_signed_in? || current_user.favorites.filter { |favorite| favorite.dish == @dish}.empty? %>
+              <%= link_to "🖤", dish_favorites_path(@dish), method: :post%>
+        <% else %>
+              <%= link_to "❤️", dish_favorite_path(@dish, current_user.favorites.filter { |favorite| favorite.dish == @dish}.first ), method: :delete%>
+        <% end %>
+      </h1>
+      <span>
+        <%= link_to @dish.restaurant.name, restaurant_path(@dish.restaurant) %>
+      </span>
+    </div>
   </div>
 
-
   <div class="review-container">
-    <div class="dish-vote-container">
+    <div class="vote-container">
       <%= link_to '<i class="fas fa-thumbs-down"></i>'.html_safe , dish_votes_path(@dish, vote: -1), method: :post, class: "vote-button down"%>
       <div class="num_box">
         <h1><%= @dish.votes.map{|vote| vote.vote}.sum %></h1>
