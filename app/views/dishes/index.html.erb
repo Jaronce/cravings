@@ -17,7 +17,7 @@
         <div class="card_ban d-flex justify-content-end" style="background-image: url(<%= dish.photo %>);">
           <div>
             <% if !user_signed_in? || current_user.favorites.filter { |favorite| favorite.dish == dish}.empty? %>
-              <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorites_path(dish), class: 'link-to-text-color', method: :post%>
+              <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorites_path(dish), class: 'link-to-text-color', method: :post, remote: true %>
             <% else %>
               <%= link_to '<i class="fas fa-heart"></i>'.html_safe, dish_favorite_path(dish, current_user.favorites.filter { |favorite| favorite.dish == dish}.first ), class: 'link-to-text-color-liked', method: :delete%>
             <% end %>
