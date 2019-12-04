@@ -1,5 +1,5 @@
 body {
-  background-color: $main-beige;
+    background-color: $main-beige;
 }
 
 ///////////////////////////////////
@@ -78,6 +78,13 @@ body {
     height: 75px;
 }
 
+.add-review {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 30px;
+}
+
 // .dish-vote-container {
 //   display: flex;
 //   justify-content: center;
@@ -133,28 +140,30 @@ body {
 }
 
 //////////////////////////////
+
 // #current-address {
-//   font-weight: bold;
-//   font-size: 16px;
-//   color: black;
-//   margin-left: 22px;
-//   margin-bottom: 0px;
+//     font-weight: bold;
+//     font-size: 16px;
+//     color: black;
+//     margin-left: 22px;
+//     margin-bottom: 0px;
 // }
 
 // .index-review-container {
-//   width: 100%;
-//   background-color: white;
-//   border-radius: 24px 24px 0px 0px;
-//   border-color: red;
-//   // display: absolute;
-//   position: relative;
-//   padding: 2% 0;
-//   z-index: 2;
-//   .avatar {
-//       width: 53px;
-//       height: 53px;
-//   }
+//     width: 100%;
+//     background-color: white;
+//     border-radius: 24px 24px 0px 0px;
+//     border-color: red;
+//     // display: absolute;
+//     position: relative;
+//     padding: 38px 0;
+//     z-index: 2;
+//     .avatar {
+//         width: 53px;
+//         height: 53px;
+//     }
 // }
+
 
 ////////////////////////////////
 .review-container {
@@ -194,19 +203,19 @@ body {
 }
 
 .review-vote-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: $main-orange;
-  font-weight: bold;
-  font-size: 12px;
-  margin-right: 6%;
-  i {
-      color: $main-grey;
-  }
-  span {
-      font-size: 13px;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $main-orange;
+    font-weight: bold;
+    font-size: 12px;
+    margin-right: 6%;
+    i {
+        color: $main-grey;
+    }
+    span {
+        font-size: 13px;
+    }
 }
 
 .review-button:hover {
@@ -252,8 +261,15 @@ body {
   margin: 0% 7% 1%;
   &.top {
     margin-top: 2%;
+    font-size: 13px;
+    margin: 0px 3px 0px 5px;
   }
 }
+
+// .index-h3 {
+//     font-size: 16px;
+//     margin: 2% 7% 1%;
+// }
 
 h6 {
     color: white;
@@ -271,9 +287,9 @@ h6 {
     opacity: 0.8;
 }
 
-h5 {
-    font-size: 12px;
-    font-weight: bold;
-    text-align: right;
-    padding: 27px;
-}
+// h5 {
+//     font-size: 12px;
+//     font-weight: bold;
+//     text-align: right;
+//     padding: 27px;
+// } review bar /might have to come back to review this!
