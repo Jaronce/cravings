@@ -3,6 +3,7 @@ var favoritedHeartFilled = document.querySelectorAll("[data-favorite='<%= @favor
 console.log("ajax", `<%= @favorite %>`, favoritedHeartFilled, 'destroy', '<%= @destroy %>');
 var favoriteCard = document.querySelector("[data-card='<%= @favorite.id %>']")
 var favoriteCardContainer = document.querySelector("#container_favorite_card");
+
 debugger
 if ('<%= @destroy %>' == 'true') {
   // destroy favorite
