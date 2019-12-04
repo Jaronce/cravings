@@ -7,12 +7,12 @@
 ></div>
 
 <h4 id ="current-address">Montréal</h4>
-
+<input id="search_bar" type="text">
 <div class="index-review-container">
   <h3 class="index-h3"><strong>Top <%= @category.name %> </strong></h3>
-  <div class="container_card">
+  <div class="container_card main_dish_search">
     <% @list.each do |dish| %>
-      <div class="card">
+      <div class="card main_dish_search_card" data-description="<%= dish.name %>">
         <img src="<%= dish.restaurant.photo %>" alt="dish photo", class="logo">
         <div class="card_ban d-flex justify-content-end" style="background-image: url(<%= dish.photo %>);">
           <div>
@@ -99,3 +99,34 @@
     <% end %>
   <% end %>
 </div>
+
+<script>
+  // main_dish_search_card
+  const mainDishSearchCards = document.querySelectorAll(".main_dish_search_card")
+
+  const searchBar = document.getElementById("search_bar");
+  searchBar.addEventListener("input", (event) => {
+    console.log(event.currentTarget.value);
+
+    const searchQuery = event.currentTarget.value;
+
+    mainDishSearchCards.forEach((card) => {
+      const nameOfDish = card.getAttribute("data-description")
+
+      if (nameOfDish.toLowerCase().includes(searchQuery.toLowerCase())) {
+        card.style.display = "inline-block";
+      } else {
+        card.style.display = "none";
+      }
+
+      if (nameOfDish.length === 0 ) {
+        card.style.display = "block";
+      }
+    })
+
+
+
+  })
+
+
+</script>
