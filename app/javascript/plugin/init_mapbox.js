@@ -25,6 +25,9 @@ const initMapbox = () => {
       interactive: false,
       center: [lng, lat]
     });
+    // const el = document.createElement('div');
+    // el.className = 'marker';
+
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
       new mapboxgl.Marker()
