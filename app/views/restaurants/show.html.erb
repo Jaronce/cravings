@@ -45,7 +45,7 @@
       </div>
     </div>
     <% @list.each do |dish| %>
-      <div class="container_card_lg">
+      <div class="container_card_lg show">
 
         <div class="card_lg">
 
@@ -61,7 +61,7 @@
 
             <div class="card_infos">
               <h2 class="txt"><%= dish.name %></h2>
-              <p class="txt_desc"><%= dish.restaurant.name %><%= "$" * (dish.price) %></p>
+              <p class="txt_desc"><%= dish.restaurant.name %></p>
             </div>
 
           </div>

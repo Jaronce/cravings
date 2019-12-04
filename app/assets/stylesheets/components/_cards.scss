@@ -1,27 +1,33 @@
-//primary card css----------------------------------------------------------------
-// .container_card {
-//   height: 220px;
-//   margin: 2% 7% 5%;
-//   overflow-x: scroll;
-//   overflow-y: hidden;
-//   white-space: nowrap;
-// }
 
-
-
-
-.container_card::-webkit-scrollbar {
-  display: none;
+.container_card {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  height: 220px;
+  margin: 2% 7% 0%;
 }
 
+
 .card {
-  display: inline-block;
+  flex-shrink: 0;
   box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
   height: 200px;
   width: 150px;
   margin-right: 8px;
 }
+
+
+.card-content {
+  height: 73px;
+  // align-items: center;
+}
+
+
+.container_card::-webkit-scrollbar {
+  display: none;
+}
+
 
 .card_ban {
   height: 50%;
@@ -46,11 +52,11 @@
   // padding: 10px;
   .vote-num {
     width: 100%;
-    padding-right: 3%;
     font-size: 12px;
+    margin: 3px 5px 0px -5px;
   }
   .fas {
-    margin: 3px 0px 0px 5px;
+    margin: 2px 0px 0px 5px;
   }
   .txt {
     margin: 3% 5%;
@@ -60,6 +66,7 @@
   .txt-subtilte {
     margin: 3% 5%;
     font-size: 12px;
+    align-items: center;
     // margin-top: 20%;
   }
 }
@@ -87,24 +94,54 @@
 
 
 .txt_desc {
-  font-size: 11px;
+  font-size: 12px;
   color: #C1C1C1;
 }
 
 .like {
-  color: #FD5C3A;
+  color: $main-orange;
 }
 
 .fa-thumbs-up {
-  color: #FD5C3A;
+  color: $main-orange;
 }
+
+/////////////////////////////////
+
+.index-review-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 24px 24px 0px 0px;
+  border-color: red;
+  // display: absolute;
+  position: relative;
+  padding: 2% 0;
+  z-index: 2;
+  .avatar {
+      width: 53px;
+      height: 53px;
+  }
+}
+
+#current-address {
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+  margin-left: 22px;
+  margin-bottom: 0px;
+}
+
 
 
 // suggestion card css --------------------------------------------------------
 .container_card_lg {
-  width: 90%;
-  margin: 20px auto;
+  margin: -2% 7% 0%;
+  padding-bottom: 60px;
+  &.show {
+    padding-bottom: 0px;
+  }
 }
+
 
 .card_lg {
   overflow: hidden;
@@ -116,27 +153,34 @@
   margin: 20px auto;
   border-radius: 8px;
   justify-content: space-between;
+  img {
+    height: 100%;
+    width: 33%;
+    object-fit: cover;
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 12px;
+    margin-top: -6px;
+  }
+  .fas {
+    margin: 2px 0px 0px 5px;
+  }
+  .card_infos {
+    padding: 0 4px;
+  }
+
 }
 
-.card_lg img {
-  height: 100%;
-  width: 33%;
-  object-fit: cover;
+
+
+.vote_num_3 {
+  font-size: 13px;
 }
 
-.card_lg h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card_lg p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
 
 
 .flex-grow-1 {
@@ -163,10 +207,10 @@
   color: #fff;
 }
 .link-to-text-color-liked {
-  color: #FD5C3A;
+  color: $main-orange;
 }
 .link-to-text-color-liked:hover {
-  color: #FD5C3A;
+  color: $main-orange;
 }
 // scroll the cards-------------------
 
@@ -184,28 +228,28 @@
 
 
 
-.container_card {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: scroll;
-  height: 220px;
-  margin: 2% 7% 5%;
-}
+// .container_card {
+//   display: flex;
+//   flex-wrap: nowrap;
+//   overflow-x: scroll;
+//   height: 220px;
+//   margin: 2% 7% 5%;
+// }
 
 
-.card {
-  flex-shrink: 0;
-  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.16);
-  border-radius: 8px;
-  height: 200px;
-  width: 150px;
-  margin-right: 8px;
-}
+// .card {
+//   flex-shrink: 0;
+//   box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.16);
+//   border-radius: 8px;
+//   height: 200px;
+//   width: 150px;
+//   margin-right: 8px;
+// }
 
 
-.card-content {
-  height: 73px;
-}
+// .card-content {
+//   height: 73px;
+// }
 
 
 
