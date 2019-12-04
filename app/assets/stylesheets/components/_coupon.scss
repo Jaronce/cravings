@@ -1,165 +1,165 @@
 .qrcode {
-  display: flex;
-  justify-content: center;
-  padding: 40px 30px;
-  svg {
-    height: 180px;
-    width: 180px;
-  }
+    display: flex;
+    justify-content: center;
+    padding: 40px 30px;
+    svg {
+        height: 180px;
+        width: 180px;
+    }
 }
-.coupon-popup {
-  position: relative;
-  display: flex;
-  height: 130px;
-  width: 255px;
-  position: fixed;
-  background-color: #FD5C3A;
-  z-index: 3;
-  right: 0px;
-  bottom: 71px;
-  border-radius: 3px;
-  opacity: 0.9;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 
+.coupon-popup {
+    position: relative;
+    display: flex;
+    height: 130px;
+    width: 255px;
+    position: fixed;
+    background-color: #FD5C3A;
+    z-index: 3;
+    right: 0px;
+    bottom: 71px;
+    border-radius: 3px;
+    opacity: 0.9;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
+
 @keyframes slideLeft {
-  0%, 100% {
-    transform: translate3d(100%,0,0);
-  }
-
-  10%, 90% {
-    transform: translate3d(-2rem,0,0);
-  }
+    0%,
+    100% {
+        transform: translate3d(100%, 0, 0);
+    }
+    10%,
+    90% {
+        transform: translate3d(-2rem, 0, 0);
+    }
 }
 
 .coupon-popup {
-  transform: translate3d(100%,0,0);
-  animation: slideLeft 15s 2s 1 cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translate3d(100%, 0, 0);
+    animation: slideLeft 15s 2s 1 cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-
 
 .hooray-gif {
-  width: 79px;
-  height: 84px;
-  margin: 20px;
+    width: 79px;
+    height: 84px;
+    margin: 20px;
 }
 
 #redeem {
-  text-align: left;
-  color: white;
-  font-weight: bold;
-  text-decoration: underline;
+    text-align: left;
+    color: white;
 }
 
 .hooray-text {
-  color: white;
+    color: white;
+    margin: 10px 0 10px 10px;
 }
 
 #hooray-notification {
-  text-align: left;
-  padding-left: 15px;
-  margin-bottom: 0px;
+    text-align: left;
+    margin-bottom: 0px;
 }
 
 #hooray {
-  margin-left: 15px;
-  margin-top: 8px;
-  margin-bottom: 0px;
-  font-size: 24px;
-  text-align: left;
+    margin-bottom: 0px;
+    font-size: 24px;
+    text-align: left;
 }
- .overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    // visibility: hidden;
+    opacity: 0;
+    // transition: opacity 500ms;
 }
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
+
+.overlay-visible {
+    // visibility: visible;
+    opacity: 1;
 }
 
 #popup1 {
-  z-index: 3;
+    z-index: 3;
 }
 
 .popup {
-  margin: 70px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
-  transition: all 3s ease-in-out;
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 3s ease-in-out;
 }
 
 .popup h2 {
-  margin-top: 0;
-  color: #333;
-  font-family: Tahoma, Arial, sans-serif;
-}
-.popup .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-}
-.popup .close:hover {
-  color: #06D85F;
-}
-.popup .content {
-  max-height: 40%;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 8px;
-  border-top: 4px solid orange;
-  padding-top: 33px;
-  p {
-    text-align: center;
-  }
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
 }
 
-@media screen and (max-width: 700px){
-  .box{
-    width: 70%;
-  }
-  .popup{
-    width: 70%;
-  }
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    max-height: 40%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8px;
+    border-top: 4px solid orange;
+    padding-top: 33px;
+    p {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
 }
 
 .btn-secondary {
-  background-color: $main-orange;
-  color: white;
-  width: 81px!important;
-  border-radius: 8px!important;
-
+    background-color: $main-orange;
+    color: white;
+    width: 81px!important;
+    border-radius: 8px!important;
 }
 
 .btn-secondary:hover {
-  background-color: $main-orange;
-  color: white;
-  opacity: 0.8;
-  width: 81px!important;
-  border-radius: 8px!important;
+    background-color: $main-orange;
+    color: white;
+    opacity: 0.8;
+    width: 81px!important;
+    border-radius: 8px!important;
 }
 
 .coupon-container {
-  display: relative;
+    display: relative;
 }
 
-
 .coupon-button {
-  display: absolute;
+    display: absolute;
 }
