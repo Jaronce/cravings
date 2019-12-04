@@ -34,9 +34,6 @@
     </div>
   </div>
 
-  <div class="coupon-container">
-    <img src="<%= @restaurant.photo %>" alt="restaurant photo", width="100px" class="restaurant_photo">
-  </div>
 
   <div class="text_area">
     <h1>
@@ -46,7 +43,7 @@
       <%= link_to @restaurant.dishes.first.category.name, dishes_path(category: "Japanese"), class: "category-button"%>
     </span>
   </div>
-  <div class="review-container" style="">
+  <%# <div class="review-container" style=""> %>
       
       
     <div class="vote-container">
@@ -55,6 +52,9 @@
         <h6>satisfied cravers</h6>
       </div>
     </div>
+
+
+  <div class="review-container" style="">
      <% @list.each do |dish| %>
       <div class="container_card_lg">
         <%= link_to dish_path(dish), class: "link-to-dish" do %>
