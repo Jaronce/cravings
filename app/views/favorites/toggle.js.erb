@@ -1,0 +1,25 @@
+
+var favoritedHeartFilled = document.querySelectorAll("[data-favorite='<%= @favorite.id %>']");
+console.log("ajax", `<%= @favorite %>`, favoritedHeartFilled, 'destroy', '<%= @destroy %>');
+var favoriteCard = document.querySelector("[data-card='<%= @favorite.id %>']")
+var favoriteCardContainer = document.querySelector("#container_favorite_card");
+
+if ('<%= @destroy %>' == 'true') {
+  // destroy favorite
+  favoritedHeartFilled[0].style.color = 'transparent';
+  favoritedHeartFilled[1].parentElement.parentElement.parentElement.remove()
+} else {
+  // create favorite
+  var favoriteDish = document.querySelector("[data-dish='<%= @dish.id %>']")
+  var card = '<%= j render "shared/favorite_card", favorite: @favorite, dish: @dish %>'
+  var destroyLink = '<%= j render "shared/delete_toggle", favorite: @favorite, dish: @dish %>';
+  favoriteDish.outerHTML = destroyLink;
+  favoriteCardContainer.insertAdjacentHTML('afterbegin', card)
+  favoriteDish.style.color = '#FD5C3A';
+  favoriteDish.children[0].classList.remove("far");
+  favoriteDish.children[0].classList.add("fas");
+  favoriteDish.classList.remove("link-to-text-color");
+}
+
+
+

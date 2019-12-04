@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   resources :dishes, only: [:index]
 
 
-  resources :dishes, only: [:show] do
+  resources :dishes, only: [:show, :destroy] do
     resources :votes, only: [:create]
     resources :favorites, only: [:create, :destroy]
   end
+
+  get 'dishes/:dish_id/favorites/toggle', to: 'favorites#toggle', as: :toggle
 
   resources :reviews, only: [:show] do
     resources :vote_reviews, only: [:create]

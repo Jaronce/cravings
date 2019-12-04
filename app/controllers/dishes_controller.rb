@@ -57,4 +57,8 @@ class DishesController < ApplicationController
   def total_review_votes(review)
     review.vote_reviews.map {|votes| votes.vote }.sum
   end
+
+  def destroy
+    @dish = Dish.find(params[:id])
+  end
 end
