@@ -1,23 +1,21 @@
 <div class="head-container">
-  <img src="<%= @restaurant.photo %>" alt="restaurant photo", width="100px" class="restaurant_photo">
+  <div class="mobile-forehead">
+    <img src="<%= @restaurant.photo %>" alt="restaurant photo", width="100px" class="restaurant_photo">
 
 
-  <div class="text_area">
-    <h1><%= @restaurant.name %> <i class="fas fa-map-marker-alt"></i></h1>
-    <p><%= @restaurant.dishes.first.category.name %></p>
+    <div class="text_area">
+      <h1><%= @restaurant.name %> <i class="fas fa-map-marker-alt"></i></h1>
+      <p><%= @restaurant.dishes.first.category.name %></p>
+    </div>  
+  </div>
 
+  <div class="review-container">
     <div class="vote-container">
       <div class="num_box">
         <h1><%= @votes %></h1>
         <h6>satisfied cravers</h6>
       </div>
     </div>
-  </div>
-
-
-
-  <div class="review-container">
-
 
 
       <% @list.each do |dish| %>
