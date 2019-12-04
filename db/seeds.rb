@@ -95,6 +95,10 @@ p "Creating Reviews/ Review Votes"
 
 reviews = []
 
+
+
+
+
 # Creating Top Review of Ramen - TBU
 review_top = Review.new(content: "This one should be on the top This one should be on the top ", photo: "https://i.redd.it/c0e87106cgky.jpg")
 review_top.dish = Dish.where(name: "Tonkotsu Ramen").first
@@ -140,6 +144,8 @@ users.sample(rand(20..30)).each do |user|
   reviews << review
 end
 
+
+
 # 20~40 reviews also got vote randomly
 reviews.each do |review|
   users.sample(rand(10..80)).each do |user|
@@ -149,6 +155,5 @@ end
 
 
 p "Seed done :D Let's check the page"
-
 
 
