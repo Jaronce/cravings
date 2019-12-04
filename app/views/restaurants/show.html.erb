@@ -1,27 +1,31 @@
+  <!-- new popup -->
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <div class="qrcode">
+        <svg>
+          <%= @svg_string.html_safe %>
+        </svg>
+      </div>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+        <p>Congrats! You get 15% off your next visit to <%= @restaurant.name %></p>
+        <img id="coupon-gif" src="https://item.kakaocdn.net/do/36e509cee3c0d3e6284e26f4df760bcaf43ad912ad8dd55b04db6a64cddaf76d" alt="Celebrate" style="width: 50%;">
+      </div>
+    </div>
+  </div>
+  <!-- end of popup -->
+
+
 <div class="head-container">
 
   <div class="coupon-popup">
     <div class="hooray-text">
       <p id="hooray">Hooray!</p>
       <p id="hooray-notification">We’ve found a coupon for you!</p>
-      <a id="redeem" data-toggle="modal" data-target="#exampleModal">
+      <a id="redeem" href="#popup1">
         Redeem Now!
       </a>
     </div>
-
-    <!-- Modal Coupon Code Pop up-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <svg class='qrcode'>
-            <%= @svg_string.html_safe %>
-          </svg>
-          <p>Congrats! You get 15% off your next visit to </p>
-          <img id="coupon-gif" src="" alt="Celebrate" style="width:79px;height:84px;">
-        </div>
-      </div>
-    </div>
-
     <div class="hooray-gif">
       <img id="celebrate-gif" src="https://i.pinimg.com/originals/93/94/fb/9394fb96035f3f7c61b885ae8df208c5.gif" alt="Celebrate" style="width:79px;height:84px;">
     </div>
@@ -29,9 +33,7 @@
 
   <div class="coupon-container">
     <img src="<%= @restaurant.photo %>" alt="restaurant photo", width="100px" class="restaurant_photo">
-
   </div>
-
 
   <div class="text_area">
     <h1>
@@ -43,7 +45,7 @@
 
   </div>
 
-  <div class="review-container">
+  <div class="review-container" style="">
     <div class="vote-container">
       <div class="num_box">
         <h1><%= @votes %></h1>

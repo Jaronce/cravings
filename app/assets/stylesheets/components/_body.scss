@@ -1,5 +1,14 @@
 ///////////////////////////////////
 // Discount Button
+.qrcode {
+  display: flex;
+  justify-content: center;
+  padding: 40px 30px;
+  svg {
+    height: 180px;
+    width: 180px;
+  }
+}
 .coupon-popup {
   position: relative;
   display: flex;
@@ -61,8 +70,76 @@
   font-size: 24px;
   text-align: left;
 }
+ .overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
 
+#popup1 {
+  z-index: 3;
+}
 
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 3s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 40%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 8px;
+  border-top: 4px solid orange;
+  padding-top: 33px;
+  p {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
 
 .btn-secondary {
   background-color: $main-orange;
