@@ -11,8 +11,11 @@
 </div>
 
 <!-- Top 10 dishes -->
-<div class="index-review-container">
-    <input id="search_bar" type="text">
+<div class="index-review-container" style="position: relative;">
+    <div class="search_bar_container" style="padding-top: 14px; padding-bottom: 6px;">
+      <input class="" id="search_bar" type="text" style="border-radius: 32px; text-align: center; padding: 1px; color: #FD5C3A">
+      <i id="magnifyingGlassIcon" class="fas fa-search" style="color: #868686"></i>
+    </div>
   <h3 class="index-title top"><strong>Top 10 <%= @category.name %> </strong></h3>
   <div class="container_card">
     <% @list.each do |dish| %>
