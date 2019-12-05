@@ -22,9 +22,9 @@
 
 <!-- User's Favorite -->
 
-  <% if current_user.favorites %>
-  <div class="index-review-container"> 
-    <%# <% if user_signed_in? %> 
+  <%## if current_user.favorites %>
+  <div class="index-review-container">
+    <% if user_signed_in? %>
       <h3 class="index-title"><strong>Your Favorites</strong></h3>
       <div class="container_card" id="container_favorite_card">
         <% current_user.favorites.each do |favorite| %>

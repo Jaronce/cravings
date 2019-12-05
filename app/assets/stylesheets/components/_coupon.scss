@@ -83,13 +83,15 @@
     right: 0;
     background: rgba(0, 0, 0, 0.7);
     // visibility: hidden;
-    opacity: 0;
+    // opacity: 0;
+    display: none;
     // transition: opacity 500ms;
 }
 
 .overlay-visible {
     // visibility: visible;
     opacity: 1;
+    display: block;
 }
 
 #popup1 {
