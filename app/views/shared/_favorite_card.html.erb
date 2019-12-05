@@ -1,0 +1,29 @@
+<% if dish.photo.present? %>
+  <div class="card main_dish_search_card animated bounce delay-1s" data-description="<%= dish.name %>">
+    <img src="<%= dish.restaurant.photo %>" alt="dish photo", class="logo">
+    <div class="card_ban d-flex justify-content-end" style="background-image: linear-gradient(rgba(255, 255, 255, 0.25),rgba(255, 255, 255, 0.25)), url(<%= dish.photo %>);">
+      <div>
+        <%= link_to '<i class="fas fa-heart"></i>'.html_safe, toggle_path(dish, favorite_id: favorite.id), class: 'link-to-text-color-liked', method: :get, remote: true, data: { favorite: favorite.id } %>
+      </div>
+    </div>
+    <%= link_to dish_path(dish), class: "link-to-dish" do %>
+      <div class="card_detail">
+        <div class="vote-num d-flex justify-content-end">
+          <span><strong><%= dish.votes.map{|vote| vote.vote}.sum %></strong></span>
+          <i class="fas fa-thumbs-up"></i>
+        </div>
+        <div class="d-flex flex-column justify-content-between card-content">
+          <h4 class="txt"><%= dish.name %></h4>
+          <div class="txt-subtilte d-flex justify-content-between">
+            <span class="txt_desc">
+              <%= dish.restaurant.name %>
+            </span>
+            <span class="txt_desc">
+              <%= "$" * (dish.price) %>
+            </span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
