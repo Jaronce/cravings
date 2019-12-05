@@ -53,7 +53,7 @@ resto_japanese_5 = Restaurant.create!(name: "Sake grillades", address: "5125 St 
 
 
 p "Adding Dishes"
-tonkotsu_ramen = create_dish("Tonkotsu Ramen",2,resto_ramen,category_japanese,420,450,"https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/01__462-2019-07-17.jpg")
+tonkotsu_ramen = create_dish("Tonkotsu Ramen",2,resto_ramen,category_japanese,420,450,"https://res.cloudinary.com/dsvdkyjhh/image/upload/v1575586131/Screen_Shot_2019-12-05_at_5.45.51_PM_atbtch.png")
 
 create_dish("Shoyu ramen",3,resto_ramen_5,category_japanese,200,350,"https://www.seriouseats.com/2018/11/20181113-homemade-ramen-light-broth-chintan-shoyu-vicky-wasik-28-1500x1125.jpg")
 create_dish("Spicy miso ramen",2,resto_ramen_5,category_japanese,200,350,"https://i.redd.it/fnyxtr112r701.jpg")
@@ -75,7 +75,7 @@ create_dish("Sweet Potato Fries",1,resto_ramen_3,category_japanese,100,300,"http
 create_dish("Ika Yaki",3,resto_ramen_4,category_japanese,100,300,"https://s3.amazonaws.com/Menu_Pic/8abef4c0-aaf7-4c31-905d-0ef5f9aaaf24_ika-yaki.jpg")
 
 create_dish("Beef Rib",4,resto_poutine_2,category_canadian,420,450,"https://i.ytimg.com/vi/_-BYANCZP0o/maxresdefault.jpg")
-create_dish("JeKuk Bibmbap",3,resto_korean,category_korean,420,450,"https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+# create_dish("JeKuk Bibmbap",3,resto_korean,category_korean,420,450,"https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
 create_dish("Soondubu Jjigae",2,resto_korean,category_korean,400,420,"https://upload.wikimedia.org/wikipedia/commons/0/02/Sundubu-jjigae.jpg")
 create_dish("Cabane Poutine",3,resto_poutine,category_canadian,380,400,"https://s3-media0.fl.yelpcdn.com/bphoto/4g01wVDPhrcDaeqIauEK-g/o.jpg")
 create_dish("Vol au vent Poutine",2,resto_poutine,category_canadian,300,400,"https://s3-media0.fl.yelpcdn.com/bphoto/aFDkxdA1rpdqRaM-2o7FWw/o.jpg")
