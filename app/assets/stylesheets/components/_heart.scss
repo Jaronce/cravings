@@ -1,0 +1,51 @@
+/// index page heart
+
+.fa-heart {
+  font-size: 22px;
+  &::before {
+    -webkit-text-stroke: 1px white;
+  }
+  &.like {
+    color: $main-orange;
+  }
+}
+
+.link-to-text-color {
+  color: #fff;
+}
+
+.link-to-text-color:hover {
+  color: #fff;
+}
+.link-to-text-color-liked {
+  color: $main-orange;
+}
+.link-to-text-color-liked:hover {
+  color: $main-orange;
+}
+
+.link-to-text-color .fa-heart::before {
+  -webkit-text-stroke: initial; // default
+}
+
+/////////////////////////////////////////////
+/// show page heart
+
+
+.show-link-to-text-color {
+  color: $main-orange;
+}
+
+.show-link-to-text-color:hover {
+  color: $main-orange;
+}
+.show-link-to-text-color-liked {
+  color: $black;
+}
+.show-link-to-text-color-liked:hover {
+  color: $black;
+}
+
+.show-link-to-text-color .fa-heart::before {
+  -webkit-text-stroke: initial; // default
+}
