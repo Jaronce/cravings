@@ -78,8 +78,8 @@ create_dish("Vol au vent Poutine",2,resto_poutine,category_canadian,300,400,"htt
 create_dish("New York Poutine",3,resto_poutine,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/SSpHGJZXBqguBSKmmYkDaw/o.jpg")
 create_dish("Smoked meat Poutine",4,resto_poutine,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/jLi42rFbJo9JixyAbGNPqQ/o.jpg")
 create_dish("Pharaon",2,resto_poutine,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/yoMPmXqIsKSFS0f9XhLVUg/o.jpg")
-create_dish("Beef Rib",4,resto_poutine_2,category_canadian,300,400,"https://s3-media0.fl.yelpcdn.com/bphoto/QLshgiQVbH_mzeJHtzM9BA/o.jpg")
-create_dish("Bavette",4,resto_poutine_2,category_canadian,300,400,"https://s3-media0.fl.yelpcdn.com/bphoto/GCvwBUwqdt826U80Ola_LQ/o.jpg")
+create_dish("Beef Rib",4,resto_poutine_2,category_canadian,300,400,"https://i.ytimg.com/vi/_-BYANCZP0o/maxresdefault.jpg")
+create_dish("Bavette",4,resto_poutine_2,category_canadian,300,400,"https://goop.com/wp-content/uploads/2015/09/GrilledHangerSteakerChimichurri.jpg")
 create_dish("Pulled Pork Sandwich",3,resto_poutine_2,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/1Sgjt3K7Kbsvkr86Z2N4KA/o.jpg")
 create_dish("Beef tartare",2,resto_poutine_2,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/5mGYCP2E1sXICQnnurMQ6A/o.jpg")
 create_dish("Oysters",4,resto_poutine_2,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/-VLri98P4EooqsNyG55iPA/o.jpg")
@@ -90,6 +90,11 @@ create_dish("Poke Bowl",2,resto_japanese_2,category_japanese,100,300,"https://s3
 create_dish("Chicken Katsu",2,resto_japanese_3,category_japanese,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/pwbKUTRrlDm_tfUXZ03LLg/o.jpg")
 create_dish("Pablo Ying",2,resto_japanese_4,category_japanese,100,300,"https://d1ralsognjng37.cloudfront.net/93ce43b5-2f89-44d8-ba37-caff9e307a73")
 create_dish("Tataki au thon",2,resto_japanese_5,category_japanese,100,300,"https://d1ralsognjng37.cloudfront.net/0ed0b403-13fd-4cf6-9584-fe6e07acae56")
+create_dish("Tongkatsu",2,resto_korean,category_korean,100,300,"https://www.japanesecooking101.com/wp-content/uploads/2012/03/IMG_6705-e1333350334486.jpg")
+create_dish("Soondubu Jjigae",2,resto_korean,category_korean,100,300,"https://upload.wikimedia.org/wikipedia/commons/0/02/Sundubu-jjigae.jpg")
+create_dish("Hoe Deopbap",2,resto_korean,category_korean,100,300,"https://upload.wikimedia.org/wikipedia/commons/b/b8/Korean_food-Hoedeopbap-01.jpg")
+
+
 
 p "Creating Reviews/ Review Votes"
 
