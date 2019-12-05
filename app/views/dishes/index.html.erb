@@ -7,12 +7,12 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-  <h4 id ="current-address" style="margin: 24px auto; margin-left: 20px;">Montréal</h4>
-  <input id="search_bar" type="text">
+    <h4 id ="current-address" style="margin: 24px auto; margin-left: 20px;">5333 Casgrain Ave, Montreal, QC</h4>
 </div>
 
 <!-- Top 10 dishes -->
 <div class="index-review-container">
+    <input id="search_bar" type="text">
   <h3 class="index-title top"><strong>Top 10 <%= @category.name %> </strong></h3>
   <div class="container_card">
     <% @list.each do |dish| %>
@@ -21,16 +21,51 @@
   </div>
 
 <!-- User's Favorite -->
-<div class="index-review-container">
-    <% if user_signed_in? %>
+
+  <% if current_user.favorites %>
+  <div class="index-review-container"> 
+    <%# <% if user_signed_in? %> 
       <h3 class="index-title"><strong>Your Favorites</strong></h3>
-      <div class="container_card" id="favoriteCardContainer">
+      <div class="container_card" id="container_favorite_card">
         <% current_user.favorites.each do |favorite| %>
-          <%= render 'shared/favorited_dish_card', dish: favorite.dish, favorite: favorite %>
-        <% end %>
+          <div class="card" data-card="<%= favorite.id %>">
+            <img src="<%= favorite.dish.restaurant.photo %>" alt="dish photo", class="logo">
+              <div class="card_ban d-flex justify-content-end" style="background-image: url(<%= favorite.dish.photo %>);">
+                <div>
+                  <% if current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.empty? %>
+                    <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorites_path(favorite.dish), class: 'link-to-text-color', method: :post%>
+                  <% else %>
+                    <%= link_to '<i class="fas fa-heart"></i>'.html_safe, dish_favorite_path(favorite.dish, current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.first ), class: 'link-to-text-color-liked', method: :delete%>
+                 <% end %>
+               </div>
+            </div>
+          <%= link_to dish_path(favorite.dish), class: "link-to-dish" do %>
+            <div class="card_detail">
+              <div class="vote_num_2 d-flex justify-content-end">
+                <span><strong><%= favorite.dish.votes.map{|vote| vote.vote}.sum %></strong></span>
+                <i class="fas fa-thumbs-up"></i>
+              </div>
+              <div class="d-flex flex-column justify-content-between card-content">
+                <h4 class="txt"><%= favorite.dish.name %></h4>
+                <div class="txt-subtilte d-flex justify-content-between">
+                  <span class="txt_desc">
+                    <%= favorite.dish.restaurant.name %>
+                  </span>
+                  <span class="txt_desc">
+                    <%= "$" * (favorite.dish.price) %>
+                  </span>
+                </div>
+
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
+
+
 
 <!--Suggested Dishes -->
 <h3 class="index-title"><strong>Suggested</strong></h3>
