@@ -32,7 +32,7 @@ category_canadian = Category.create!(name: "canadian") # poutine, bagle
 
 p "Adding 5 restaurants"
 
-resto_ramen = Restaurant.create!(name: "Tsukuyomi", address: "5207 St Laurent Blvd, Montreal, Quebec H2T 1S4", photo: "https://s3-media0.fl.yelpcdn.com/bphoto/2BCxty0ScXP0ij3dEU7QzQ/l.jpg", longitude: -73.5969526, latitude: 45.5241759)
+resto_ramen = Restaurant.create!(name: "Tsukuyomi", address: "5207 St Laurent Blvd, Montreal, Quebec H2T 1S4", photo: "https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/App/10__462-2019-07-17.jpg", longitude: -73.5969526, latitude: 45.5241759)
 resto_ramen_2 = Restaurant.create!(name: "Ramen Ya", address: "4274 St Laurent Blvd, Montreal, Quebec H2W 1Z3", photo: "http://www.ramen-ya.ca/img_index_main_on.jpg", longitude: -73.5854547, latitude: 45.518514)
 resto_ramen_3 = Restaurant.create!(name: "Yokato Yokabai Ramen", address: "4185 Drolet St, Montreal, Quebec H2W 2L5", photo: "http://www.yoka.ca/restaurants/yokatoyokabai/website/images/header-logo.png?1560757380", longitude: -73.5807499, latitude: 45.5211845)
 resto_ramen_4 = Restaurant.create!(name: "Ichigo Ichie Izakaya", address: "360 Rue Rachel E, Montréal, Quebec H2W 1E9", photo: "http://www.ichigoichie.ca/restaurants/ichigoichie/website/images/header-logo.png?1560757380", longitude: -73.5806502, latitude: 45.5213029)
@@ -53,32 +53,35 @@ resto_japanese_5 = Restaurant.create!(name: "Sake grillades", address: "5125 St 
 
 
 p "Adding Dishes"
-tonkotsu_ramen = create_dish("Tonkotsu Ramen",2,resto_ramen,category_japanese,600,900,"https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/01__462-2019-07-17.jpg")
-jekuk_bibimbap = create_dish("JeKuk Bibmbap", 3, resto_korean, category_korean, 500, 700, "https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+tonkotsu_ramen = create_dish("Tonkotsu Ramen",2,resto_ramen,category_japanese,420,450,"https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/01__462-2019-07-17.jpg")
+
+create_dish("Shoyu ramen",3,resto_ramen_5,category_japanese,200,350,"https://www.seriouseats.com/2018/11/20181113-homemade-ramen-light-broth-chintan-shoyu-vicky-wasik-28-1500x1125.jpg")
+create_dish("Spicy miso ramen",2,resto_ramen_5,category_japanese,200,350,"https://i.redd.it/fnyxtr112r701.jpg")
 create_dish("Cold Ramen",2,resto_ramen,category_japanese,200,400,"https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/24__462-2019-07-17.jpg")
 create_dish("Vegan - Yuzu Ramen",2,resto_ramen,category_japanese,100,400,"https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/21__462-2019-07-17.jpg")
 create_dish("Chicken Tonkotsu Ramen",2,resto_ramen,category_japanese,100,400,"https://vignette.wikia.nocookie.net/ramen/images/c/c2/Tonkotsu_ramen_640.jpg/revision/latest?cb=20150514230437")
-create_dish("Chicken Karaage",4,resto_ramen,category_japanese,100,300,"https://static01.nyt.com/images/2018/07/25/dining/HK-karaage-horizontal/merlin_141075300_74569dec-9fc2-4174-931d-019dddef3bb8-articleLarge.jpg")
-create_dish("Chashu Donburi",3,resto_ramen,category_japanese,100,300,"https://burpple-1.imgix.net/foods/38aafc290086359155a1535729_original.?w=645&dpr=1&fit=crop&q=80&auto=format")
 create_dish("Pork Tonkotsu Ramen",2,resto_ramen_2,category_japanese,300,400,"https://glebekitchen.com/wp-content/uploads/2017/02/ramenfront.jpg")
-create_dish("Beef Gyoza",2,resto_ramen_2,category_japanese,300,400,"https://img.taste.com.au/QpExN-2A/taste/2016/11/beef-gyoza-with-black-vinegar-dipping-sauce-7322-1.jpeg")
-create_dish("Pork Katsu Curry",2,resto_ramen_2,category_japanese,100,300,"https://www.justonecookbook.com/wp-content/uploads/2014/06/Katsu-Curry-500x467.jpg")
 create_dish("Vege Tonkotsu Ramen",3,resto_ramen_3,category_japanese,100,300,"https://gastroplant.com/wp-content/uploads/2019/01/1811_Vegan-Tonkotsu-Ramen_550-480x270.jpg")
 create_dish("Chashu Shoyu Ramen",4,resto_ramen_3,category_japanese,100,300,"https://media-cdn.tripadvisor.com/media/photo-s/08/bb/5e/7d/chashu-shoyu-ramen.jpg")
-create_dish("Sweet Potato Fries",1,resto_ramen_3,category_japanese,100,300,"http://www.yoka.ca/restaurants/yokatoyokabai/gallery/8_large.jpg")
-create_dish("Yakitori",3,resto_ramen_4,category_japanese,300,400,"http://www.ichigoichie.ca/restaurants/ichigoichie/gallery/7_large.jpg")
+
+create_dish("Hiyashi Don",4,resto_ramen_5,category_japanese,600,700,"https://scontent.fyxk1-1.fna.fbcdn.net/v/t1.0-9/64589649_2386124424957706_5031007850244079616_o.jpg?_nc_cat=103&_nc_ohc=GtZrNdP4O_8AQlfQ4IIHii_dpvZ7V0FS7tmtIWz3eiA_fmahBjTplPM5A&_nc_ht=scontent.fyxk1-1.fna&oh=6c16b19bb9f554a3ee69cb7d714a0510&oe=5E47A1C9")
+create_dish("Yakitori",3,resto_ramen_4,category_japanese,500,600,"http://www.ichigoichie.ca/restaurants/ichigoichie/gallery/7_large.jpg")
 create_dish("Agedashi Tofu",3,resto_ramen_4,category_japanese,300,400,"http://www.ichigoichie.ca/restaurants/ichigoichie/gallery/6_large.jpg")
+create_dish("Chirashi Don",4,resto_ramen_5,category_japanese,100,200,"https://scontent.fyxk1-1.fna.fbcdn.net/v/t1.0-9/52920210_2307926926110790_5575701156115513344_o.jpg?_nc_cat=103&_nc_ohc=K_8GPW3za4YAQnRklr_RqnaRpGfwrnoShq59N9q1v1Mh8ei5W_9DqboVw&_nc_ht=scontent.fyxk1-1.fna&oh=1e782b5a0fefdeb4112284b93f0f0732&oe=5E416EC7")
+create_dish("Chicken Karaage",4,resto_ramen,category_japanese,300,350,"https://static01.nyt.com/images/2018/07/25/dining/HK-karaage-horizontal/merlin_141075300_74569dec-9fc2-4174-931d-019dddef3bb8-articleLarge.jpg")
+create_dish("Chashu Donburi",3,resto_ramen,category_japanese,100,300,"https://burpple-1.imgix.net/foods/38aafc290086359155a1535729_original.?w=645&dpr=1&fit=crop&q=80&auto=format")
+create_dish("Pork Katsu Curry",2,resto_ramen_2,category_japanese,100,300,"https://www.justonecookbook.com/wp-content/uploads/2014/06/Katsu-Curry-500x467.jpg")
+create_dish("Sweet Potato Fries",1,resto_ramen_3,category_japanese,100,300,"http://www.yoka.ca/restaurants/yokatoyokabai/gallery/8_large.jpg")
 create_dish("Ika Yaki",3,resto_ramen_4,category_japanese,100,300,"https://s3.amazonaws.com/Menu_Pic/8abef4c0-aaf7-4c31-905d-0ef5f9aaaf24_ika-yaki.jpg")
-create_dish("Shoyu ramen",3,resto_ramen_5,category_japanese,300,400,"https://www.seriouseats.com/2018/11/20181113-homemade-ramen-light-broth-chintan-shoyu-vicky-wasik-28-1500x1125.jpg")
-create_dish("Spicy miso ramen",2,resto_ramen_5,category_japanese,300,400,"https://i.redd.it/fnyxtr112r701.jpg")
-create_dish("Hiyashi Don",4,resto_ramen_5,category_japanese,100,300,"https://scontent.fyxk1-1.fna.fbcdn.net/v/t1.0-9/64589649_2386124424957706_5031007850244079616_o.jpg?_nc_cat=103&_nc_ohc=GtZrNdP4O_8AQlfQ4IIHii_dpvZ7V0FS7tmtIWz3eiA_fmahBjTplPM5A&_nc_ht=scontent.fyxk1-1.fna&oh=6c16b19bb9f554a3ee69cb7d714a0510&oe=5E47A1C9")
-create_dish("Chirashi Don",4,resto_ramen_5,category_japanese,100,300,"https://scontent.fyxk1-1.fna.fbcdn.net/v/t1.0-9/52920210_2307926926110790_5575701156115513344_o.jpg?_nc_cat=103&_nc_ohc=K_8GPW3za4YAQnRklr_RqnaRpGfwrnoShq59N9q1v1Mh8ei5W_9DqboVw&_nc_ht=scontent.fyxk1-1.fna&oh=1e782b5a0fefdeb4112284b93f0f0732&oe=5E416EC7")
-create_dish("Cabane Poutine",3,resto_poutine,category_canadian,300,400,"https://s3-media0.fl.yelpcdn.com/bphoto/4g01wVDPhrcDaeqIauEK-g/o.jpg")
+
+create_dish("Beef Rib",4,resto_poutine_2,category_canadian,420,450,"https://i.ytimg.com/vi/_-BYANCZP0o/maxresdefault.jpg")
+create_dish("JeKuk Bibmbap",3,resto_korean,category_korean,420,450,"https://www.touristsecrets.com/wp-content/uploads/1019/06/1-Featured-image-Korean-BBQ-by-arjieljosephfg-on-Instagram-1160x653.jpg")
+create_dish("Soondubu Jjigae",2,resto_korean,category_korean,400,420,"https://upload.wikimedia.org/wikipedia/commons/0/02/Sundubu-jjigae.jpg")
+create_dish("Cabane Poutine",3,resto_poutine,category_canadian,380,400,"https://s3-media0.fl.yelpcdn.com/bphoto/4g01wVDPhrcDaeqIauEK-g/o.jpg")
 create_dish("Vol au vent Poutine",2,resto_poutine,category_canadian,300,400,"https://s3-media0.fl.yelpcdn.com/bphoto/aFDkxdA1rpdqRaM-2o7FWw/o.jpg")
 create_dish("New York Poutine",3,resto_poutine,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/SSpHGJZXBqguBSKmmYkDaw/o.jpg")
 create_dish("Smoked meat Poutine",4,resto_poutine,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/jLi42rFbJo9JixyAbGNPqQ/o.jpg")
 create_dish("Pharaon",2,resto_poutine,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/yoMPmXqIsKSFS0f9XhLVUg/o.jpg")
-create_dish("Beef Rib",4,resto_poutine_2,category_canadian,300,400,"https://i.ytimg.com/vi/_-BYANCZP0o/maxresdefault.jpg")
 create_dish("Bavette",4,resto_poutine_2,category_canadian,300,400,"https://goop.com/wp-content/uploads/2015/09/GrilledHangerSteakerChimichurri.jpg")
 create_dish("Pulled Pork Sandwich",3,resto_poutine_2,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/1Sgjt3K7Kbsvkr86Z2N4KA/o.jpg")
 create_dish("Beef tartare",2,resto_poutine_2,category_canadian,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/5mGYCP2E1sXICQnnurMQ6A/o.jpg")
@@ -90,9 +93,10 @@ create_dish("Poke Bowl",2,resto_japanese_2,category_japanese,100,300,"https://s3
 create_dish("Chicken Katsu",2,resto_japanese_3,category_japanese,100,300,"https://s3-media0.fl.yelpcdn.com/bphoto/pwbKUTRrlDm_tfUXZ03LLg/o.jpg")
 create_dish("Pablo Ying",2,resto_japanese_4,category_japanese,100,300,"https://d1ralsognjng37.cloudfront.net/93ce43b5-2f89-44d8-ba37-caff9e307a73")
 create_dish("Tataki au thon",2,resto_japanese_5,category_japanese,100,300,"https://d1ralsognjng37.cloudfront.net/0ed0b403-13fd-4cf6-9584-fe6e07acae56")
-create_dish("Tongkatsu",2,resto_korean,category_korean,100,300,"https://www.japanesecooking101.com/wp-content/uploads/2012/03/IMG_6705-e1333350334486.jpg")
-create_dish("Soondubu Jjigae",2,resto_korean,category_korean,100,300,"https://upload.wikimedia.org/wikipedia/commons/0/02/Sundubu-jjigae.jpg")
-create_dish("Hoe Deopbap",2,resto_korean,category_korean,100,300,"https://upload.wikimedia.org/wikipedia/commons/b/b8/Korean_food-Hoedeopbap-01.jpg")
+create_dish("Tongkatsu",2,resto_korean,category_korean,300,400,"https://www.japanesecooking101.com/wp-content/uploads/2012/03/IMG_6705-e1333350334486.jpg")
+create_dish("Hoe Deopbap",2,resto_korean,category_korean,300,400,"https://upload.wikimedia.org/wikipedia/commons/b/b8/Korean_food-Hoedeopbap-01.jpg")
+
+create_dish("Beef Gyoza",2,resto_ramen_2,category_japanese,400,420,"https://img.taste.com.au/QpExN-2A/taste/2016/11/beef-gyoza-with-black-vinegar-dipping-sauce-7322-1.jpeg")
 
 
 
@@ -100,45 +104,39 @@ p "Creating Reviews/ Review Votes"
 
 reviews = []
 
-
-
-
-
 # Creating Top Review of Ramen - TBU
-review_top = Review.new(content: "This one should be on the top This one should be on the top ", photo: "https://i.redd.it/c0e87106cgky.jpg")
-review_top.dish = Dish.where(name: "Tonkotsu Ramen").first
-review_top.user = User.all[3]
-review_top.save!
-
+review_third = Review.new(content: "This ramen joint is amazing but what really makes my days is their Tonkotsu Ramen! Its a Pork broth soup with nice firm thin noodles, perfectly cooked boiled eggs and tender pork belly roasted to perfection.", photo: "https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/15__462-2019-07-17.jpg")
+review_third.dish = Dish.where(name: "Tonkotsu Ramen").first
+review_third.user = User.all[5] # This user need to catch up
+review_third.save!
 
 # 100~200 people upvoting for Top Review
 users.sample(rand(120..150)).each do |user|
-  vote_review(user, review_top)
-
+  vote_review(user, review_third)
 end
 
-# Creating Top Review of Ramen - TBU
-review_second = Review.new(content: "This one should be on the two This one should be on the two ")
+# Creating Second Review of Ramen - TBU
+review_second = Review.new(content: "To make things even better if you are a spicy lover, make sure to ask for Spicy Miso, it will blow your mind.")
 review_second.dish = Dish.where(name: "Tonkotsu Ramen").first
 review_second.user = User.all[4]
 review_second.save!
 
-# 100~200 people upvoting for Top Review
+# 100~200 people upvoting for second Review
 users.sample(rand(100..120)).each do |user|
   vote_review(user, review_second)
 end
 
 # Creating Top Review of Ramen - TBU
-review_third = Review.new(content: "This one should be on the top This one should be on the top ", photo: "https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/15__462-2019-07-17.jpg")
-review_third.dish = Dish.where(name: "Tonkotsu Ramen").first
-review_third.user = User.all[5]
-review_third.save!
-
+review_top = Review.new(content: "The Ramen has special taste, I have lived in Tokyo for 5 years, but the soup is favorite", photo: "https://i.redd.it/c0e87106cgky.jpg")
+review_top.dish = Dish.where(name: "Tonkotsu Ramen").first
+review_top.user = User.all[3]
+review_top.save!
 
 # 100~200 people upvoting for Top Review
 users.sample(rand(80..100)).each do |user|
-  vote_review(user, review_third)
+  vote_review(user, review_top)
 end
+
 
 # 20~40 uesrs left reviews on tonkotsu ramen
 users.sample(rand(20..30)).each do |user|
@@ -149,14 +147,39 @@ users.sample(rand(20..30)).each do |user|
   reviews << review
 end
 
-
-
 # 20~40 reviews also got vote randomly
 reviews.each do |review|
   users.sample(rand(10..80)).each do |user|
     vote_review(user, review)
   end
 end
+
+reviews_new = []
+
+# 20~40 uesrs left reviews on tonkotsu ramen
+users.sample(rand(50..100)).each do |user|
+  review = Review.new(content: Faker::Restaurant.review)
+  review.dish = Dish.where(name: "Beef Gyoza").first
+  review.user = user
+  review.save!
+  reviews_new << review
+end
+
+# 20~40 reviews_new also got vote randomly
+reviews_new.each do |review|
+  users.sample(rand(10..80)).each do |user|
+    vote_review(user, review)
+  end
+end
+
+
+
+
+
+
+
+
+
 
 
 p "Seed done :D Let's check the page"

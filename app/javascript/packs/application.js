@@ -8,6 +8,7 @@ import { initMapbox } from '../plugin/init_mapbox';
 import { clickBugerButton } from "../components/click_footbar";
 import { couponAnimation } from "../components/coupon";
 import { addNumber } from "../components/adding_number";
+import { clickRestoCard } from "../components/click_resto_card";
 
 
 
@@ -17,3 +18,4 @@ clickBugerButton();
 initMapbox();
 couponAnimation();
 addNumber();
+clickRestoCard();
