@@ -8,11 +8,11 @@ if ('<%= @destroy %>' == 'true') {
   // destroy favorite
   favoritedHeartFilled[0].style.color = 'transparent';
   favoritedHeartFilled[0].parentElement.parentElement.parentElement.remove();
-  var motherFucker = document.querySelector("[data-dish='<%= @dish.id %>']");
-  motherFucker.style.color = 'transparent';
-  // motherFucker.children[0].classList.remove("far");
-  // motherFucker.children[0].classList.add("fas");
-  // motherFucker.classList.remove("link-to-text-color");
+  var filledHeart = document.querySelector("[data-dish='<%= @dish.id %>']");
+  filledHeart.style.color = 'transparent';
+  // filledHeart.children[0].classList.remove("far");
+  // filledHeart.children[0].classList.add("fas");
+  // filledHeart.classList.remove("link-to-text-color");
 } else {
   // create favorite
   var unfilledHeart = document.querySelectorAll("[data-dish='<%= @dish.id %>']")[0]

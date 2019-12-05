@@ -1,0 +1,12 @@
+ var totalReviewVotes = document.querySelector('#total-review-votes-<%= @review.id %>')
+  totalReviewVotes.innerHTML = <%= @review.vote_reviews.map{|vote| vote.vote}.sum %>
+
+
+<% if @upvote %>
+  document.querySelector('.review-button.up').classList.add('active')
+  document.querySelector('.review-button.down').classList.remove('active')
+<% else %>
+  document.querySelector('.review-button.down').classList.add('active')
+  document.querySelector('.review-button.up').classList.remove('active')
+<% end %>
+

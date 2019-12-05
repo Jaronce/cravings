@@ -111,6 +111,12 @@ body {
     }
 }
 
+.vote-button.active {
+    background-color: $main-orange;
+    i {
+        color: #F9F5F2;
+    }
+}
 .num_box {
     width: 123px;
     height: 55px;
@@ -215,6 +221,12 @@ body {
     }
 }
 
+.review-button.active {
+    i {
+        color: $main-orange;
+    }
+}
+
 .review-text-area {
     margin-left: 6%;
     text-align: left;
@@ -236,8 +248,8 @@ body {
         font-weight: normal;
         font-size: 12px;
         color: $main-grey;
-        text-align: right;
         padding-right: 4px;
+        text-align: right;
     }
 }
 

@@ -2,7 +2,7 @@ class DishesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @category = Category.find_by(name: params[:category])
+    @category = Category.find_by("name ILIKE ?", "%#{params[:category]}%")
     @dishes = @category.dishes
     @list = list_order.sort_by { |v| -total_dish_votes(v) }
 

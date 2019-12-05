@@ -19,12 +19,12 @@
 
   <div class="review-container">
     <div class="vote-container">
-      <%= link_to '<i class="fas fa-thumbs-down"></i>'.html_safe , dish_votes_path(@dish, vote: -1), method: :post, class: "vote-button down"%>
+      <%= link_to '<i class="fas fa-thumbs-down"></i>'.html_safe , dish_votes_path(@dish, vote: -1), method: :post, class: "vote-button down", remote: true%>
       <div class="num_box">
-        <h1><%= @dish.votes.map{|vote| vote.vote}.sum %></h1>
+        <h1 id="total-dish-votes"><%= @dish.votes.map{|vote| vote.vote}.sum %></h1>
         <p> votes </p>
       </div>
-      <%= link_to '<i class="fas fa-thumbs-up"></i>'.html_safe, dish_votes_path(@dish, vote: 1), method: :post, class: "vote-button up"%>
+      <%= link_to '<i class="fas fa-thumbs-up"></i>'.html_safe, dish_votes_path(@dish, vote: 1), method: :post, class: "vote-button up", remote: true%>
     </div>
 
     <h5>Add Reviews</h5>
@@ -32,9 +32,9 @@
       <div class="review-card">
 
         <div class="review-vote-area">
-          <span><%= link_to '<i class="fas fa-chevron-up fa-lg"></i>'.html_safe, review_vote_reviews_path(review, vote: 1), method: :post, class: "review-button up"%></span>
-          <span><%= review.vote_reviews.map{|vote| vote.vote}.sum %></span>
-          <span><%= link_to '<i class="fas fa-chevron-down fa-lg"></i>'.html_safe, review_vote_reviews_path(review, vote: -1), method: :post, class: "review-button down"%></span>
+          <span><%= link_to '<i class="fas fa-chevron-up fa-lg"></i>'.html_safe, review_vote_reviews_path(review, vote: 1), method: :post, class: "review-button up", remote: true %></span>
+          <span id="total-review-votes-<%= review.id %>"><%= review.vote_reviews.map{|vote| vote.vote}.sum %></span>
+          <span><%= link_to '<i class="fas fa-chevron-down fa-lg"></i>'.html_safe, review_vote_reviews_path(review, vote: -1), method: :post, class: "review-button down", remote: true %></span>
         </div>
 
         <img src="<%= review.user.photo %>" alt="avatar", width="25px" class="avatar">
@@ -52,7 +52,7 @@
           <div class="review-body">
             <% if review.content.length > 120 %>
               <p><%= review.content.split(" ")[0...22].join(" ")%><span class="dots">...</span><span class="more" style="display:none;"><%= review.content.split(" ")[22..-1].join(" ") %></span></p>
-              <button type= "button" class="myBtn">Read more</button></p>
+              <div class="myBtn">Read more</div></p>
             <% else %>
               <p><%= review.content %></p>
             <% end %>
