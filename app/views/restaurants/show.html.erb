@@ -1,5 +1,21 @@
 <div id="popup1" class="overlay">
   <div class="popup">
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      <h3>15% OFF</h3>
+      <p>Congrats! You get coupon for your next visit to <strong style="color: $main-orange;"><%= @restaurant.name %></strong></p>
+      <img id="coupon-gif" src="https://item.kakaocdn.net/do/36e509cee3c0d3e6284e26f4df760bcaf43ad912ad8dd55b04db6a64cddaf76d" alt="Celebrate" style="width: 50%;">
+    </div>
+    <div class="qrcode">
+      <svg>
+        <%= @svg_string.html_safe %>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- <div id="popup1" class="overlay">
+  <div class="popup">
     <div class="qrcode">
       <svg>
         <%= @svg_string.html_safe %>
@@ -7,22 +23,25 @@
     </div>
     <a class="close" href="#">&times;</a>
     <div class="content">
-      <p>Congrats! You get 15% off your next visit to <%= @restaurant.name %></p>
+      <h3>FREE 15% OFF</h3>
+      <p>Congrats! You get coupon for your next visit to <%#= @restaurant.name %></p>
       <img id="coupon-gif" src="https://item.kakaocdn.net/do/36e509cee3c0d3e6284e26f4df760bcaf43ad912ad8dd55b04db6a64cddaf76d" alt="Celebrate" style="width: 50%;">
     </div>
   </div>
 </div>
-
+ -->
 <div class="coupon-popup"  id="redeem">
-  <div class="hooray-text">
-    <p id="hooray">Hooray!</p>
-    <p id="hooray-notification">We’ve found a coupon for you!</p>
-    <a style="font-weight: bold;">
-      Redeem Now!
-    </a>
-  </div>
-  <div class="hooray-gif">
-    <img id="celebrate-gif" src="https://i.pinimg.com/originals/93/94/fb/9394fb96035f3f7c61b885ae8df208c5.gif" alt="Celebrate" style="width:79px;height:84px;">
+  <div class="coupon-line">
+    <div class="hooray-text">
+      <p id="hooray" style="font-weight: bold;">Hooray!</p>
+      <!-- <p id="hooray-notification">We’ve found a coupon for you!</p> -->
+      <a>
+        Coupon <br> for you
+      </a>
+    </div>
+    <div class="hooray-gif">
+      <img id="celebrate-gif" src="https://i.pinimg.com/originals/93/94/fb/9394fb96035f3f7c61b885ae8df208c5.gif" alt="Celebrate" style="width:79px;height:84px;">
+    </div>
   </div>
 </div>
 

@@ -42,7 +42,15 @@
     margin-bottom: 5px;
     z-index: 1;
     width: 116px;
+    color: $main-orange;
+    &.active {
+      background-color: $main-orange;
+      color: $white;
+    }
 }
+
+
+
 
 .name-ranking {
     text-align: center;

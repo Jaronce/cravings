@@ -7,6 +7,7 @@ import { readMore } from "../components/review_read_more";
 import { initMapbox } from '../plugin/init_mapbox';
 import { clickBugerButton } from "../components/click_footbar";
 import { couponAnimation } from "../components/coupon";
+import { addNumber } from "../components/adding_number";
 
 
 
@@ -15,3 +16,4 @@ readMore();
 clickBugerButton();
 initMapbox();
 couponAnimation();
+addNumber();
