@@ -4,17 +4,21 @@ console.log("ajax", `<%= @favorite %>`, favoritedHeartFilled, 'destroy', '<%= @d
 var favoriteCard = document.querySelector("[data-card='<%= @favorite.id %>']")
 var favoriteCardContainer = document.querySelector("#container_favorite_card");
 
-debugger
 if ('<%= @destroy %>' == 'true') {
   // destroy favorite
   favoritedHeartFilled[0].style.color = 'transparent';
-  favoritedHeartFilled[1].parentElement.parentElement.parentElement.remove()
+  favoritedHeartFilled[0].parentElement.parentElement.parentElement.remove();
+  var motherFucker = document.querySelector("[data-dish='<%= @dish.id %>']");
+  motherFucker.style.color = 'transparent';
+  // motherFucker.children[0].classList.remove("far");
+  // motherFucker.children[0].classList.add("fas");
+  // motherFucker.classList.remove("link-to-text-color");
 } else {
   // create favorite
-  var unfilledHeart = document.querySelector("[data-dish='<%= @dish.id %>']")
+  var unfilledHeart = document.querySelectorAll("[data-dish='<%= @dish.id %>']")[0]
   var card = '<%= j render "shared/favorite_card", favorite: @favorite, dish: @dish %>'
-  var destroyLink = '<%= j render "shared/delete_toggle", favorite: @favorite, dish: @dish %>';
-  unfilledHeart.outerHTML = destroyLink;
+  // var destroyLink = '<%= j render "shared/delete_toggle", favorite: @favorite, dish: @dish %>';
+  // unfilledHeart.outerHTML = destroyLink;
   favoriteCardContainer.insertAdjacentHTML('afterbegin', card)
   unfilledHeart.style.color = '#FD5C3A';
   unfilledHeart.children[0].classList.remove("far");

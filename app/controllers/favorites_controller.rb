@@ -27,8 +27,8 @@ class FavoritesController < ApplicationController
     # delete favorite
     if params[:favorite_id]
       @favorite = Favorite.find(params[:favorite_id])
+      @dish = @favorite.dish
       @favorite.destroy!
-      @dish = Dish.new
 
       @destroy = true
 
