@@ -1,3 +1,5 @@
+<!-- Coupon Area -->
+
 <div id="popup1" class="overlay">
   <div class="popup">
     <a class="close" href="#">&times;</a>
@@ -14,29 +16,13 @@
   </div>
 </div>
 
-<!-- <div id="popup1" class="overlay">
-  <div class="popup">
-    <div class="qrcode">
-      <svg>
-        <%= @svg_string.html_safe %>
-      </svg>
-    </div>
-    <a class="close" href="#">&times;</a>
-    <div class="content">
-      <h3>FREE 15% OFF</h3>
-      <p>Congrats! You get coupon for your next visit to <%#= @restaurant.name %></p>
-      <img id="coupon-gif" src="https://item.kakaocdn.net/do/36e509cee3c0d3e6284e26f4df760bcaf43ad912ad8dd55b04db6a64cddaf76d" alt="Celebrate" style="width: 50%;">
-    </div>
-  </div>
-</div>
- -->
 <div class="coupon-popup"  id="redeem">
   <div class="coupon-line">
     <div class="hooray-text">
       <p id="hooray" style="font-weight: bold;">Hooray!</p>
       <!-- <p id="hooray-notification">We’ve found a coupon for you!</p> -->
       <a>
-        Coupon <br> for you
+        Coupon <br> for you :)
       </a>
     </div>
     <div class="hooray-gif">
@@ -45,6 +31,8 @@
   </div>
 </div>
 
+
+<!--Resto Area -->
 <div class="head-container" >
   <div class="mobile-forehead">
     <img src="<%= @restaurant.photo %>" alt="restaurant photo", width="100px" class="restaurant_photo">
@@ -52,8 +40,7 @@
     <div class="text_area">
       <h1><%= @restaurant.name %> <i class="fas fa-map-marker-alt"></i></h1>
       <span>
-        <%= link_to @restaurant.dishes.first.category.name, dishes_path(category: "japanese") %>
-
+        <%= link_to @restaurant.dishes.first.category.name.capitalize, dishes_path(category: "japanese") %>
       </span>
     </div>
   </div>
@@ -63,7 +50,7 @@
     <div class="vote-container">
       <div class="num_box">
         <h1><%= @votes %></h1>
-        <h6>satisfied cravers</h6>
+        <h6>Satisfied cravers</h6>
       </div>
     </div>
     <% @list.each do |dish| %>
