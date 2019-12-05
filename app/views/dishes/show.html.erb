@@ -39,9 +39,10 @@
           <span id="total-review-votes-<%= review.id %>"><%= review.vote_reviews.map{|vote| vote.vote}.sum %></span>
           <span><%= link_to '<i class="fas fa-chevron-down fa-lg"></i>'.html_safe, review_vote_reviews_path(review, vote: -1), method: :post, class: "review-button down", remote: true %></span>
         </div>
-
-        <img src="<%= review.user.photo %>" alt="avatar", width="25px" class="avatar">
-
+        
+        <%= link_to user_path(User.last) do %>
+          <img src="<%= review.user.photo %>" alt="avatar", width="25px" class="avatar">
+        <% end %>
         <div class="review-text-area">
           <div class="review-title">
             <h3><%= review.user.username%></h3>

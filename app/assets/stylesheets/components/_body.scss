@@ -2,6 +2,12 @@ body {
     background-color: $main-beige;
 }
 
+#search_bar {
+    border: 2px solid orange;
+    display: block;
+    margin-left: 219px;
+}
+
 ///////////////////////////////////
 // Discount Button
 // first layer have Beige color
@@ -124,6 +130,7 @@ body {
         color: #F9F5F2;
     }
 }
+
 .num_box {
     width: 123px;
     height: 55px;
@@ -131,11 +138,11 @@ body {
     justify-content: center;
     border-radius: 8px;
     h1 {
-      font-family: Arial;
-      font-weight: bold;
-      font-size: 24px;
-      color: #FFFFFF;
-      margin: 5px 0 2px 0;
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 24px;
+        color: #FFFFFF;
+        margin: 5px 0 2px 0;
     }
     p {
         font-weight: bold;
@@ -146,7 +153,6 @@ body {
 }
 
 //////////////////////////////
-
 // #current-address {
 //     font-weight: bold;
 //     font-size: 16px;
@@ -154,7 +160,6 @@ body {
 //     margin-left: 22px;
 //     margin-bottom: 0px;
 // }
-
 // .index-review-container {
 //     width: 100%;
 //     background-color: white;
@@ -169,8 +174,6 @@ body {
 //         height: 53px;
 //     }
 // }
-
-
 ////////////////////////////////
 .review-container {
     width: 100%;
@@ -262,25 +265,23 @@ body {
     }
 }
 
-
 .vote_num_2 {
-  font-size: 13px;
-  margin: 3px 5px 0px;
+    font-size: 13px;
+    margin: 3px 5px 0px;
 }
 
 .index-title {
-  font-size: 16px;
-  margin: 0% 7% 1%;
-  &.top {
-    margin-top: 2%;
-  }
+    font-size: 16px;
+    margin: 0% 7% 1%;
+    &.top {
+        margin-top: 2%;
+    }
 }
 
 // .index-h3 {
 //     font-size: 16px;
 //     margin: 2% 7% 1%;
 // }
-
 h6 {
     color: white;
     font-size: 12px;

@@ -7,12 +7,12 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-  <h4 id ="current-address" style="margin: 24px auto; margin-left: 20px;">Montréal</h4>
-  <input id="search_bar" type="text">
+    <h4 id ="current-address" style="margin: 24px auto; margin-left: 20px;">5333 Casgrain Ave, Montreal, QC</h4>
 </div>
 
 <!-- Top 10 dishes -->
 <div class="index-review-container">
+    <input id="search_bar" type="text">
   <h3 class="index-title top"><strong>Top 10 <%= @category.name %> </strong></h3>
   <div class="container_card">
     <% @list.each do |dish| %>
@@ -56,15 +56,15 @@
   </div>
 
 <!-- User's Favorite -->
-<div class="index-review-container">
-    <% if user_signed_in? %>
-      <h3 class="index-h3"><strong>Your Favorites</strong></h3>
+  <% if current_user.favorites %>
+  <div class="index-review-container"> 
+    <%# <% if user_signed_in? %> 
+      <h3 class="index-title"><strong>Your Favorites</strong></h3>
       <div class="container_card" id="container_favorite_card">
         <% current_user.favorites.each do |favorite| %>
           <div class="card" data-card="<%= favorite.id %>">
             <img src="<%= favorite.dish.restaurant.photo %>" alt="dish photo", class="logo">
-<!--               <div class="card_ban d-flex justify-content-end" style="background-image: linear-gradient(rgba(255, 255, 255, 0.25),rgba(255, 255, 255, 0.25)), url(<%= favorite.dish.photo %>);">
- -->              <div class="card_ban d-flex justify-content-end" style="background-image: url(<%= favorite.dish.photo %>);">
+              <div class="card_ban d-flex justify-content-end" style="background-image: url(<%= favorite.dish.photo %>);">
                 <div>
                   <% if current_user.favorites.filter { |favorites| favorites.dish == favorite.dish}.empty? %>
                     <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorites_path(favorite.dish), class: 'link-to-text-color', method: :post%>
@@ -98,6 +98,8 @@
     </div>
   <% end %>
 </div>
+
+
 
 <!--Suggested Dishes -->
 <h3 class="index-title"><strong>Suggested</strong></h3>

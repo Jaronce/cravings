@@ -4,10 +4,10 @@
   </div>
   <div class="container-profile">
     <div class="profile-picture">
-      <img src=<%= current_user.photo %> alt="avatar", width="100px" class="profile-img" style="float:right">
+      <img src=<%= User.last.photo %> alt="avatar", width="100px" class="profile-img" style="float:right">
     </div>
     <div class="profile-name">
-      <h2><%= current_user.username %></h2>
+      <h2><%= User.last.username %></h2>
     </div>
     <div class="individual-review">
       <ul>
@@ -23,7 +23,7 @@
       width: 60px;">
   </div>
   <div class="name-ranking">
-    <h3 style="font-weight: bold; font-size: 20px;">Superstar Craver!</h3>
+    <h3 style="font-weight: bold; font-size: 20px;">Superstar Craver</h3>
   </div>
   <div class="follow-container d-flex justify-content-around align-items-center" style="margin: 45px; margin-top: 32px;">
     <div class="profile-followers">
@@ -54,15 +54,17 @@
       <span><i class="fas fa-chevron-down fa-lg"></i></span>
     </div>
 
-    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2017/7/18/0/DV2703H_Threes-Bar-and-Grill-Ramen_s4x3.jpg.rend.hgtvcom.826.620.suffix/1500414127150.jpeg" alt="avatar", width="25px" class="avatar">
-
+    <%= link_to dish_path(Dish.first) do %>
+      <img src="<%= Dish.first.photo %>" alt="avatar", width="25px" class="avatar">
+    <% end %>
     <div class="review-text-area">
       <div class="review-title">
-        <h3>Chashu Pork Ramen</h3>
+        <h3><%= Dish.first.name %></h3>
         <p>2019-12-02</p>
       </div>
 
       <div class="review-body">
+          <%# <%= Dish.first.reviews.first %>
           <p>Amazing ramen, tasty broth, the pork version is super tender and juicy.</p>
       </div>
     </div>
