@@ -23,18 +23,15 @@
 <!-- User's Favorite -->
 
 <% if user_signed_in? %>
-  <%# if current_user.favorites %>
-  <div class="index-review-container">
+    <div class="index-review-container">
       <h3 class="index-title"><strong>Your Favorites</strong></h3>
       <div class="container_card" id="favoriteCardContainer">
         <% current_user.favorites.each do |favorite| %>
           <%= render "shared/favorited_dish_card", dish: favorite.dish, favorite: favorite %>
         <% end %>
+      </div>
     </div>
-  <% end %>
-</div>
-
-
+<% end %>
 
 <!--Suggested Dishes -->
 <h3 class="index-title"><strong>Suggested</strong></h3>
