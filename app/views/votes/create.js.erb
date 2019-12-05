@@ -1,0 +1,13 @@
+// extract total votes of the dish
+  var totalVotes = document.querySelector('#total-dish-votes')
+  totalVotes.innerHTML = <%= @dish.votes.map{|vote| vote.vote}.sum  %>
+
+
+<% if @upvote %>
+  document.querySelector('.vote-button.up').classList.add('active')
+  document.querySelector('.vote-button.down').classList.remove('active')
+<% else %>
+  document.querySelector('.vote-button.down').classList.add('active')
+  document.querySelector('.vote-button.up').classList.remove('active')
+<% end %>
+

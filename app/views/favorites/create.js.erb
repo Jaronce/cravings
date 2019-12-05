@@ -1,0 +1,3 @@
+var favoriteGraphic = document.querySelector("[data-favorite='<%= @favorite.id %>']");
+console.log("ajax", `<%= @favorite %>`, favoriteGraphic);
+favoriteGraphic.style.color = '#FD5C3A';

@@ -2,7 +2,8 @@ class DishesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @category = Category.find_by(name: params[:category]) # Japansese
+
+    @category = Category.find_by("name ILIKE ?", "%#{params[:category]}%") # Japansese
     @dishes = @category.dishes # not array
     @list = @dishes.sort_by { |dish| -total_dish_votes(dish) } # array
 
@@ -12,8 +13,6 @@ class DishesController < ApplicationController
     @other_list = @other_dishes.sort_by { |dish| -total_dish_votes(dish) } # array of arrayt
 
     # @other_list = other_cat.sort_by { |dish| -total_dish_votes(dish) }
-
-
 
     @addresses = selected_addresses
     @restaurant_addresses = @addresses.geocoded
@@ -73,5 +72,9 @@ class DishesController < ApplicationController
 
   def total_review_votes(review)
     review.vote_reviews.map {|votes| votes.vote }.sum
+  end
+
+  def destroy
+    @dish = Dish.find(params[:id])
   end
 end

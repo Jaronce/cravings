@@ -6,6 +6,17 @@ class VoteReviewsController < ApplicationController
     @vote_review.review = @review
     @vote_review.vote = params[:vote].to_i
     @vote_review.save
-    redirect_back(fallback_location: root_path)
+
+    if @vote_review.vote > 0
+      @upvote = true
+    else
+      @upvote = false
+    end
+
+
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.js  # <-- will render `app/views/votes/create.js.erb`
+    end
   end
 end

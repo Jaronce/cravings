@@ -1,0 +1,9 @@
+var favoriteGraphic = document.querySelector("[data-favorite='<%= @favorite.id %>']");
+var favoriteCard = document.querySelector("[data-card='<%= @favorite.id %>']")
+console.log("ajax", `<%= @favorite %>`, favoriteGraphic);
+favoriteGraphic.style.color = 'transparent';
+
+// var favoriteCardContainer = document.querySelector("#container_favorite_card");
+favoriteCard.remove();
+
+
