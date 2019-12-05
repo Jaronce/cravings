@@ -1,3 +1,4 @@
+<!-- Map Area -->
 <div class="mobile-forehead">
   <div
     id="map"
@@ -10,6 +11,7 @@
   <input id="search_bar" type="text">
 </div>
 
+<!-- Top 10 dishes -->
 <div class="index-review-container">
   <h3 class="index-title top"><strong>Top 10 <%= @category.name %> </strong></h3>
   <div class="container_card">
@@ -50,6 +52,7 @@
     <% end %>
   </div>
 
+<!-- User's Favorite -->
 <div class="index-review-container">
     <% if user_signed_in? %>
       <h3 class="index-title"><strong>Your Favorites</strong></h3>
@@ -93,9 +96,10 @@
   <% end %>
 </div>
 
+<!--Suggested Dishes -->
 <h3 class="index-title"><strong>Suggested</strong></h3>
 <div class="container_card_lg">
-  <% @dishes[1..6].each do |dish| %>
+  <% @other_list[1..6].each do |dish| %>
     <%= link_to dish_path(dish), class: "link-to-dish" do %>
       <div class="card_lg">
         <img src="<%= dish.photo %>" alt="dish photo">
@@ -107,7 +111,7 @@
             </div>
             <div class="card_infos">
               <h2 class="txt"><%= dish.name %></h2>
-              <p class="txt_desc"><%= dish.restaurant.name %><%= "   " %><%= "$" * (dish.price) %></p>
+              <p class="txt_desc"><%= dish.restaurant.name %><%= "   " %></p>
             </div>
           </div>
       </div>
