@@ -1,0 +1,1 @@
+<%= link_to '<i class="fas fa-heart"></i>'.html_safe, dish_favorite_path(@dish, current_user.favorites.filter { |favorite| favorite.dish == @dish}.first ), method: :delete, class: 'show-link-to-text-color-liked', remote: true, class: "show-link-to-text-color favorited-heart-icon-dish-id-#{@dish.id}" %>

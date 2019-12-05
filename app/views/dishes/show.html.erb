@@ -1,3 +1,8 @@
+<style>
+  .link-to-text-color-ajax-icon {
+    .color: red!important;
+  }
+</style>
 <div class="head-container">
   <div class="mobile-forehead">
     <img src="<%= @dish.photo %>" alt="dish photo", width="100px" class="food_photo">
@@ -7,9 +12,9 @@
         <h1>
           <%= @dish.name %>
           <% if !user_signed_in? || current_user.favorites.filter { |favorite| favorite.dish == @dish}.empty? %>
-                <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorites_path(@dish), method: :post, class: 'show-link-to-text-color'%>
+              <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorites_path(@dish), method: :post, remote: true, class: "unfavorited-heart-icon-dish-id-#{@dish.id} show-link-to-text-color" %>
           <% else %>
-                <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorite_path(@dish, current_user.favorites.filter { |favorite| favorite.dish == @dish}.first ), method: :delete, class: 'show-link-to-text-color-liked' %>
+              <%= link_to '<i class="fas fa-heart"></i>'.html_safe, dish_favorite_path(@dish, current_user.favorites.filter { |favorite| favorite.dish == @dish}.first ), method: :delete, class: 'show-link-to-text-color-liked', remote: true, class: "show-link-to-text-color favorited-heart-icon-dish-id-#{@dish.id}" %>
           <% end %>
         </h1>
 

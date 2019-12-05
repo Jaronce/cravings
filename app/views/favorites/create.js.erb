@@ -1,0 +1,18 @@
+var homePage = window.location.href.match(/\?/);
+if (homePage === null) {
+  // AJAX for show page
+  console.log('ajax create show page');
+  var favoritedHeartIcon = document.querySelector('.unfavorited-heart-icon-dish-id-<%= @dish.id %>');
+  var filledHeartIcon = '<%= j render "shared/filled_heart_icon", dish: @dish %>';
+  favoritedHeartIcon.outerHTML = filledHeartIcon;
+} else {
+  // AJAX for index page
+  console.log('ajax create index page');
+  var unfavoritedCard = document.querySelector('[data-dish-id="<%= @dish.id %>"]');
+  var favoritedCard = '<%= j render "shared/favorited_dish_card", dish: @dish, favorite: @favorite %>';
+  var favoriteCardContainer = document.getElementById('favoriteCardContainer');
+
+  favoriteCardContainer.insertAdjacentHTML('afterbegin', favoritedCard);
+  unfavoritedCard.outerHTML = favoritedCard
+
+}
