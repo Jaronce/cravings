@@ -102,7 +102,6 @@ create_dish("Beef Gyoza",2,resto_ramen_2,category_japanese,400,420,"https://img.
 
 p "Creating Reviews/ Review Votes"
 
-reviews = []
 
 # Creating Top Review of Ramen - TBU
 review_third = Review.new(content: "This ramen joint is amazing but what really makes my days is their Tonkotsu Ramen! Its a Pork broth soup with nice firm thin noodles, perfectly cooked boiled eggs and tender pork belly roasted to perfection.", photo: "https://portal.restomontreal.ca/tsukuyomi-ramen/gallery/images/15__462-2019-07-17.jpg")
@@ -138,6 +137,29 @@ users.sample(rand(80..100)).each do |user|
 end
 
 
+############## all dish got
+
+reviews_all = []
+
+Dish.all.each do |dish|
+  users.sample(rand(5..10)).each do |user|
+    review = Review.new(content: Faker::Restaurant.review)
+    review.dish = dish
+    review.user = user
+    review.save!
+    reviews_all << review
+  end
+end
+
+reviews_all.each do |review|
+  users.sample(rand(10..80)).each do |user|
+    vote_review(user, review)
+  end
+end
+
+#################################################################
+reviews = []
+
 # 20~40 uesrs left reviews on tonkotsu ramen
 users.sample(rand(20..30)).each do |user|
   review = Review.new(content: Faker::Restaurant.review)
@@ -154,8 +176,9 @@ reviews.each do |review|
   end
 end
 
-reviews_new = []
 
+############################################################
+reviews_new = []
 # 20~40 uesrs left reviews on tonkotsu ramen
 users.sample(rand(50..100)).each do |user|
   review = Review.new(content: Faker::Restaurant.review)
