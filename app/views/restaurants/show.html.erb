@@ -46,6 +46,10 @@
   </div>
 
 
+
+
+
+
   <div class="review-container">
     <div class="vote-container">
       <div class="num_box">
@@ -54,28 +58,39 @@
       </div>
     </div>
     <% @list.each do |dish| %>
-      <div class="container_card_lg show">
+
+      <div class="container_card_lg show dish-card" data-path="/dishes/<%= dish.id %>">
 
         <div class="card_lg">
 
           <img src="<%= dish.photo %>" alt="dish photo">
 
           <div class="flex-grow-1">
-
             <div class="justify-content-end text-right">
               <span>
               <strong><%= dish.votes.map{|vote| vote.vote}.sum %> <i class="like fas fa-thumbs-up"></i></strong>
               </span>
             </div>
-
             <div class="card_infos">
               <h2 class="txt"><%= dish.name %></h2>
               <p class="txt_desc"><%= dish.restaurant.name %></p>
             </div>
-
           </div>
-       </div>
+        </div>
+
       </div>
+
     <% end %>
   </div>
 </div>
+
+<!--
+<script>
+document.querySelectorAll(".dish-card").forEach((card) => {
+  console.log(card)
+  card.addEventListener("click", (event) => {
+    window.location.href = "http://" + window.location.host + event.currentTarget.getAttribute('data-path');
+  })
+})
+</script>
+ -->
