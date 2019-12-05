@@ -10,9 +10,11 @@ if (homePage === null) {
   console.log('ajax create index page');
   var unfavoritedCard = document.querySelector('[data-dish-id="<%= @dish.id %>"]');
   var favoritedCard = '<%= j render "shared/favorited_dish_card", dish: @dish, favorite: @favorite %>';
+  var animatedFavoritedCard = '<%= j render "shared/animated_favorited_dish_card", dish: @dish, favorite: @favorite %>';
   var favoriteCardContainer = document.getElementById('favoriteCardContainer');
 
-  favoriteCardContainer.insertAdjacentHTML('afterbegin', favoritedCard);
+  favoriteCardContainer.insertAdjacentHTML('afterbegin', animatedFavoritedCard);
+  // favoritedCard.classList.add('animated');
   unfavoritedCard.outerHTML = favoritedCard
 
 }
