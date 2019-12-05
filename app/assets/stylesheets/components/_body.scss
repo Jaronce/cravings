@@ -40,7 +40,7 @@ body {
 // Title, heart, subtitle, underline
 .text_area {
     width: 100%;
-    margin: 24px auto 6px;
+    margin: 38px auto 6px;
     padding: 18px 0 0;
     text-decoration: none;
     text-align: center;
@@ -125,10 +125,11 @@ body {
     justify-content: center;
     border-radius: 8px;
     h1 {
-        font-weight: bold;
-        font-size: 24px;
-        color: #FFFFFF;
-        margin: 4px;
+      font-family: Arial;
+      font-weight: bold;
+      font-size: 24px;
+      color: #FFFFFF;
+      margin: 5px 0 2px 0;
     }
     p {
         font-weight: bold;
@@ -139,35 +140,36 @@ body {
 }
 
 //////////////////////////////
-#current-address {
-    font-weight: bold;
-    font-size: 16px;
-    color: black;
-    margin-left: 22px;
-    margin-bottom: 0px;
-}
 
-.index-review-container {
-    width: 100%;
-    background-color: white;
-    border-radius: 24px 24px 0px 0px;
-    border-color: red;
-    // display: absolute;
-    position: relative;
-    padding: 38px 0;
-    z-index: 2;
-    .avatar {
-        width: 53px;
-        height: 53px;
-    }
-}
+// #current-address {
+//     font-weight: bold;
+//     font-size: 16px;
+//     color: black;
+//     margin-left: 22px;
+//     margin-bottom: 0px;
+// }
+
+// .index-review-container {
+//     width: 100%;
+//     background-color: white;
+//     border-radius: 24px 24px 0px 0px;
+//     border-color: red;
+//     // display: absolute;
+//     position: relative;
+//     padding: 38px 0;
+//     z-index: 2;
+//     .avatar {
+//         width: 53px;
+//         height: 53px;
+//     }
+// }
+
 
 ////////////////////////////////
 .review-container {
     width: 100%;
     background-color: white;
     border-radius: 24px 24px 0px 0px;
-    border-color: red;
     padding: 38px 0;
     z-index: 2;
     .avatar {
@@ -248,18 +250,24 @@ body {
     }
 }
 
-// .favorite-strong {
-//   font-size: 13px;
-// }
+
 .vote_num_2 {
-    font-size: 13px;
-    margin: 0px 3px 0px 5px;
+  font-size: 13px;
+  margin: 3px 5px 0px;
 }
 
-.index-h3 {
-    font-size: 16px;
-    margin: 2% 7% 1%;
+.index-title {
+  font-size: 16px;
+  margin: 0% 7% 1%;
+  &.top {
+    margin-top: 2%;
+  }
 }
+
+// .index-h3 {
+//     font-size: 16px;
+//     margin: 2% 7% 1%;
+// }
 
 h6 {
     color: white;
