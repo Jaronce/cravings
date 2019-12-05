@@ -1,7 +1,7 @@
 .qrcode {
     display: flex;
     justify-content: center;
-    padding: 40px 30px;
+    padding: 10px 22px 23px;
     svg {
         height: 180px;
         width: 180px;
@@ -16,11 +16,20 @@
     position: fixed;
     background-color: #FD5C3A;
     z-index: 3;
-    right: 0px;
+    right: -38px; // coupon align to the right side
+    // right: 0px;
     bottom: 71px;
     border-radius: 3px;
     opacity: 0.9;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.coupon-line {
+  border: 2px white dashed;
+  margin: 10px;
+  width: 89%;
+  display: flex;
+  align-items: center;
 }
 
 @keyframes slideLeft {
@@ -35,8 +44,8 @@
 }
 
 .coupon-popup {
-    transform: translate3d(100%, 0, 0);
-    animation: slideLeft 15s 2s 1 cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: translate3d(100%, 0, 0);
+  animation: slideLeft 15s 2s 1 cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .hooray-gif {
@@ -88,25 +97,36 @@
 }
 
 .popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    width: 30%;
-    position: relative;
-    transition: all 3s ease-in-out;
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 3s ease-in-out;
+  border: 13px $main-orange solid;
+  h3 {
+    color: $main-orange;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 42px;
+  }
+  p {
+    color: $main-grey;
+  }
+
 }
 
 .popup h2 {
-    margin-top: 0;
-    color: #333;
-    font-family: Tahoma, Arial, sans-serif;
+  margin-top: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  // color: $main-orange;
 }
 
 .popup .close {
     position: absolute;
-    top: 20px;
-    right: 30px;
+    top: 10px;
+    right: 20px;
     transition: all 200ms;
     font-size: 30px;
     font-weight: bold;
@@ -125,7 +145,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 8px;
-    border-top: 4px solid orange;
+    // border-top: 4px solid orange;
     padding-top: 33px;
     p {
         text-align: center;

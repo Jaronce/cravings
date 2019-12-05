@@ -4,7 +4,7 @@
   </div>
   <div class="container-profile">
     <div class="profile-picture">
-      <img src="<%= current_user.photo %>" alt="avatar", width="100px" class="profile-img" style="float:right">
+      <img src=<%= current_user.photo %> alt="avatar", width="100px" class="profile-img" style="float:right">
     </div>
     <div class="profile-name">
       <h2><%= current_user.username %></h2>
@@ -23,25 +23,26 @@
       width: 60px;">
   </div>
   <div class="name-ranking">
-    <h3>Superstar Craver!</h3>  
+    <h3 style="font-weight: bold; font-size: 20px;">Superstar Craver!</h3>
   </div>
-  <div class="follow-container d-flex justify-content-around align-items-center">
+  <div class="follow-container d-flex justify-content-around align-items-center" style="margin: 45px; margin-top: 32px;">
     <div class="profile-followers">
-      <h4 style="margin-bottom: 0px;">700</h4>
+      <h4 class="follower-number" style="margin-bottom: 0px; font-weight: bold;">674</h4>
       <p style="font-size: small; color: #6c757d;">followers</p>
     </div>
-    <p class="follow-button" style="color: #FD5C3A;">Follow</p>
+    <p class="follow-button" style="border-width: thin; font-weight: bold; margin-bottom: 8px;">Follow</p>
     <div class="profile-following">
-      <h4 style="margin-bottom: 0px;">1.2k</h4>
+      <h4 style="margin-bottom: 0px; font-weight: bold;">1.2k</h4>
       <p style="font-size: small; color: #6c757d;">following</p>
     </div>
   </div>
 </div>
 
+
 <div class="review-container">
   <div class="vote-container">
     <div class="num_box">
-      <h1>300</h1>
+      <h1>349</h1>
       <p> votes </p>
     </div>
   </div>
@@ -49,21 +50,110 @@
 
     <div class="review-vote-area">
       <span><i class="fas fa-chevron-up fa-lg"></i></span>
-      <span>200</span>
+      <span>52</span>
       <span><i class="fas fa-chevron-down fa-lg"></i></span>
     </div>
 
-    <img src="IMG-Change" alt="avatar", width="25px" class="avatar">
+    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2017/7/18/0/DV2703H_Threes-Bar-and-Grill-Ramen_s4x3.jpg.rend.hgtvcom.826.620.suffix/1500414127150.jpeg" alt="avatar", width="25px" class="avatar">
 
     <div class="review-text-area">
       <div class="review-title">
-        <h3>name of user</h3>
-        <p>date</p>
+        <h3>Chashu Pork Ramen</h3>
+        <p>2019-12-02</p>
       </div>
 
       <div class="review-body">
-          <p>Jay is ugly Jay is uglyJay is uglyJay is uglyJay is ugly</p>
+          <p>Amazing ramen, tasty broth, the pork version is super tender and juicy.</p>
       </div>
     </div>
   </div>
+
+ <div class="review-card">
+
+    <div class="review-vote-area">
+      <span><i class="fas fa-chevron-up fa-lg"></i></span>
+      <span>49</span>
+      <span><i class="fas fa-chevron-down fa-lg"></i></span>
+    </div>
+
+    <img src="https://media-cdn.tripadvisor.com/media/photo-s/11/92/e7/c8/dolsot-bibimbap-jeyuk.jpg" alt="avatar", width="25px" class="avatar">
+
+    <div class="review-text-area">
+      <div class="review-title">
+        <h3>Bibimbap</h3>
+        <p>2019-11-29</p>
+      </div>
+
+      <div class="review-body">
+          <p>Best Jeyuk bibimbap lunch spot!, must try with goujijang spicy sauce!</p>
+      </div>
+    </div>
+  </div>
+  <div class="review-card">
+
+    <div class="review-vote-area">
+      <span><i class="fas fa-chevron-up fa-lg"></i></span>
+      <span>42</span>
+      <span><i class="fas fa-chevron-down fa-lg"></i></span>
+    </div>
+
+    <img src="https://www.hickoryfarms.com/dw/image/v2/AAOA_PRD/on/demandware.static/-/Sites-Web-Master-Catalog/default/dw47c81875/images/products/42oz-tomahawk-061131-1.jpg?sw=815&sh=815&sm=fit" alt="avatar", width="25px" class="avatar">
+
+    <div class="review-text-area">
+      <div class="review-title">
+        <h3>Tomahawk</h3>
+        <p>2019-11-27</p>
+      </div>
+
+      <div class="review-body">
+          <p>Totally worth every penny!, Most delicious Tomahawk steak in town! , Must try!, No REGRETS!!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="review-card">
+
+    <div class="review-vote-area">
+      <span><i class="fas fa-chevron-up fa-lg"></i></span>
+      <span>35</span>
+      <span><i class="fas fa-chevron-down fa-lg"></i></span>
+    </div>
+
+    <img src="https://www.mtlblog.com/uploads/88407_245af8251f3cdfc583703319ced0f68f1ed25cdb.jpg_facebook.jpg" alt="avatar", width="25px" class="avatar">
+
+    <div class="review-text-area">
+      <div class="review-title">
+        <h3>Smoke Meat Shwartz</h3>
+        <p>2019-12-04</p>
+      </div>
+
+      <div class="review-body">
+          <p>Best Smoke meat in town, order the fatty version, you will not be dissapointed</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="review-card">
+
+    <div class="review-vote-area">
+      <span><i class="fas fa-chevron-up fa-lg"></i></span>
+      <span>23</span>
+      <span><i class="fas fa-chevron-down fa-lg"></i></span>
+    </div>
+
+    <img src="https://tastet.ca/wp-content/uploads/2019/06/bibiko-4.png" alt="avatar", width="25px" class="avatar">
+
+    <div class="review-text-area">
+      <div class="review-title">
+        <h3>bibiko</h3>
+        <p>2019-12-06</p>
+      </div>
+
+      <div class="review-body">
+          <p>Food is just alright! the bibimbap are cold, more like a salad, not worth the money and credit card only, THEY DONT ACCEPT CASH!</p>
+      </div>
+    </div>
+  </div>
+
 </div>
+

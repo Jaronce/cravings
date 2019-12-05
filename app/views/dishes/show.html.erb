@@ -3,14 +3,17 @@
     <img src="<%= @dish.photo %>" alt="dish photo", width="100px" class="food_photo">
 
       <div class="text_area">
+
         <h1>
           <%= @dish.name %>
           <% if !user_signed_in? || current_user.favorites.filter { |favorite| favorite.dish == @dish}.empty? %>
-                <%= link_to "🖤", dish_favorites_path(@dish), method: :post%>
+                <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorites_path(@dish), method: :post, class: 'show-link-to-text-color'%>
           <% else %>
-                <%= link_to "❤️", dish_favorite_path(@dish, current_user.favorites.filter { |favorite| favorite.dish == @dish}.first ), method: :delete%>
+                <%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorite_path(@dish, current_user.favorites.filter { |favorite| favorite.dish == @dish}.first ), method: :delete, class: 'show-link-to-text-color-liked' %>
           <% end %>
         </h1>
+
+
         <span>
           <%= link_to @dish.restaurant.name, restaurant_path(@dish.restaurant) %>
         </span>
@@ -27,7 +30,7 @@
       <%= link_to '<i class="fas fa-thumbs-up"></i>'.html_safe, dish_votes_path(@dish, vote: 1), method: :post, class: "vote-button up", remote: true%>
     </div>
 
-    <h5>Add Reviews</h5>
+    <h5 class="add-review">Add Reviews</h5>
     <% @list.each do |review| %>
       <div class="review-card">
 
