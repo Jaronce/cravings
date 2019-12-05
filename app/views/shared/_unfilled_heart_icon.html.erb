@@ -1,0 +1,1 @@
+<%= link_to '<i class="far fa-heart"></i>'.html_safe, dish_favorites_path(@dish), method: :post, remote: true, class: "unfavorited-heart-icon-dish-id-#{@dish.id} show-link-to-text-color" %>
