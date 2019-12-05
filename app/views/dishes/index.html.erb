@@ -22,11 +22,11 @@
 
 <!-- User's Favorite -->
 
-  <% if current_user.favorites %>
-  <div class="index-review-container"> 
-    <%# <% if user_signed_in? %> 
+<% if user_signed_in? %>
+  <%# if current_user.favorites %>
+  <div class="index-review-container">
       <h3 class="index-title"><strong>Your Favorites</strong></h3>
-      <div class="container_card" id="container_favorite_card">
+      <div class="container_card" id="favoriteCardContainer">
         <% current_user.favorites.each do |favorite| %>
           <div class="card" data-card="<%= favorite.id %>">
             <img src="<%= favorite.dish.restaurant.photo %>" alt="dish photo", class="logo">
