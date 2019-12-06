@@ -1,0 +1,6 @@
+# config/meta.yml
+
+meta_product_name: "Cravings"
+meta_title: "Cravings - What are you craving today?"
+meta_description: "Never be disappointed when looking for a good meal, search for the top dishes around you based off a votes by other members."
+meta_image: "cover.png" # should exist in `app/assets/images/`
