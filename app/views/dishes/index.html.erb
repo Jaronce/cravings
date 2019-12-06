@@ -17,7 +17,7 @@
       <i id="magnifyingGlassIcon" class="fas fa-search" style="color: #868686"></i>
     </div>
   <h3 class="index-title top"><strong>Top 15 <%= @category.name %> </strong></h3>
-  <div class="container_card">
+  <div class="container_card" style="margin: 2% 0%;">
     <%# @list[0..19].each do |dish| %>
     <% @list.each do |dish| %>
       <%= render 'shared/unfavorited_dish_card', dish: dish %>
