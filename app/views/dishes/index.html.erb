@@ -16,8 +16,9 @@
       <input class="" id="search_bar" type="text" style="border-radius: 32px; text-align: center; padding: 1px; color: #FD5C3A">
       <i id="magnifyingGlassIcon" class="fas fa-search" style="color: #868686"></i>
     </div>
-  <h3 class="index-title top"><strong>Top 10 <%= @category.name %> </strong></h3>
+  <h3 class="index-title top"><strong>Top 15 <%= @category.name %> </strong></h3>
   <div class="container_card">
+    <%# @list[0..19].each do |dish| %>
     <% @list.each do |dish| %>
       <%= render 'shared/unfavorited_dish_card', dish: dish %>
     <% end %>
@@ -40,7 +41,7 @@
 <!--Suggested Dishes -->
 <h3 class="index-title"><strong>Suggested</strong></h3>
 <div class="container_card_lg">
-  <% @other_list[1..6].each do |dish| %>
+  <% @other_list[0..6].each do |dish| %>
     <%= link_to dish_path(dish), class: "link-to-dish" do %>
       <div class="card_lg">
         <img src="<%= dish.photo %>" alt="dish photo">
