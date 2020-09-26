@@ -1,4 +1,3 @@
-
 .footbar {
   display: flex;
   background-color: $main-beige;
@@ -8,11 +7,13 @@
   width: 100%;
   z-index: 100;
   justify-content: space-evenly;
-  // border-top: 1px solid $main-grey;
   height: 50px;
   align-items: center;
   i {
     padding: 0 20px;
+  }
+  @media (min-width: 768px) {
+    width: 500px;
   }
 }
 
@@ -28,13 +29,13 @@
   }
 }
 
-.active, .footbar_button:hover {
+.active,
+.footbar_button:hover {
   // background-color: $main-beige;
   color: $main-orange;
 }
 
 ////////////////////////////////////////////
-
 
 .dropup {
   position: relative;
@@ -52,7 +53,8 @@
   // margin: 0;
 }
 
-.navbar a:hover, .dropup:hover .dropbtn {
+.navbar a:hover,
+.dropup:hover .dropbtn {
   background-color: $main-beige;
   color: $main-orange;
 }
@@ -75,22 +77,23 @@
   display: block;
 }
 
-.dropup-content a:hover {background-color: #ccc}
+.dropup-content a:hover {
+  background-color: #ccc;
+}
 
 .dropup:hover .dropup-content {
   display: block;
 }
 
 .dropup:hover .dropbtn {
-  background-color: #2980B9;
+  background-color: #2980b9;
 }
 
-
-.navbar a:hover, .dropup:hover .dropbtn {
+.navbar a:hover,
+.dropup:hover .dropbtn {
   background-color: $main-beige;
   color: $main-orange;
 }
-
 
 // @media (min-width: 1024px) {
 //   .footbar {
