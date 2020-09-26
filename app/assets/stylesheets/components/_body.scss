@@ -3,96 +3,101 @@
 }
 
 body {
-    background-color: $main-beige;
+  background-color: $main-beige;
+  @media (min-width: 768px) {
+    width: 500px;
+    margin: auto;
+    border: 1px solid lightgrey;
+  }
 }
 
 #search_bar {
-    border: 2px solid $main-orange;
-    display: block;
-    margin-left: 219px;
+  border: 2px solid $main-orange;
+  display: block;
+  margin-left: 219px;
 }
 
 ///////////////////////////////////
 // Discount Button
 // first layer have Beige color
 .head-container {
-    // display:absolute;
-    width: 100%;
-    background-color: $main-beige;
-    // position: absolute;
-    // top: -68px;
-    text-align: center;
-    font-family: Helvetica;
-    font-style: normal;
-    // make food image circle
-    .food_photo {
-        display: inline-block;
-        margin: -35px auto;
-        width: 273px;
-        height: 273px;
-        border-radius: 50%;
-        background: transparent;
-    }
-    // make restaurant image circle
-    .restaurant_photo {
-        display: block;
-        margin: -35px auto;
-        width: 273px;
-        height: 273px;
-        // left: 36px;
-        // top: -24px;
-        border-radius: 50%;
-        background: transparent;
-    }
+  // display:absolute;
+  width: 100%;
+  background-color: $main-beige;
+  // position: absolute;
+  // top: -68px;
+  text-align: center;
+  font-family: Helvetica;
+  font-style: normal;
+  // make food image circle
+  .food_photo {
+    display: inline-block;
+    margin: -35px auto;
+    width: 273px;
+    height: 273px;
+    border-radius: 50%;
+    background: transparent;
+  }
+  // make restaurant image circle
+  .restaurant_photo {
+    display: block;
+    margin: -35px auto;
+    width: 273px;
+    height: 273px;
+    // left: 36px;
+    // top: -24px;
+    border-radius: 50%;
+    background: transparent;
+  }
 }
 
 ///////////////////////////////////
 // Title, heart, subtitle, underline
 .text_area {
-    width: 100%;
-    margin: 38px auto 6px;
-    padding: 18px 0 0;
-    text-decoration: none;
-    text-align: center;
-    h1 {
-        font-weight: bold;
-        font-size: 24px;
-        margin-bottom: -4px;
-    }
+  width: 100%;
+  margin: 38px auto 6px;
+  padding: 18px 0 0;
+  text-decoration: none;
+  text-align: center;
+  h1 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: -4px;
+  }
+  a {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  span {
+    padding-bottom: 1px;
+    border-bottom: 1px solid $main-orange;
+    line-height: 48px;
     a {
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 18px;
+      color: $main-grey;
+      text-decoration: none;
     }
-    span {
-        padding-bottom: 1px;
-        border-bottom: 1px solid $main-orange;
-        line-height: 48px;
-        a {
-            color: $main-grey;
-            text-decoration: none;
-        }
-    }
+  }
 }
 
 ///////////////////////////////////
 // Vote box, up and down button
 .vote-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    text-align: center;
-    top: -75px;
-    margin-bottom: -75px;
-    height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  top: -75px;
+  margin-bottom: -75px;
+  height: 75px;
 }
 
 .add-review {
-    font-size: 12px;
-    font-weight: bold;
-    text-align: right;
-    padding-right: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+  padding-right: 30px;
 }
 
 // .dish-vote-container {
@@ -106,54 +111,54 @@ body {
 //   margin-bottom: -24px;
 // }
 .vote-button {
-    width: 43px;
-    height: 43px;
-    border: 1px solid $main-orange;
-    background-color: #F9F5F2;
-    border-radius: 50%;
-    margin: 16px;
-    padding: 8px;
-    &.down {
-        padding: 10px; // it's not working need to fix
-    }
-    i {
-        color: $main-grey;
-    }
+  width: 43px;
+  height: 43px;
+  border: 1px solid $main-orange;
+  background-color: #f9f5f2;
+  border-radius: 50%;
+  margin: 16px;
+  padding: 8px;
+  &.down {
+    padding: 10px; // it's not working need to fix
+  }
+  i {
+    color: $main-grey;
+  }
 }
 
 .vote-button:hover {
-    background-color: $main-orange;
-    i {
-        color: #F9F5F2;
-    }
+  background-color: $main-orange;
+  i {
+    color: #f9f5f2;
+  }
 }
 
 .vote-button.active {
-    background-color: $main-orange;
-    i {
-        color: #F9F5F2;
-    }
+  background-color: $main-orange;
+  i {
+    color: #f9f5f2;
+  }
 }
 
 .num_box {
-    width: 123px;
-    height: 55px;
-    background-color: $main-orange;
-    justify-content: center;
-    border-radius: 8px;
-    h1 {
-        font-family: Arial;
-        font-weight: bold;
-        font-size: 24px;
-        color: #FFFFFF;
-        margin: 5px 0 2px 0;
-    }
-    p {
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 14px;
-        color: rgba(255, 255, 255, 0.6);
-    }
+  width: 123px;
+  height: 55px;
+  background-color: $main-orange;
+  justify-content: center;
+  border-radius: 8px;
+  h1 {
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 24px;
+    color: #ffffff;
+    margin: 5px 0 2px 0;
+  }
+  p {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(255, 255, 255, 0.6);
+  }
 }
 
 //////////////////////////////
@@ -180,106 +185,106 @@ body {
 // }
 ////////////////////////////////
 .review-container {
-    width: 100%;
-    background-color: white;
-    border-radius: 24px 24px 0px 0px;
-    padding: 38px 0;
-    z-index: 2;
-    .avatar {
-        width: 53px;
-        height: 53px;
-    }
+  width: 100%;
+  background-color: white;
+  border-radius: 24px 24px 0px 0px;
+  padding: 38px 0;
+  z-index: 2;
+  .avatar {
+    width: 53px;
+    height: 53px;
+  }
 }
 
 .review-card {
-    width: 85%;
-    display: flex;
+  width: 85%;
+  display: flex;
+  margin: auto;
+  padding: 16px 0px 0px 3px;
+  border-bottom: 1px solid $main-orange;
+  .review-photo {
+    display: inline-block;
+    width: 100%;
     margin: auto;
-    padding: 16px 0px 0px 3px;
-    border-bottom: 1px solid $main-orange;
-    .review-photo {
-        display: inline-block;
-        width: 100%;
-        margin: auto;
-        margin-bottom: 10px;
-    }
-    h3 {
-        font-style: normal;
-        font-weight: bold;
-        font-size: 16px;
-    }
-    p {
-        font-style: normal;
-        font-size: 12px;
-        color: $main-grey;
-    }
+    margin-bottom: 10px;
+  }
+  h3 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  p {
+    font-style: normal;
+    font-size: 12px;
+    color: $main-grey;
+  }
 }
 
 .review-vote-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: $main-orange;
-    font-weight: bold;
-    font-size: 12px;
-    margin-right: 6%;
-    i {
-        color: $main-grey;
-    }
-    span {
-        font-size: 13px;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $main-orange;
+  font-weight: bold;
+  font-size: 12px;
+  margin-right: 6%;
+  i {
+    color: $main-grey;
+  }
+  span {
+    font-size: 13px;
+  }
 }
 
 .review-button:hover {
-    i {
-        color: $main-orange;
-    }
+  i {
+    color: $main-orange;
+  }
 }
 
 .review-button.active {
-    i {
-        color: $main-orange;
-    }
+  i {
+    color: $main-orange;
+  }
 }
 
 .review-text-area {
-    margin-left: 6%;
-    text-align: left;
+  margin-left: 6%;
+  text-align: left;
 }
 
 .review-title {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .review-body {
-    display: relative;
-    #more {
-        display: none;
-    }
-    .myBtn {
-        width: 100%;
-        bottom: 10px;
-        font-weight: normal;
-        font-size: 12px;
-        color: $main-grey;
-        padding-right: 4px;
-        text-align: right;
-    }
+  display: relative;
+  #more {
+    display: none;
+  }
+  .myBtn {
+    width: 100%;
+    bottom: 10px;
+    font-weight: normal;
+    font-size: 12px;
+    color: $main-grey;
+    padding-right: 4px;
+    text-align: right;
+  }
 }
 
 .vote_num_2 {
-    font-size: 13px;
-    margin: 3px 5px 0px;
+  font-size: 13px;
+  margin: 3px 5px 0px;
 }
 
 .index-title {
-    font-size: 16px;
-    margin: 0% 7% 1%;
-    &.top {
-        margin-top: 2%;
-    }
+  font-size: 16px;
+  margin: 0% 7% 1%;
+  &.top {
+    margin-top: 2%;
+  }
 }
 
 // .index-h3 {
@@ -287,19 +292,19 @@ body {
 //     margin: 2% 7% 1%;
 // }
 h6 {
-    color: white;
-    font-size: 12px;
-    opacity: 0.8;
+  color: white;
+  font-size: 12px;
+  opacity: 0.8;
 }
 
 .category-button {
-    color: #868686;
-    text-transform: none;
+  color: #868686;
+  text-transform: none;
 }
 
 .txt_cat {
-    color: #868686;
-    opacity: 0.8;
+  color: #868686;
+  opacity: 0.8;
 }
 
 // h5 {
