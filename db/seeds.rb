@@ -53,7 +53,7 @@ resto_japanese_5 = Restaurant.create!(name: "Sake grillades", address: "5125 St 
 
 
 p "Adding Dishes"
-tonkotsu_ramen = create_dish("Tonkotsu Ramen",2,resto_ramen,category_japanese,550,600,"https://res.cloudinary.com/dsvdkyjhh/image/upload/v1575586131/Screen_Shot_2019-12-05_at_5.45.51_PM_atbtch.png")
+tonkotsu_ramen = create_dish("Tonkotsu Ramen",2,resto_ramen,category_japanese,950,1000,"https://res.cloudinary.com/dsvdkyjhh/image/upload/v1575586131/Screen_Shot_2019-12-05_at_5.45.51_PM_atbtch.png")
 
 create_dish("Shoyu ramen",3,resto_ramen_5,category_japanese,200,350,"https://www.seriouseats.com/2018/11/20181113-homemade-ramen-light-broth-chintan-shoyu-vicky-wasik-28-1500x1125.jpg")
 create_dish("Spicy miso ramen",2,resto_ramen_5,category_japanese,200,350,"https://i.redd.it/fnyxtr112r701.jpg")
