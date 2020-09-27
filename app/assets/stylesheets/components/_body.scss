@@ -6,6 +6,7 @@ body {
   background-color: $main-beige;
   @media (min-width: 768px) {
     width: 500px;
+    height: 100vh;
     margin: auto;
     border: 1px solid lightgrey;
   }
