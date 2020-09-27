@@ -22,6 +22,6 @@ You might need this account to continue
 Testing Account
 
 ```
-Email: test@test.com
-Password: 1234
+Email: jay@test.com
+Password: 111111
 ```
