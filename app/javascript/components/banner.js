@@ -27,7 +27,7 @@ const loadDynamicBannerText = () => {
 };
 
 const removeBorder = () => {
-  if (window.location === "https://cravings-jaronce.herokuapp.com/") {
+  if (window.location.href === "https://cravings-jaronce.herokuapp.com/") {
     document.body.style.border = "none";
   }
 };
