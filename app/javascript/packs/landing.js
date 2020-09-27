@@ -1,6 +1,10 @@
 import "bootstrap";
-import { loadDynamicBannerText, initializeMainVideo } from '../components/banner';
+import {
+  loadDynamicBannerText,
+  initializeMainVideo,
+  removeBorder,
+} from "../components/banner";
 
 loadDynamicBannerText();
 initializeMainVideo();
-
+removeBorder();
